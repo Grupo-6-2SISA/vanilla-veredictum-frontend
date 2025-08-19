@@ -1,0 +1,51 @@
+@import url(./partials/colors.css);
+@import url(./partials/menu.css);
+
+/*
+* ==============================
+* BOTÕES DA PÁGINA DE AGENDA
+* ==============================
+*/
+
+
+/* Botão Novo Agendamento */
+
+.btn-new-appointment {
+    background-color: var(--normal-black);
+    color: #fff;
+    border: solid 3px var(--darkness-black);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-new-appointment:hover {
+    background-color: #555;
+}
+
+
+/* Seletor de Mês  */
+.month-selector-btn {
+    background-color: var(--white-normal);
+    border: 2px solid var(--dark-black);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.month-selector-btn i {
+    color: #888;
+}

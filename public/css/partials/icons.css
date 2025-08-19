@@ -1,0 +1,102 @@
+/*
+* ==============================
+* ICONES DO MENU
+* ==============================
+*/
+
+.icon_vg {
+    background-color: var();
+    height: 33px;
+    text-align: center;
+}
+
+.icon_dash{
+    color: var(--text-color);
+    height: 24px;
+    text-align: center;
+}
+
+.icon_painel {
+    color: var(--text-color);
+    height: 26px;
+    text-align: center;
+}
+
+.icon_funcionario {
+    color: var(--text-color);
+    height: 30px;
+    text-align: center;
+}
+
+.icon_exit {
+    color: var(--text-color);
+    height: 28px;
+    text-align: center;
+}
+
+
+/*
+* ==============================
+* ICONES DA PÁGINA DE VISÃO GERAL
+* ==============================
+*/
+
+.icon_calendar {
+    width: 20px;
+    height: 20px;
+    margin-right: 13px;
+}
+
+.icon_nota {
+    width: 20px;
+    height: 20px;
+    margin-right: 13px;
+}
+
+
+
+.icon_aniversario {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+
+
+.icon_contas {  
+    width: 20px;
+    height: 20px;
+    margin-right: 13px;
+
+}
+
+
+/*
+* ==============================
+* ICONES DA PÁGINA DE DASHBOARD
+* ==============================
+*/
+
+
+/*
+* ==============================
+* ICONES DA PÁGINA DE AGENDA
+* ==============================
+*/
+
+.icon_edit{
+    width: 25px;
+    height: 25px;
+    /* margin-right: 10px; */
+}
+
+.icon_exit{
+    width: 25px;
+    height: 25px;
+    
+}
+
+
+
+
+
