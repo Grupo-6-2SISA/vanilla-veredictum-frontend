@@ -1,0 +1,52 @@
+/* RESPONSIVIDADE */
+/* @media (min-width: 1440px) */
+/* @media (max-width: 1440px) */
+/* @media (max-width: 1140px) */
+/* @media (max-width: 960px) */
+/* @media (max-width: 540px) */
+.flex-1{
+    flex: 1;
+}
+
+.flex-2{
+    flex: 2;
+}
+
+.flex-3{
+    flex: 3;
+}
+
+.flex-4{
+    flex: 4;
+}
+
+/*
+ * PERSONALIZAÇÃO DA BARRA DE ROLAGEM
+ * Compatível com navegadores baseados em WebKit (Chrome, Safari, Edge, etc)
+ */
+ 
+ /* Alvo da barra de rolagem inteira */
+.card-content::-webkit-scrollbar {
+    width: 5px; /* Define a largura da barra de rolagem */
+    background-color: transparent; /* Fundo invisível */
+}
+
+/* A trilha da barra de rolagem */
+.card-content::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Cor de fundo da trilha, levemente cinza */
+    border-radius: 4px;
+}
+
+/* A parte "arrastável" da barra de rolagem */
+.card-content::-webkit-scrollbar-thumb {
+    background-color: var(--normal-black); /* A cor do "thumb" (o elemento que você move) */
+    border-radius: 4px;
+    border: 2px solid var(--normal-black); /* Cria um pequeno espaçamento visual, como na imagem */
+}
+
+/* Estilo para a barra de rolagem no Firefox */
+/* Esta é a forma padrão do CSS, mas só é suportada pelo Firefox */
+.card-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-black) var(--white-normal); /* Cor do thumb e da trilha */
+}

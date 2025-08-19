@@ -1,0 +1,241 @@
+/* ----- IMPORTANDO PADRÕES DO SITE ----- */
+
+@import url(../main.css);
+@import url(../partials/typography.css);
+@import url(../partials/colors.css);
+@import url(../partials/buttons.css);
+@import url(../partials/layout.css);
+@import url(../partials/menu.css);
+@import url(../partials/spacing.css);
+
+
+/*
+* ==============================
+* ESTILOS DA PÁGINA DE AGENDA
+* ==============================
+*/
+
+.main-content{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+    gap: 20px;
+}
+
+.header-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white-light);
+}
+
+/* Cabeçalho principal */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+/* Seção principal do conteúdo */
+.agenda-content {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* Seção de atendimentos (tabela) */
+.appointments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.month-selector-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/*--- Estilos da tabela (card) ---*/
+.card-table {
+    background-color: var(--white-normal);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.177);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 60vw;
+
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.7rem;
+}
+
+.card-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--normal-black);
+    margin: 0;
+}
+
+.card-actions i {
+    color: #888;
+    cursor: pointer;
+    margin-left: 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.card-actions i:hover {
+    color: #333;
+}
+
+/*--- Estrutura da tabela ---*/
+.table-container {
+    display: flex;
+    gap: 4%;
+    flex-direction: column;
+    overflow-y: auto; /* Permite rolagem vertical se necessário */
+    height: 90%; /* Permite que a tabela ocupe todo o espaço disponível */
+    width: 95%;
+    padding-right: 1rem; /* Espaço para a barra de rolagem */
+    scrollbar-width: thin; /* Para navegadores Firefox */
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 1.5fr 1.5fr 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    
+}
+
+.table-header {
+    font-size: 20px;
+    font-weight: 1000;
+    color: var(--normal-black-normal);
+
+  
+}
+
+.table-header p {
+    font-weight: 700;
+    color: var(--normal-black-strong);
+}
+
+.table-row {
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.col-check input {
+    width: 15px;
+    height: 15px;
+    accent-color: #333;
+    
+}
+
+.table-row .col-edit,
+.table-row .col-delete {
+    text-align: center;
+}
+
+.table-row .col-edit i,
+.table-row .col-delete i {
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.table-row .col-edit i:hover {
+    color: #2e8b57; /* Verde para editar */
+}
+
+.table-row .col-delete i:hover {
+    color: #dc3545; /* Vermelho para excluir */
+}
+
+/*--- Seção de aniversariantes ---*/
+.birthdays-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-birthdays {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.177);
+    padding: 2rem;
+    height: 100%;
+    width: 30vw;
+}
+
+.list-header {
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.list-header .list-nome {
+    flex: auto;
+}
+.list-header .list-dia {
+    flex: 0 0 100px; /* Largura fixa para a coluna de dia */
+}
+
+.birthdays-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.birthday-item {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+    color: #333;
+}
+
+.birthday-item .name {
+    font-weight: 500;
+    margin: 0;
+}
+
+.birthday-item .date {
+    color: #888;
+    margin: 0;
+}

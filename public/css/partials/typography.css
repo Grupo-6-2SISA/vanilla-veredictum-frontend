@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*:after,
+*:before {
+    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+}
+
+@media (min-width: 1440px) {
+    h1 {
+        font-size: 64px;
+        line-height: 100%;
+        font-weight: 300px;
+    }
+
+    h2 {
+        font-size: 52px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 36px;
+        line-height: 120%;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 24px;
+        line-height: 130%;
+        font-weight: 400;
+    }
+
+    h5 {
+        font-size: 18px;
+        line-height: 140%;
+        font-weight: 400;
+    }
+
+    p, a{
+        font-size: 18px;
+        font-weight: 300;
+        text-decoration: none;        
+    }
+}
+
+@media (max-width: 1440px) {
+    h1 {
+        font-size: 56px;
+        line-height: 100%;
+        font-weight: 300; 
+    }
+
+    h2 {
+        font-size: 48px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 32px;
+        line-height: 120%;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 20px;
+        line-height: 130%;
+        font-weight: 350;
+    }
+
+    h5 {
+        font-size: 16px;
+        line-height: 140%;
+        font-weight: 300;
+    }
+
+    p, a{
+        font-size: 16px;
+        font-weight: 350;
+        text-decoration: none;        
+    }
+}
+
+@media (max-width: 1140px) {
+    h1 {
+        font-size: 48px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h2 {
+        font-size: 40px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 28px;
+        line-height: 120%;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 20px;
+        line-height: 130%;
+        font-weight: 500;
+    }
+
+    h5 {
+        font-size: 16px;
+        line-height: 140%;
+        font-weight: 300;
+    }
+
+    p, a{
+        font-size: 19px;
+        font-weight: 300;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 960px) {
+    h1 {
+        font-size: 40px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h2 {
+        font-size: 42px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 24px;
+        line-height: 120%;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 18px;
+        line-height: 130%;
+        font-weight: 300;
+    }
+
+    h5 {
+        font-size: 14px;
+        line-height: 140%;
+        font-weight: 300;
+    }
+
+    p, a{
+        font-size: 16px;
+        font-weight: 300;   
+        text-decoration: none;     
+    }
+}
+
+@media (max-width: 540px) {
+    h1 {
+        font-size: 32px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h2 {
+        font-size: 35px;
+        line-height: 100%;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 120%;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 16px;
+        line-height: 130%;
+        font-weight: 300;
+    }
+
+    h5 {
+        font-size: 12px;
+        line-height: 140%;
+        font-weight: 300;
+    }
+
+    p, a{
+        font-size: 14px;
+        font-weight: 300;
+        text-decoration: none;      
+    }
+}
+
+/* Cores principais para texto */
+
+.text-white{
+    color: var(--white-normal);
+}
+
+.text-black{
+    color: var(--normal-black);
+}
+
+/* Cores auxiliares para texto */
+
+.text-gray{
+    color: var(--gray-5);
+}
+
+.text-gray-dark{
+    color: var(--gray-0);
+}
+
+.text-green{
+    color: var(--green-dark);
+}
+
+.text-red{
+    color: var(--red-dark);
+}
+
+.text-yellow{
+    color: var(--yellow-dark);
+}
+
+.text-orange{
+    color: var(--orange-normal);
+}
+
+/* Cores para destaque de texto */
+
+.text-purple{
+    color: var(--normal-purple);
+}
+
+
+/* Texto em negrito */
+.bold {
+    font-weight: bold;
+}
+
+/* Texto com letras finas */
+.thin {
+    font-weight: 300;
+}
+
+.little-text{
+    font-size: 13px;
+}
+
+/* Links */
+.link {
+    color: var(--dark-purple);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Texto sublinhado */
+.underline {
+    text-decoration: underline;
+}
+
+/* Texto em itálico */
+.italic {
+    font-style: italic;
+}
+
+/* Texto centralizado */
+.center {
+    text-align: center;
+}
+
+/* Texto com espaçamento entre letras */
+.letter-spacing {
+    letter-spacing: 2px;
+}
+
+/* Texto com espaçamento entre palavras */
+.word-spacing {
+    word-spacing: 4px;
+}
+
+/* Texto em maiúsculas */
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Texto em minúsculas */
+.lowercase {
+    text-transform: lowercase;
+}
+
+/* Texto capitalizado (primeira letra de cada palavra em maiúscula) */
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Font para parametros da dashboard */
+.font-big{
+    font-size: 96px;
+}

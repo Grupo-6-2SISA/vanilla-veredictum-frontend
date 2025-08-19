@@ -1,0 +1,183 @@
+/* ----- IMPORTANDO PADRÕES DO SITE ----- */
+
+@import url(../main.css);
+@import url(../partials/typography.css);
+@import url(../partials/colors.css);
+@import url(../partials/buttons.css);
+@import url(../partials/layout.css);
+@import url(../partials/menu.css);
+@import url(../partials/spacing.css);
+
+
+/*
+* ==============================
+* ESTILOS DA VISÃO GERAL
+* ==============================
+*/
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+    gap: 20px;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--normal-black);
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.dashboard-grid {
+    gap: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    gap: 3%;
+}
+
+.card-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    gap: 3%;
+}
+
+
+.card{
+    background-color: var(--white-normal);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px var(--light-black);
+    overflow: hidden;  /* Garante que o scrollbar não saia do card */
+    width: 45%;
+    height: 100%;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.toggle-button{
+    background: none;
+    border: none;
+    color: var(--darkness-black);
+}
+
+.card-content{
+    flex-grow: 1; /* Permite que o conteúdo ocupe o espaço restante */
+    overflow-y: auto; /* Adiciona scrollbar se necessário */
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* **ESTILOS PARA A NOVA ESTRUTURA DE LISTA (DIVS)** */
+.list-header {
+    display: grid;
+    padding: 0 10px 10px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    
+}
+
+.list-header p {
+    color: var(--dark-black);
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.list-items-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.list-item {
+    display: grid; /* Usando grid para alinhar os itens */
+    align-items: center;
+    padding: 10px 13px;
+    background-color: var(--white-normal);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px var(--light-black);
+    color: var(--dark-black);
+}
+
+.list-item p {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Alinhamento para "Próximos atendimentos" */
+#card-appointments .list-header {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+}
+
+#appointments-list .list-item {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+}
+
+/* Alinhamento para "Prazos de Notas Fiscais" */
+#card-invoices .list-header {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+#invoices-list .list-item {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+/* Alinhamento para "Aniversariantes do mês" */
+#card-birthdays .list-header {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+#birthdays-list .list-item {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+/* Alinhamento para "Contas a pagar" */
+#card-bills .list-header {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+#bills-list .list-item {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+
+

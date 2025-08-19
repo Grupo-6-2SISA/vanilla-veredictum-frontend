@@ -1,0 +1,113 @@
+header {
+    width: 6%;
+    background-color: var(--dark-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.384);
+}
+
+/* Estilo para o cabeçalho (logo e nome) */
+.sidebar-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 10%; /* Espaçamento entre o cabeçalho e os ícones */
+    font-size: 14px;
+    font-weight: 700px;
+    color: var(--white-normal);
+}
+
+.logo {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    
+}
+.logo img {
+    width: 100vh;
+    height: auto;
+    object-fit: contain;
+}
+
+
+.sidebar-header .user-name {
+    display: block;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 0 10px;
+}
+
+/* Estilo da navegação (ícones principais) */
+.sidebar-nav {
+    list-style: none;
+    width: 100%;
+    flex-grow: 0; /* Permite que ocupe o espaço restante */
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin: 0; /* Espaçamento entre os ícones */
+}
+
+.sidebar-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para o item de menu ativo (ícone do dashboard) */
+.sidebar-nav a.active {
+    background-color: var(--white-normal);
+    color: var(--accent-color);
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Estilo para o botão de sair no rodapé */
+.sidebar-footer {
+    width: 100%;
+    margin-top: auto; /* Empurra o rodapé para o final da barra */
+    padding-top: 20px;
+    margin-bottom: 5%;
+    
+}
+
+.sidebar-footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Efeito hover para os ícones */
+.sidebar-nav a:not(.active):hover,
+.sidebar-footer a:hover {
+    color: var(--accent-color);
+}
+
+
+    
