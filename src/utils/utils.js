@@ -19,6 +19,16 @@ const formatters = {
     },
 
     /**
+     * Remove a formatação do CPF
+     * @param {string} cpf - CPF formatado
+     * @returns {string} - CPF sem formatação
+     */
+    unformatCpf(cpf) {
+        if (!cpf) return ""
+        return cpf.replace(/\D/g, "")
+    },
+
+    /**
      * Formata CNPJ para exibição
      * @param {string} cnpj - CNPJ sem formatação
      * @returns {string} - CNPJ formatado (00.000.000/0000-00)
@@ -27,6 +37,16 @@ const formatters = {
         if (!cnpj) return ""
         const cleanCnpj = cnpj.replace(/\D/g, "")
         return cleanCnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")
+    },
+
+    /**
+     * Remove a formatação do CNPJ
+     * @param {string} cnpj - CNPJ formatado
+     * @returns {string} - CNPJ sem formatação
+     */
+    unformatCnpj(cnpj) {
+        if (!cnpj) return ""
+        return cnpj.replace(/\D/g, "")
     },
 
     /**
@@ -46,6 +66,16 @@ const formatters = {
     },
 
     /**
+     * Remove a formatação do telefone
+     * @param {string} phone - Telefone formatado
+     * @returns {string} - Telefone sem formatação
+     */
+    unformatPhone(phone) {
+        if (!phone) return ""
+        return phone.replace(/\D/g, "")
+    },
+
+    /**
      * Formata CEP para exibição
      * @param {string} cep - CEP sem formatação
      * @returns {string} - CEP formatado (00000-000)
@@ -54,6 +84,16 @@ const formatters = {
         if (!cep) return ""
         const cleanCep = cep.replace(/\D/g, "")
         return cleanCep.replace(/(\d{5})(\d{3})/, "$1-$2")
+    },
+
+    /**
+     * Remove a formatação do CEP
+     * @param {string} cep - CEP formatado
+     * @returns {string} - CEP sem formatação
+     */
+    unformatCep(cep) {
+        if (!cep) return ""
+        return cep.replace(/\D/g, "")
     },
 
     /**
@@ -81,6 +121,20 @@ const formatters = {
             style: "currency",
             currency: "BRL",
         }).format(numValue)
+    },
+
+    /**
+     * Remove a formatação de valor monetário e retorna um número
+     * @param {string} value - Valor formatado (R$ 1.234,56)
+     * @returns {number} - Valor como número (1234.56)
+     */
+    unformatCurrency(value) {
+        if (!value) return 0
+        if (typeof value === "number") return value
+        const numValue = Number.parseFloat(
+            value.replace("R$", "").replace(/\./g, "").replace(",", ".").trim()
+        )
+        return isNaN(numValue) ? 0 : numValue
     },
 }
 

@@ -1,0 +1,54 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Empresa Alpha",
+      "email": "contato@alpha.com",
+      "telefone": "11987654321",
+      "endereco": "Rua das Flores, 123, São Paulo, SP",
+      "status": "ativo"
+    },
+    {
+      "id": 2,
+      "nome": "Indústria Beta",
+      "email": "financeiro@beta.ind.br",
+      "telefone": "21912345678",
+      "endereco": "Avenida Principal, 456, Rio de Janeiro, RJ",
+      "status": "ativo"
+    },
+    {
+      "id": 3,
+      "nome": "Comércio Gama",
+      "email": "compras@gama.com",
+      "telefone": "31955558888",
+      "endereco": "Praça Central, 789, Belo Horizonte, MG",
+      "status": "inativo"
+    }
+  ],
+  "notas_fiscais": [
+    {
+      "id": 1,
+      "clienteId": 1,
+      "numero": "NF-001",
+      "data_emissao": "2024-07-20",
+      "valor": 1500.00,
+      "status": "paga"
+    },
+    {
+      "id": 2,
+      "clienteId": 2,
+      "numero": "NF-002",
+      "data_emissao": "2024-07-22",
+      "valor": 3200.50,
+      "status": "pendente"
+    },
+    {
+      "id": 3,
+      "clienteId": 1,
+      "numero": "NF-003",
+      "data_emissao": "2024-07-25",
+      "valor": 850.75,
+      "status": "pendente"
+    }
+  ]
+}
