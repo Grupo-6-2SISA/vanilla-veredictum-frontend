@@ -11,6 +11,8 @@
 /* ----- IMPORTANDO PÁGINAS DO SITE ----- */
 
 @import url(./pages/visao_geral.css);
+@import url(./pages/home.css);
+@import url(./pages/cadastro.css);
 @import url(./pages/dashboard.css);
 @import url(./pages/agenda_relacionamento.css);
 
