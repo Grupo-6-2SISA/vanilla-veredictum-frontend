@@ -1,0 +1,49 @@
+.cadastro-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: url('../imgs/img-cadastro.png');
+  /* background-image: url('./teste.jpg'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.logo-esquerdo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logo-img{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-esquerdo img {
+  width: 50%;
+  height: 50%;
+  margin-right: -20px;
+}
+
+.logo-titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: -20px;
+}
+
+.subtitulo-logo {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.titulo-direito{
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
