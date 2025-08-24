@@ -1,4 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
+    //  // Dados dos indicadores
+    // const indicadores = {
+    //     contasAtrasadas: {
+    //         valor: 4,
+    //         porcentagem: '+33%'
+    //     },
+    //     notasAtrasadas: {
+    //         valor: 3,
+    //         porcentagem: '-25%'
+    //     },
+    //     atendimentosCancelados: {
+    //         valor: 7,
+    //         porcentagem: '(20%)',
+    //         variacao: '+40%'
+    //     },
+    //     atendimentosConcluidos: {
+    //         valor: 28,
+    //         porcentagem: '(80%)',
+    //         variacao: '+12%'
+    //     }
+    // };
+
+    // // Função para atualizar os valores dos indicadores na página
+    // function atualizarIndicadores() {
+    //     // Contas Atrasadas
+    //     document.getElementById('contas-atrasadas-valor').textContent = indicadores.contasAtrasadas.valor;
+    //     document.getElementById('contas-atrasadas-porcentagem').textContent = indicadores.contasAtrasadas.porcentagem;
+
+    //     // Notas Atrasadas
+    //     document.getElementById('notas-atrasadas-valor').textContent = indicadores.notasAtrasadas.valor;
+    //     document.getElementById('notas-atrasadas-porcentagem').textContent = indicadores.notasAtrasadas.porcentagem;
+
+    //     // Atendimentos Cancelados
+    //     document.getElementById('atendimentos-cancelados-valor').textContent = indicadores.atendimentosCancelados.valor;
+    //     document.getElementById('atendimentos-cancelados-porcentagem').textContent = indicadores.atendimentosCancelados.porcentagem;
+    //     document.getElementById('atendimentos-cancelados-variacao').textContent = indicadores.atendimentosCancelados.variacao;
+
+    //     // Atendimentos Concluídos
+    //     document.getElementById('atendimentos-concluidos-valor').textContent = indicadores.atendimentosConcluidos.valor;
+    //     document.getElementById('atendimentos-concluidos-porcentagem').textContent = indicadores.atendimentosConcluidos.porcentagem;
+    //     document.getElementById('atendimentos-concluidos-variacao').textContent = indicadores.atendimentosConcluidos.variacao;
+    // }
+
+    // // Chama a função para popular os dados assim que a página carregar
+    // atualizarIndicadores();
 
     // Dados de exemplo para o gráfico de atendimentos concluídos
     const dadosAtendimentos = {
