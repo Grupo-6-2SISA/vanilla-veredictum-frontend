@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda & Realcionamento | Veredictum</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
+                    <span class="menu-text-logo">Veredictum</span>
+                </div>
+                <span class="user-name">Lismara Ribeiro</span>
+            </div>
+            <nav class="sidebar-nav">
+
+                <ul>
+                    <li>
+                        <a href="./visao_geral.html">
+                            <img src="./assets/svg/visao-geral.svg" class="icon_vg" alt="">
+                            <span class="menu-text">Visão Geral</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">
+                            <img src="./assets/svg/dash.svg" class="icon_dash" alt="">
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/painel.svg" class="icon_painel" alt="">
+                            <span class="menu-text">Painel</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/funcionario.svg" class="icon_funcionario" alt="">
+                            <span class="menu-text">Gestão de Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./agenda_relacionamento.html" class="active">
+                            <img src="./assets/svg/agenda_black.svg" class="icon_agenda" alt="">
+                            <span class="menu-text-active">Agenda & Relacionamento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/despezas.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Despezas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/notas_fiscais.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Notas Fiscais</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/logs.svg" class="icon_logs" alt="">
+                            <span class="menu-text">Gestão de Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href=""><img src="./assets/svg/exit.svg" class="icon_exit" alt=""></a>
+                <span class="menu-text">Sair</span>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+
+            <div class="header-top">
+                <h1>Agenda & Relacionamento</h1>
+                <button class="btn-new-appointment">
+                    Novo Agendamento
+                    <img src="./assets/svg/btn.svg" alt="">
+                </button>
+            </div>
+
+            <div class="modal-backdrop-add hidden "></div>
+
+            <div id="new-appointment-modal-add" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Novo Agendamento</h2>
+                        <a href="" class="modal-close-btn"><img src="./assets/svg/close.svg " alt=""></a>
+                    </div>
+                    <form class="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="client">Cliente</label>
+                                <input type="text" id="client" name="client" placeholder="Gabriel Cordeiro">
+                            </div>
+                            <div class="form-group">
+                                <label for="responsible">Responsável</label>
+                                <select id="responsible" name="responsible">
+                                    <option value="lismara">Lismara Ribeiro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="label">Etiqueta</label>
+                                <input type="text" id="label" name="label" placeholder="Pensão alimentícia">
+                            </div>
+                            <div class="form-group">
+                                <label for="note">Nota</label>
+                                <select id="note" name="note">
+                                    <option value="1">NF-e 1287364672828382998</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" name="status">
+                                    <option value="scheduled">Agendado</option>
+                                </select>
+                            </div>
+                            <div class="form-group description">
+                                <label for="description">Descrição</label>
+                                <textarea id="description" name="description"
+                                    placeholder="Pensão alimentícia de 3 filhos e 1 cachorro"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row time-and-date">
+                            <div class="form-group time-picker">
+                                <label>Selecione a hora de início</label>
+                                <input type="time" name="start_time" value="08:00">
+                            </div>
+                            <div class="form-group date-picker">
+                                <label>Selecione o dia</label>
+                                <input type="date" name="date" value="2025-06-09">
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <label class="reminder-label">
+                                <input type="checkbox" name="send_reminder">
+                                Enviar e-mail de lembrete?
+                            </label>
+                            <button type="submit" class="btn-new-appointment">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-backdrop-edit hidden"></div>
+
+            <div id="new-appointment-modal-edit" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Editar Agendamento</h2>
+                        <a href="" class="modal-close-btn"><img src="./assets/svg/close.svg " alt=""></a>
+                    </div>
+                    <form class="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="client">Cliente</label>
+                                <input type="text" id="client" name="client" placeholder="Gabriel Cordeiro">
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" name="status">
+                                    <option value="scheduled">Agendado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row time-and-date">
+                            <div class="form-group time-picker">
+                                <label>Selecione a hora de início</label>
+                                <input type="time" name="start_time" value="08:00">
+                            </div>
+                            <div class="form-group date-picker">
+                                <label>Selecione o dia</label>
+                                <input type="date" name="date" value="2025-06-09">
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <label class="reminder-label">
+                                <input type="checkbox" name="send_reminder">
+                                Enviar e-mail de lembrete?
+                            </label>
+                            <button type="submit" class="btn-new-appointment">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-backdrop-delete hidden"></div>
+
+            <div id="modal-delete-schedule" class="modal-delete hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Cancelamento de atendimentos</h2>
+                        <button class="modal-close-delete-btn">
+                            <img src="./assets/svg/close.svg" alt="Fechar">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja cancelar o atendimento de <span class="client-name">Davidson Mendes</span> às <span
+                                class="schedule-time">15:00</span> do dia <span class="schedule-date">09/11</span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel-delete">Não</button>
+                        <button class="btn-confirm-delete">Sim</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-backdrop-mass-delete hidden"></div>
+
+            <div id="modal-mass-delete-schedule" class="modal-mass-delete hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Excluir Agendamentos</h2>
+                        <button class="modal-close-mass-delete-btn">
+                            <img src="./assets/svg/close.svg" alt="Fechar">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja realmente excluir todos os agendamentos selecionados?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel-mass-delete">Não</button>
+                        <button class="btn-confirm-mass-delete">Sim</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="agenda-content">
+                <div class="appointments-section">
+                    <div class="month-selector-container">
+                        <button class="month-selector-btn">
+                            <img src="./assets/svg/calendar.svg" alt="">
+                            <span>Junho</span>
+                            <img src="./assets/svg/seta.svg" alt="">
+                        </button>
+                    </div>
+                    <div id="month-picker" class="month-picker-popup hidden">
+                        <div class="month-header">
+                            <button id="prev-month">&lt;</button>
+                            <div id="current-month-display">Junho 2025</div>
+                            <button id="next-month">&gt;</button>
+                        </div>
+                        <div class="month-buttons">
+                        </div>
+                        <div class="calendar-actions">
+                            <button id="cancel-btn">Cancelar</button>
+                            <button id="ok-btn">OK</button>
+                        </div>
+                    </div>
+
+                    <div class="card-table">
+                        <div class="card-header">
+                            <h3>Atendimento do mês</h3>
+                            <div class="card-actions">
+                                <!-- <i class="fas fa-trash-alt"></i> -->
+                                <img src="./assets/svg/lixo.svg" alt="" id="icon_lixo">
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <div class="table-header">
+                                <p class="col-check"></p>
+                                <p class="col-name">Nome</p>
+                                <p class="col-day">Dia</p>
+                                <p class="col-time">Horário</p>
+                                <p class="col-status">Status</p>
+                                <p class="col-edit">Editar</p>
+                                <p class="col-delete">Excluir</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="birthdays-section">
+                    <div class="card-birthdays">
+                        <div class="card-header">
+                            <h3>Aniversariantes do Mês</h3>
+                        </div>
+                        <div class="list-header">
+                            <p class="list-nome">Nome</p>
+                            <p class="list-dia">Dia</p>
+                        </div>
+                        <div class="birthdays-list">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./js/agenda.js"></script>
+</body>
+
+</html>

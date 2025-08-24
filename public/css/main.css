@@ -7,6 +7,7 @@
 @import url(./partials/menu.css);
 @import url(./partials/spacing.css);
 @import url(./partials/icons.css);
+@import url(./partials/modals.css);
 
 /* ----- IMPORTANDO PÁGINAS DO SITE ----- */
 
@@ -21,12 +22,16 @@
     box-sizing: border-box;
 }
 
+
+
 .container {
     background-color: var(--white-light);
-    width: 100%;
+    width: 100%;    
     display: flex;
+    position: fixed;
     flex-direction: row;
     min-height: 100vh;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
+    
 }
