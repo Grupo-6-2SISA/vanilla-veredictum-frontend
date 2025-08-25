@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro | Veredictum</title>
+    <link rel="icon" href="./assets/svg/logo_vectorized.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="cadastro-image">
+        <div class="image-text"> <!-- textinho -->
+            <img src="./assets/img/img-cadastro.png" alt="">
+            <span class="subtitle-image">Já tem uma conta?</span>
+            <span class="subtitle-image">Faça login aqui</span>
+            <a href="./login.html"><button class="login-btn" type="submit">Login</button></a>
+        </div>
+    </div>
+
+
+
+    <div class="cadastro-info">
+        <div class="voltar-icon">
+            <a href="./home.html"><img src="./assets/img/voltar-icon.png" alt="Icone de voltar" /></a>
+        </div>
+
+        <div class="logo-row">
+            <img src="./assets/img/logo-veredictum.svg" alt="Veredictum" />
+            <span class="logo-title">Veredictum</span>
+            <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
+        </div>
+
+        <form class="login-form" id="cadastro-form">
+            <div class="login-form-row">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Nome">
+            </div>
+
+            <div class="login-form-row">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" placeholder="E-mail">
+            </div>
+
+            <div class="login-form-row">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Senha">
+            </div>
+
+             <a href="./login.html"><button class="cadastro-btn" type="submit">Cadastrar</button></a>
+        </form>
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    // Seleciona o formulário pelo ID
+        const form = document.getElementById('cadastro-form');
+        
+        // Define um array para armazenar os dados dos usuários
+        const usuariosCadastrados = [];
+
+        // Adiciona um ouvinte de evento para o envio do formulário
+        form.addEventListener('submit', function(event) {
+            // Previne o comportamento padrão de envio do formulário, que recarregaria a página
+            event.preventDefault();
+
+            // Pega os valores dos campos de input
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Cria um objeto com os dados do novo usuário
+            const novoUsuario = {
+                nome: nome,
+                email: email,
+                senha: senha
+            };
+
+            // Adiciona o novo objeto ao array
+            usuariosCadastrados.push(novoUsuario);
+
+            // Exibe o array completo no console do navegador
+            console.log(usuariosCadastrados);
+
+            // Você pode adicionar um redirecionamento após o cadastro, se quiser
+            // window.location.href = './login.html';
+        });
+</script>
