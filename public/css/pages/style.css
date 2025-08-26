@@ -290,18 +290,6 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal__content__desativar {
-    position: relative;
-    background-color: #424242;
-    border-radius: 12px;
-    max-width: 800px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-}
 
 .modal__content__desativar {
     position: relative;
@@ -321,20 +309,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px 30px;
-    border-bottom: 1px solid #424242;
+
 }
 .modal__header__desativar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 30px;
-    border-bottom: 1px solid #424242;
+
 }
 
 .modal__title__desativar {
     font-size: 24px;
     font-weight: 600;
-    color: #ffffff;
+    color: #000000;
     justify-content: center;
     display: flex;
     flex: 1;
@@ -345,7 +333,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #ffffff;
+    color: #1E1E1E;
     padding: 0;
     width: 32px;
     height: 32px;
@@ -354,7 +342,7 @@
     justify-content: center;
     border-radius: 6px;
     transition: all 0.2s ease;
-}
+}.
 
 .modal__close__desativar:hover {
     background-color: #f0f0f0;
@@ -373,7 +361,7 @@
     gap: 12px;
     justify-content: flex-end;
     padding: 24px 30px;
-    border-top: 1px solid #e0e0e0;
+
 }
 /* modal desativar */
 
@@ -453,7 +441,7 @@
 .info-item__label {
     font-weight: 500;
     margin-bottom: 6px;
-    color: #666;
+    color: #FFFFFF;
     font-size: 14px;
 }
 

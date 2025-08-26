@@ -305,13 +305,17 @@
 .modal__title {
     font-size: 36px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
     color: var(--white-normal);
     font-family: "Montserrat", "Poppins", sans-serif;
 
 }
 
 .modal__close {
-    color: var(--gray-4);
+    color: var(--white-normal);
     background: none;
     border: none;
     font-size: 1.5rem;
