@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veredictum - Gestão de Notas Fiscais</title>
+    <!-- Importa apenas o main.css, que já importa todos os parciais -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/pages/style.css">
     <link rel="stylesheet" href="/css/pages/notas-fiscais.css">
@@ -22,6 +23,58 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Adicionando CSS para scroll customizado -->
+    <style>
+        /* Scroll customizado */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e0e0e0;
+        }
+
+        ::-webkit-scrollbar-button {
+            background: #ffffff;
+            border-radius: 10px;
+            height: 20px;
+            border: 2px solid #f1f1f1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ::-webkit-scrollbar-button:vertical:start:decrement {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 4l-4 4h8z' fill='%23666'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        ::-webkit-scrollbar-button:vertical:end:increment {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8l4-4H2z' fill='%23666'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Adicionando estilo para texto descritivo */
+        .header-description {
+            color: var(--gray-5);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -50,12 +103,15 @@
         </div>
     </header>
 
-
     <!-- Fim navbar.html -->
 
     <main class="main-content">
         <div class="header-top">
-            <h1>Gestão de Notas Fiscais</h1>
+            <div>
+                <h1>Gestão de Notas Fiscais</h1>
+                <!-- Adicionando texto descritivo embaixo do h1 -->
+                <p style="color: #0c0c0c">Organize, atualize e controle todas as suas Notas Fiscais de forma eficiente.</p>
+            </div>
             <button class="btn-new-appointment" id="adicionarNotaBtn">
                 Adicionar Nota Fiscal
                 <img src="/assets/svg/btn.svg" alt="">
@@ -63,22 +119,23 @@
         </div>
 
         <div class="invoices-table">
-            <table class="table">
-                <thead class="table__head">
-                <tr class="table__row">
-                    <th class="table__header">Número da Nota</th>
-                    <th class="table__header">Etiqueta</th>
-                    <th class="table__header">Data de Vencimento</th>
-                    <th class="table__header">Emitida</th>
-                    <th class="table__header">Editar</th>
-                    <th class="table__header">Excluir</th>
-                    <th class="table__header">Informações</th>
-                </tr>
-                </thead>
-                <tbody class="table__body" id="notasTableBody">
-                <!-- Notas fiscais serão carregadas via JavaScript -->
-                </tbody>
-            </table>
+            <div class="card-table">
+                <!-- Removendo h3 Notas Fiscais conforme solicitado -->
+                <div class="table-container" id="notasTableBody">
+                    <!-- Cabeçalho -->
+                    <div class="table-header">
+                        <p class="col-name">Número da Nota</p>
+                        <p class="col-etiqueta">Etiqueta</p>
+                        <p class="col-day">Data de Vencimento</p>
+                        <p class="col-status">Status</p>
+                        <p class="col-emitida">Emitida</p>
+                        <p class="col-edit">Editar</p>
+                        <p class="col-delete">Excluir</p>
+                        <p class="col-info">Informações</p>
+                    </div>
+                    <!-- Linhas serão renderizadas via JS -->
+                </div>
+            </div>
         </div>
     </main>
 </div>
@@ -120,9 +177,9 @@
                     <label class="form__label" for="urlCloud">URL Cloud</label>
                     <input class="form__input" type="url" id="urlCloud" name="urlCloud">
                 </div>
-                <div class="form__group form__group--full">
+                <div class="form__group">
                     <label class="form__label" for="cliente">Cliente</label>
-                    <input class="form__input" type="text" id="cliente" name="cliente" required>
+                    <input class="form__input" type="text" id="cliente" name="cliente">
                 </div>
             </div>
             <div class="form__actions">
@@ -149,7 +206,7 @@
 <!-- Modal Excluir Nota Fiscal -->
 <div class="modal" id="excluirNotaModal">
     <div class="modal__overlay" id="excluirNotaModalOverlay"></div>
-    <div class="modal__content modal__content--small">
+    <div class="modal__content modal__content">
         <div class="modal__header">
             <h2 class="modal__title">Excluir Nota Fiscal</h2>
             <button class="modal__close" id="excluirNotaModalClose">✕</button>
@@ -164,7 +221,7 @@
     </div>
 </div>
 
-<script src="/src/utils/notas-fiscais.js" type="module"></script>
-<script src="/src/utils/utils.js"></script>
+<script src="../utils/notas-fiscais.js" type="module"></script>
+<script src="../utils/utils.js"></script>
 </body>
 </html>

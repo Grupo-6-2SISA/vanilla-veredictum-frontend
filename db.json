@@ -4,51 +4,104 @@
       "id": 1,
       "nome": "Empresa Alpha",
       "email": "contato@alpha.com",
+      "rg": "1234567",
+      "cpf": "123.456.789-00",
+      "cnpj": "12.345.678/0001-00",
       "telefone": "11987654321",
-      "endereco": "Rua das Flores, 123, São Paulo, SP",
-      "status": "ativo"
+      "cep": "01001-000",
+      "logradouro": "Rua das Flores",
+      "bairro": "Centro",
+      "cidade": "São Paulo",
+      "numero": "123",
+      "inscricaoEstadual": "ISENTO",
+      "proBono": false,
+      "status": "Ativo",
+      "indicacao": "Lista de clientes",
+      "descricao": "Cliente corporativo de grande porte"
     },
     {
       "id": 2,
       "nome": "Indústria Beta",
       "email": "financeiro@beta.ind.br",
+      "rg": "2345678",
+      "cpf": "234.567.890-11",
+      "cnpj": "23.456.789/0001-11",
       "telefone": "21912345678",
-      "endereco": "Avenida Principal, 456, Rio de Janeiro, RJ",
-      "status": "ativo"
+      "cep": "20010-000",
+      "logradouro": "Avenida Principal",
+      "bairro": "Centro",
+      "cidade": "Rio de Janeiro",
+      "numero": "456",
+      "inscricaoEstadual": "123456789",
+      "proBono": true,
+      "status": "Ativo",
+      "indicacao": "Indicação",
+      "descricao": "Cliente industrial com demandas recorrentes"
     },
     {
       "id": 3,
       "nome": "Comércio Gama",
       "email": "compras@gama.com",
+      "rg": "3456789",
+      "cpf": "345.678.901-22",
+      "cnpj": "34.567.890/0001-22",
       "telefone": "31955558888",
-      "endereco": "Praça Central, 789, Belo Horizonte, MG",
-      "status": "inativo"
+      "cep": "30110-000",
+      "logradouro": "Praça Central",
+      "bairro": "Centro",
+      "cidade": "Belo Horizonte",
+      "numero": "789",
+      "inscricaoEstadual": "987654321",
+      "proBono": false,
+      "status": "Inativo",
+      "indicacao": "Marketing",
+      "descricao": "Cliente do setor varejista"
     }
   ],
-  "notas_fiscais": [
+  "notasFiscais": [
     {
       "id": 1,
-      "clienteId": 1,
-      "numero": "NF-001",
-      "data_emissao": "2024-07-20",
+      "numeroNota": "NF-001",
       "valor": 1500.00,
-      "status": "paga"
+      "dataVencimento": "2024-07-20",
+      "etiqueta": "Serviço",
+      "status": "Paga",
+      "emitida": true,
+      "urlCloud": "https://exemplo.com/nf001",
+      "cliente": { "id": 1, "nome": "Empresa Alpha" }
     },
     {
       "id": 2,
-      "clienteId": 2,
-      "numero": "NF-002",
-      "data_emissao": "2024-07-22",
+      "numeroNota": "NF-002",
       "valor": 3200.50,
-      "status": "pendente"
+      "dataVencimento": "2024-07-22",
+      "etiqueta": "Produto",
+      "status": "Pendente",
+      "emitida": false,
+      "urlCloud": "https://exemplo.com/nf002",
+      "cliente": { "id": 2, "nome": "Indústria Beta" }
     },
     {
       "id": 3,
-      "clienteId": 1,
-      "numero": "NF-003",
-      "data_emissao": "2024-07-25",
+      "numeroNota": "NF-003",
       "valor": 850.75,
-      "status": "pendente"
+      "dataVencimento": "2024-07-25",
+      "etiqueta": "Consultoria",
+      "status": "Pendente",
+      "emitida": false,
+      "urlCloud": "",
+      "cliente": { "id": 1, "nome": "Empresa Alpha" }
+    },
+    {
+      "id": 4,
+      "numeroNota": "NF-004",
+      "valor": 2000.00,
+      "dataVencimento": "2024-08-01",
+      "etiqueta": "Serviço",
+      "status": "Paga",
+      "emitida": true,
+      "urlCloud": "https://exemplo.com/nf004",
+      "cliente": { "id": 3, "nome": "Comércio Gama" }
     }
   ]
 }

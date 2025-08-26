@@ -101,11 +101,19 @@ const formatters = {
      * @param {string} date - Data no formato ISO ou americano
      * @returns {string} - Data formatada (dd/mm/aaaa)
      */
-    formatDate(date) {
-        if (!date) return ""
-        // Adiciona 'T00:00:00' para garantir que a data seja interpretada em UTC
-        const dateObj = new Date(date + "T00:00:00")
-        return dateObj.toLocaleDateString("pt-BR")
+    formatDate(dateString) {
+        if (!dateString) return ""
+
+        // Adiciona T00:00:00 se a data estiver no formato YYYY-MM-DD para garantir que seja tratada como UTC
+        const date = new Date(dateString.includes("T") ? dateString : `${dateString}T00:00:00`)
+
+        if (isNaN(date.getTime())) {
+            return "Data inválida"
+        }
+
+        return new Intl.DateTimeFormat("pt-BR", {
+            timeZone: "UTC", // Usar UTC para evitar problemas de fuso horário
+        }).format(date)
     },
 
     /**
@@ -432,4 +440,3 @@ const Utils = {
 }
 
 export default Utils
-

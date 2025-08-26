@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veredictum - Gestão de Clientes</title>
+    <!-- Corrigido: caminhos absolutos para funcionar via Express -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/pages/style.css">
     <link rel="stylesheet" href="/css/pages/clientes.css">
@@ -21,9 +22,60 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Adicionando CSS para scroll customizado -->
+    <style>
+        /* Scroll customizado */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e0e0e0;
+        }
+
+        ::-webkit-scrollbar-button {
+            background: #ffffff;
+            border-radius: 10px;
+            height: 20px;
+            border: 2px solid #f1f1f1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ::-webkit-scrollbar-button:vertical:start:decrement {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 4l-4 4h8z' fill='%23666'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        ::-webkit-scrollbar-button:vertical:end:increment {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8l4-4H2z' fill='%23666'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Adicionando estilo para texto descritivo */
+        .header-description {
+            color: var(--gray-5);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+    </style>
 </head>
 <body>
-
 
 <div class="container">
     <header class="sidebar">
@@ -53,158 +105,161 @@
 
     <!-- Fim navbar.html -->
 
-        <main class="main-content">
-            <div class="header-top">
+    <main class="main-content">
+        <div class="header-top">
+            <div>
                 <h1>Gestão de Clientes</h1>
-                <button class="btn-new-appointment" id="cadastrarClienteBtn">
-                    Cadastrar Cliente
-                    <img src="/assets/svg/btn.svg" alt="">
-                </button>
+                <!-- Adicionando texto descritivo embaixo do h1 -->
+                <p class="header-description">Acesse, altere e mantenha as informações dos clientes sempre atualizadas.</p>
             </div>
+            <button class="btn-new-appointment" id="cadastrarClienteBtn">
+                Cadastrar Cliente
+                <img src="/assets/svg/btn.svg" alt="">
+            </button>
+        </div>
 
-            <div class="clients-table">
-                <table class="table">
-                    <thead class="table__head">
-                    <tr class="table__row">
-                        <th class="table__header">Nome</th>
-                        <th class="table__header">Editar</th>
-                        <th class="table__header">Informações</th>
-                        <th class="table__header">Status</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table__body" id="clientsTableBody">
-                    <!-- Clientes serão carregados via JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
-
-    <!-- Modal Cadastrar/Editar Cliente -->
-    <div class="modal" id="clienteModal">
-        <div class="modal__overlay" id="clienteModalOverlay"></div>
-        <div class="modal__content">
-            <div class="modal__header">
-                <h2 class="modal__title" id="clienteModalTitle">Cadastrar Cliente</h2>
-                <button class="modal__close" id="clienteModalClose">✕</button>
-            </div>
-            <form class="form" id="clienteForm">
-                <div class="form__grid">
-                    <div class="form__group">
-                        <label class="form__label" for="nome">Nome</label>
-                        <input class="form__input" type="text" id="nome" name="nome" required>
+        <div class="clients-table">
+            <div class="card-table">
+                <!-- Removendo h3 Clientes conforme solicitado -->
+                <div class="table-container" id="clientsTableBody">
+                    <div class="table-header">
+                        <p class="col-name">Nome</p>
+                        <p class="col-edit">Editar</p>
+                        <p class="col-info">Informações</p>
+                        <p class="col-status">Status</p>
                     </div>
-                    <div class="form__group">
-                        <label class="form__label" for="email">E-mail</label>
-                        <input class="form__input" type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="rg">RG</label>
-                        <input class="form__input" type="text" id="rg" name="rg" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="cpf">CPF</label>
-                        <input class="form__input" type="text" id="cpf" name="cpf" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="cnpj">CNPJ</label>
-                        <input class="form__input" type="text" id="cnpj" name="cnpj">
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="telefone">Telefone</label>
-                        <input class="form__input" type="text" id="telefone" name="telefone" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="cep">CEP</label>
-                        <input class="form__input" type="text" id="cep" name="cep" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="logradouro">Logradouro</label>
-                        <input class="form__input" type="text" id="logradouro" name="logradouro" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="bairro">Bairro</label>
-                        <input class="form__input" type="text" id="bairro" name="bairro" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="cidade">Cidade</label>
-                        <input class="form__input" type="text" id="cidade" name="cidade" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="numero">Número</label>
-                        <input class="form__input" type="text" id="numero" name="numero" required>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="inscricaoEstadual">Inscrição Estadual</label>
-                        <input class="form__input" type="text" id="inscricaoEstadual" name="inscricaoEstadual">
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="proBono">Pro-Bono?</label>
-                        <select class="form__select" id="proBono" name="proBono">
-                            <option value="false">Não</option>
-                            <option value="true">Sim</option>
-                        </select>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="status">Status</label>
-                        <select class="form__select" id="status" name="status">
-                            <option value="Ativo">Ativo</option>
-                            <option value="Inativo">Inativo</option>
-                        </select>
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="indicacao">Indicação</label>
-                        <select class="form__select" id="indicacao" name="indicacao">
-                            <option value="Lista de clientes">Lista de clientes</option>
-                            <option value="Indicação">Indicação</option>
-                            <option value="Marketing">Marketing</option>
-                        </select>
-                    </div>
-                    <div class="form__group form__group--full">
-                        <label class="form__label" for="descricao">Descrição</label>
-                        <textarea class="form__textarea" id="descricao" name="descricao" placeholder="Caso de Herança..."></textarea>
-                    </div>
+                    <!-- Linhas serão renderizadas via JS -->
                 </div>
-                <div class="form__actions">
-                    <button type="submit" class="btn-new-appointment" id="salvarClienteBtn">Cadastrar</button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Modal Cadastrar/Editar Cliente -->
+<div class="modal" id="modalCadastroCliente">
+    <div class="modal__overlay" id="modalCadastroClienteOverlay"></div>
+    <div class="modal__content">
+        <div class="modal__header">
+            <h2 class="modal__title" id="tituloModalCliente">Cadastrar Cliente</h2>
+            <button class="modal__close" id="fecharModalCliente">✕</button>
+        </div>
+        <form class="form" id="formCliente">
+            <div class="form__grid form__grid--3col">
+                <div class="form__group">
+                    <label class="form__label" for="nome">Nome</label>
+                    <input class="form__input" type="text" id="nome" name="nome" required>
                 </div>
-            </form>
+                <div class="form__group">
+                    <label class="form__label" for="email">E-mail</label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="rg">RG</label>
+                    <input class="form__input" type="text" id="rg" name="rg" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="cpf">CPF</label>
+                    <input class="form__input" type="text" id="cpf" name="cpf" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="cnpj">CNPJ</label>
+                    <input class="form__input" type="text" id="cnpj" name="cnpj">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="telefone">Telefone</label>
+                    <input class="form__input" type="text" id="telefone" name="telefone" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="cep">CEP</label>
+                    <input class="form__input" type="text" id="cep" name="cep" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="logradouro">Logradouro</label>
+                    <input class="form__input" type="text" id="logradouro" name="logradouro" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="bairro">Bairro</label>
+                    <input class="form__input" type="text" id="bairro" name="bairro" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="cidade">Cidade</label>
+                    <input class="form__input" type="text" id="cidade" name="cidade" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="numero">Número</label>
+                    <input class="form__input" type="text" id="numero" name="numero" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="inscricaoEstadual">Inscrição Estadual</label>
+                    <input class="form__input" type="text" id="inscricaoEstadual" name="inscricaoEstadual">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="proBono">Pro-Bono?</label>
+                    <select class="form__select" id="proBono" name="proBono">
+                        <option value="false">Não</option>
+                        <option value="true">Sim</option>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="status">Status</label>
+                    <select class="form__select" id="status" name="status">
+                        <option value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                    </select>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="indicacao">Indicação</label>
+                    <select class="form__select" id="indicacao" name="indicacao">
+                        <option value="Lista de clientes">Lista de clientes</option>
+                        <option value="Indicação">Indicação</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+                <div class="form__group form__group--full">
+                    <label class="form__label" for="descricao">Descrição</label>
+                    <input class="form__input" type="text" id="descricao" name="descricao">
+                </div>
+            </div>
+            <div class="form__actions">
+                <button type="submit" class="btn-new-appointment" id="salvarClienteBtn">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Informações do Cliente -->
+<div class="modal" id="modalInfoCliente">
+    <div class="modal__overlay" id="modalInfoClienteOverlay"></div>
+    <div class="modal__content">
+        <div class="modal__header">
+            <h2 class="modal__title">Informações Detalhadas do Cliente</h2>
+            <button class="modal__close" id="fecharModalInfoCliente">✕</button>
+        </div>
+        <div class="info-grid" id="conteudoInfoCliente">
+            <!-- Informações serão carregadas via JavaScript -->
         </div>
     </div>
+</div>
 
-    <!-- Modal Informações do Cliente -->
-    <div class="modal" id="infoClienteModal">
-        <div class="modal__overlay" id="infoClienteModalOverlay"></div>
-        <div class="modal__content">
-            <div class="modal__header">
-                <h2 class="modal__title">Informações do Cliente</h2>
-                <button class="modal__close" id="infoClienteModalClose">✕</button>
-            </div>
-            <div class="info-grid" id="infoClienteContent">
-                <!-- Informações serão carregadas via JavaScript -->
-            </div>
+<!-- Modal Desativar Cliente -->
+<div class="modal" id="modalDesativarCliente">
+    <div class="modal__overlay" id="modalDesativarClienteOverlay"></div>
+    <div class="modal__content modal__content--small">
+        <div class="modal__header">
+            <h2 class="modal__title">Confirmação de Desativação</h2>
+            <button class="modal__close" id="fecharModalDesativar">✕</button>
+        </div>
+        <div class="modal__body">
+            <p id="mensagemDesativarCliente">Deseja desativar este cliente?</p>
+        </div>
+        <div class="modal__actions">
+            <button class="btn-new-appointment" id="cancelarDesativacao">Cancelar</button>
+            <button class="btn-new-appointment" id="confirmarDesativacao">Desativar</button>
         </div>
     </div>
+</div>
 
-    <!-- Modal Desativar Cliente -->
-    <div class="modal" id="desativarClienteModal">
-        <div class="modal__overlay" id="desativarClienteModalOverlay"></div>
-        <div class="modal__content modal__content--small">
-            <div class="modal__header">
-                <h2 class="modal__title">Desativar Cliente</h2>
-                <button class="modal__close" id="desativarClienteModalClose">✕</button>
-            </div>
-            <div class="modal__body">
-                <p id="desativarClienteMessage">Deseja desativar este cliente?</p>
-            </div>
-            <div class="modal__actions">
-                <button class="btn-new-appointment" id="cancelarDesativarBtn">Cancelar</button>
-                <button class="btn-new-appointment" id="confirmarDesativarBtn">Desativar</button>
-            </div>
-        </div>
-    </div>
-
-<script src="/src/utils/clientes.js" type="module"></script>
-<script src="/src/utils/utils.js"></script>
+<script src="../utils/clientes.js" type="module"></script>
+<script src="../utils/utils.js"></script>
 </body>
 </html>

@@ -11,11 +11,11 @@
     /* Neutral-colors */
     --darkness-black: #0c0c0c;
     --dark-black: #161617;
-    --normal-black: #252525;
+    --normal-black: #000000;
     --normal-black-strong: #1d1c1c;
     --light-black: #424242;
 
-    --white-normal: #fafafa;
+    --white-normal: #ffffff;
     --white-dark: #edeaef;
     --white-darknes: #79747c;
     --white-light: #eeeeee;
@@ -30,6 +30,7 @@
     --gray-6: #969597;
     --gray-7: #a6a6a7;
     --gray-8: #dfdfdf;
+    --gray-9: #E3E3E3;
 
     /* Auxiliary colors */
     --red-normal: #eb3d3d;
