@@ -17,7 +17,7 @@ const ApiService = {
         }
 
         try {
-            console.log(`[v0] API Request: ${config.method || "GET"} ${url}`)
+            console.log(` API Request: ${config.method || "GET"} ${url}`)
             const response = await fetch(url, config)
 
             if (!response.ok) {
@@ -114,4 +114,5 @@ const ApiService = {
     },
 }
 
-export default ApiService
+// Torna o ApiService disponível globalmente no navegador
+window.ApiService = ApiService

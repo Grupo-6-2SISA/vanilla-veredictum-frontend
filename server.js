@@ -3,7 +3,7 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const HOST = "app.veredictum.com";
+
 
 // Servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, "public")));
@@ -13,7 +13,7 @@ app.use('/src', express.static(path.join(__dirname, 'src')));
 
 // Rota principal (login)
 app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "src/pages/index.html"));
+	res.sendFile(path.join(__dirname, "src/pages/visao_geral.html"));
 });
 
 // Rota para a página de dashboard
@@ -30,6 +30,13 @@ app.get("/notas-fiscais", (req, res) => {
 	res.sendFile(path.join(__dirname, "src/pages/notas-fiscais.html"));
 });
 
+app.get("/dashboard", (req, res) => {
+	res.sendFile(path.join(__dirname, "src/pages/dashboard.html"));
+});
+
+app.get("/agendamentos", (req, res) => {
+	res.sendFile(path.join(__dirname, "src/pages/agenda_relacionamento.html"));
+});
 app.listen(PORT, () => {
 	// A mensagem de inicialização será controlada pelo app.js
 });

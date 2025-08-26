@@ -110,7 +110,7 @@ class NotasFiscaisManager {
                     </div>
                     <div class="col-info">
                         <button class="action-btn action-btn--info" data-action="info" data-id="${nota.id}">
-                            <span style="color: #222;">Ver Mais</span>
+                            <p style="color: #000000;">Ver Mais</p>
                         </button>
                     </div>
                 </div>

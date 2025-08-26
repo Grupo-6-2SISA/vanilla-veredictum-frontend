@@ -278,9 +278,8 @@
     display: flex;
 }
 
-.modal__content,
-.modal__content--small {
-    background-color: var(--white-normal);
+.modal__content{
+    background-color: #424242;
     border-radius: 12px;
     width: 90%;
     max-width: 800px;
@@ -290,22 +289,20 @@
     font-family: "Montserrat", "Poppins", sans-serif;
 }
 
-.modal__content--small {
-    max-width: 400px;
-}
+
 
 .modal__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    border-bottom: 1px solid var(--gray-8);
+
 }
 
 .modal__title {
-    font-size: 1.25rem;
+    font-size: 36px;
     font-weight: 600;
-    color: var(--normal-black);
+    color: var(--white-normal);
     font-family: "Montserrat", "Poppins", sans-serif;
 }
 
@@ -379,9 +376,9 @@
     gap: 1rem;
     align-items: center;
     padding: 0.75rem 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", "Poppins", sans-serif;
     font-size: 0.95rem;
-    color: #666;
+    color: #000000;
 }
 
 .table-header {
@@ -408,6 +405,25 @@
 
 .table-row:last-child {
     border-bottom: none;
+}
+
+/* Modal desativar */
+.modal__desativar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", "Poppins", sans-serif;
+}
+
+.modal__desativar.is-open {
+    display: flex;
 }
 
 /* Responsividade */

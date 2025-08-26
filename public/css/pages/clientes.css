@@ -2,7 +2,11 @@
 .resumo-section {
     margin-bottom: 2rem;
 }
-
+.description{
+    color: #000000;
+    font-size: 20px;
+    font-family: "Montserrat", "Poppins", "sans-serif";
+}
 .resumo-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -281,9 +285,9 @@
 .modal__content{
     background-color: #424242;
     border-radius: 12px;
-    width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
+    width: 100%;
+    max-width: 1300px;
+    max-height: 100vh;
     overflow-y: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     font-family: "Montserrat", "Poppins", sans-serif;
@@ -295,14 +299,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    border-bottom: 1px solid var(--gray-8);
+   /* border-bottom: 1px solid var(--gray-8); */
 }
 
 .modal__title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--normal-black);
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--white-normal);
     font-family: "Montserrat", "Poppins", sans-serif;
+
 }
 
 .modal__close {
@@ -377,13 +382,13 @@
 .table-header,
 .table-row {
     display: grid;
-    grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr 0.7fr 0.7fr 1fr;
+    grid-template-columns: 2fr 1.5fr 1.5fr 1fr ;
     gap: 1rem;
     align-items: center;
     padding: 0.75rem 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", "Poppins", sans-serif;
     font-size: 0.95rem;
-    color: #666;
+    color: #000000;
 }
 
 .table-header {

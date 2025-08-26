@@ -1,6 +1,3 @@
-import ApiService from "./api-service.js"
-import Utils from "./utils.js"
-
 class ClientesManager {
     constructor() {
         this.currentClienteId = null
@@ -47,11 +44,11 @@ class ClientesManager {
      */
     async loadClientes() {
         try {
-            const clientes = await ApiService.getClientes() // Corrigido: busca clientes da API
+            const clientes = await window.ApiService.getClientes() // Corrigido: busca clientes da API
             this.renderClientesTable(clientes)
         } catch (error) {
             console.error("Erro ao carregar clientes:", error)
-            Utils.dom.showToast("Erro ao carregar clientes", "error")
+            window.Utils.dom.showToast("Erro ao carregar clientes", "error")
         }
     }
 
@@ -84,7 +81,7 @@ class ClientesManager {
                     <div class="col-name">${cliente.nome}</div>
                     <div class="col-edit">
                         <button class="action-btn action-btn--edit" data-action="edit" data-id="${cliente.id}">
-                            <img src="/assets/svg/edit.svg" alt="Editar">
+                            <img src="../../public/assets/svg/edit.svg" alt="Editar">
                         </button>
                     </div>
                     <div class="col-info">
@@ -130,13 +127,13 @@ class ClientesManager {
      */
     async showClienteInfo(clienteId) {
         try {
-            const cliente = await ApiService.getClienteById(clienteId)
+            const cliente = await window.ApiService.getClienteById(clienteId)
             this.renderClienteInfo(cliente)
             const modal = document.getElementById("modalInfoCliente")
             modal.classList.add("is-open")
         } catch (error) {
             console.error("Erro ao carregar informações do cliente:", error)
-            Utils.dom.showToast("Erro ao carregar informações", "error")
+            window.Utils.dom.showToast("Erro ao carregar informações", "error")
         }
     }
 
@@ -196,11 +193,11 @@ class ClientesManager {
             this.showDesativarModal(clienteId)
         } else {
             try {
-                await ApiService.ativarCliente(clienteId)
-                Utils.dom.showToast("Cliente ativado com sucesso!", "success")
+                await window.ApiService.ativarCliente(clienteId)
+                window.Utils.dom.showToast("Cliente ativado com sucesso!", "success")
             } catch (error) {
                 console.error("Erro ao ativar cliente:", error)
-                Utils.dom.showToast("Erro ao ativar cliente", "error")
+                window.Utils.dom.showToast("Erro ao ativar cliente", "error")
                 this.loadClientes() // Recarrega para reverter o toggle
             }
         }
@@ -212,7 +209,7 @@ class ClientesManager {
      */
     async showDesativarModal(clienteId) {
         try {
-            const cliente = await ApiService.getClienteById(clienteId)
+            const cliente = await window.ApiService.getClienteById(clienteId)
             this.currentClienteId = clienteId
             const message = document.getElementById("mensagemDesativarCliente")
             message.textContent = `Deseja desativar ${cliente.nome}?`
@@ -220,7 +217,7 @@ class ClientesManager {
             modal.classList.add("is-open")
         } catch (error) {
             console.error("Erro ao carregar cliente:", error)
-            Utils.dom.showToast("Erro ao carregar dados do cliente", "error")
+            window.Utils.dom.showToast("Erro ao carregar dados do cliente", "error")
         }
     }
 
@@ -237,13 +234,13 @@ class ClientesManager {
      */
     async handleDesativarCliente() {
         try {
-            await ApiService.inativarCliente(this.currentClienteId)
-            Utils.dom.showToast("Cliente desativado com sucesso!", "success")
+            await window.ApiService.inativarCliente(this.currentClienteId)
+            window.Utils.dom.showToast("Cliente desativado com sucesso!", "success")
             this.closeDesativarModal()
             this.loadClientes()
         } catch (error) {
             console.error("Erro ao desativar cliente:", error)
-            Utils.dom.showToast("Erro ao desativar cliente", "error")
+            window.Utils.dom.showToast("Erro ao desativar cliente", "error")
         }
     }
 
@@ -326,18 +323,18 @@ class ClientesManager {
 
         try {
             if (this.isEditMode) {
-                await ApiService.updateCliente(this.currentClienteId, clienteData)
-                Utils.dom.showToast("Cliente atualizado com sucesso!", "success")
+                await window.ApiService.updateCliente(this.currentClienteId, clienteData)
+                window.Utils.dom.showToast("Cliente atualizado com sucesso!", "success")
             } else {
-                await ApiService.createCliente(clienteData)
-                Utils.dom.showToast("Cliente cadastrado com sucesso!", "success")
+                await window.ApiService.createCliente(clienteData)
+                window.Utils.dom.showToast("Cliente cadastrado com sucesso!", "success")
             }
 
             this.closeClienteModal()
             this.loadClientes()
         } catch (error) {
             console.error("Erro ao salvar cliente:", error)
-            Utils.dom.showToast("Erro ao salvar cliente", "error")
+            window.Utils.dom.showToast("Erro ao salvar cliente", "error")
         }
     }
 
@@ -348,15 +345,15 @@ class ClientesManager {
      */
     validateClienteData(clienteData) {
         if (!clienteData.nome || !clienteData.email || !clienteData.cpf) {
-            Utils.dom.showToast("Preencha todos os campos obrigatórios", "warning")
+            window.Utils.dom.showToast("Preencha todos os campos obrigatórios", "warning")
             return false
         }
-        if (!Utils.validators.validateEmail(clienteData.email)) {
-            Utils.dom.showToast("Email inválido", "warning")
+        if (!window.Utils.validators.validateEmail(clienteData.email)) {
+            window.Utils.dom.showToast("Email inválido", "warning")
             return false
         }
-        if (!Utils.validators.validateCpf(clienteData.cpf)) {
-            Utils.dom.showToast("CPF inválido", "warning")
+        if (!window.Utils.validators.validateCpf(clienteData.cpf)) {
+            window.Utils.dom.showToast("CPF inválido", "warning")
             return false
         }
         return true
@@ -368,11 +365,11 @@ class ClientesManager {
      */
     async editCliente(clienteId) {
         try {
-            const cliente = await ApiService.getClienteById(clienteId)
+            const cliente = await window.ApiService.getClienteById(clienteId)
             this.openClienteModal(cliente)
         } catch (error) {
             console.error("Erro ao carregar cliente:", error)
-            Utils.dom.showToast("Erro ao carregar dados do cliente", "error")
+            window.Utils.dom.showToast("Erro ao carregar dados do cliente", "error")
         }
     }
 

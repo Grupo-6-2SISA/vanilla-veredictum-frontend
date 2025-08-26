@@ -431,12 +431,10 @@ const apiUtils = {
     },
 }
 
-const Utils = {
+window.Utils = {
     formatters,
     validators,
     dom: domUtils,
-    mask: maskUtils,
-    api: apiUtils,
+    api: typeof apiUtils !== 'undefined' ? apiUtils : {},
+    mask: typeof maskUtils !== 'undefined' ? maskUtils : {}
 }
-
-export default Utils
