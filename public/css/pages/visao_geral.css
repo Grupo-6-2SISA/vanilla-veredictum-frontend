@@ -28,6 +28,7 @@ h1 {
     color: var(--normal-black);
     margin-left: 40px;
     margin-top: 20px;
+    margin-bottom: 5%;
 }
 .dashboard-grid {
     gap: 2%;
@@ -182,3 +183,57 @@ h1 {
 
 
 
+/* itens tabela */
+
+.list-atendimento-nome{
+    grid-column: 1 / 2;
+    text-align: left;
+    /* margin-left: 12%; */
+}
+
+.list-atendimento-dia{
+    grid-column: 2 / 3;
+    text-align: center;
+    margin-left: 38%;
+}
+.list-atendimento-horario{
+    grid-column: 3 / 3;
+    margin-left: 18%;
+
+}
+
+.list-nf-nota{
+    grid-column: 1 / 2;
+    text-align: left;
+    /* margin-left: 12%; */
+}
+
+.list-nf-data{
+    grid-column: 2 / 2;
+    text-align: center;
+    margin-left: 36%;
+}
+
+.list-birthdays-nome{
+    grid-column: 1 / 2;
+    text-align: left;
+    /* margin-left: 12%; */
+}
+
+.list-birthdays-dia{
+    grid-column: 2 / 2;
+    text-align: center;
+    margin-left: 55%;
+}
+
+.list-contas-etiqueta{
+    grid-column: 1 / 2;
+    text-align: left;
+    /* margin-left: 12%; */
+}
+
+.list-contas-data{
+    grid-column: 2 / 2;
+    text-align: center;
+    margin-left: 50%;
+}
