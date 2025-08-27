@@ -44,8 +44,10 @@ body {
 }
 
 .group-logo-title img {
-  width: 200px; 
+  width: 18%; 
   height: auto;
+  margin: 0 10px 5px 0;
+  /* border: #F4A100 2px solid; */
   
 }
 
