@@ -7,9 +7,12 @@
 @import url(./partials/menu.css);
 @import url(./partials/spacing.css);
 @import url(./partials/icons.css);
+@import url(./partials/modals.css);
 
 /* ----- IMPORTANDO PÁGINAS DO SITE ----- */
-
+@import url(./pages/home.css);
+@import url(./pages/cadastro.css);
+@import url(./pages/recSenha.css);
 @import url(./pages/visao_geral.css);
 @import url(./pages/home.css);
 @import url(./pages/cadastro.css);
@@ -23,12 +26,16 @@
     box-sizing: border-box;
 }
 
+
+
 .container {
     background-color: var(--white-light);
-    width: 100%;
+    width: 100%;    
     display: flex;
+    position: fixed;
     flex-direction: row;
     min-height: 100vh;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
+    
 }

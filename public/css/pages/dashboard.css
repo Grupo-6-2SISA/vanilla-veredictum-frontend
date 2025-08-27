@@ -38,8 +38,8 @@ h1 {
     align-items: center;
     background-color: #fff;
     padding: 1rem 1rem;
-    margin-left: 5%;
-    width: 90%;
+    margin-left: 3%;
+    width: 93%;
     border-radius: 12px;
     border: 0.3px solid var(--dark-black);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -65,128 +65,77 @@ h1 {
 }
 
 /* Seção de cards de métricas (agora com Flexbox) */
-.dashboard-cards-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 5px;
+    /* margin-bottom: 10px; */
+    justify-items: center;
 }
 
-.cards-left{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 3%;
-    width: 50%;
-    margin-right: 4%;
-}
-
-.cards-right{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2%;
-    width: 50%;
-}
-
-.card-metric {
-    background-color: var(--white-normal);
+.metric-card {
+    background: white;
     border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid #ddd;
-    display: flex;
-    width: 40%;
-    height: 100px; /* Altura fixa para os cards */
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 5%;
+    width: 250px;
+    height: 110px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     
 }
 
-.card-metric .card-header {
+.metric-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    position: relative;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
-.warning-badge {
-    background-color: #ffc107;
-    color: #333;
-    font-size: 0.75rem;
+.metric-icon {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.metric-icon.danger { background-color: #e53e3e; }
+.metric-icon.success { background-color: #38a169; }
+
+.metric-label {
+    font-size: 14px;
+    color: #4a5568;
     font-weight: 500;
-    padding: 0.1rem 0.3rem;
-    border-radius: 4px;
-}
-
-.warning-icon {
-    color: #ff9800;
-    font-size: 1.5rem;
-    position: absolute;
-    top: -2rem;
-    left: -1rem;
-}
-
-.card-metric h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #666;
-    margin: 0;
-}
-
-.card-header h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    color: #666;
-    margin: 0;
-}
-.metric-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
 }
 
 .metric-value {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
-}
-
-.metric-percent {
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: #888;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 5px;
+       
 }
 
 .metric-change {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.25rem 0.75rem;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
     border-radius: 4px;
-    color: #fff;
+    display: inline-block;
+    top: 20px;
+    right: 20px;
 }
 
-.metric-change.red {
-    background-color: #e74c3c;
+.metric-change.positive {
+    background-color: #fed7d7;
+    color: #e53e3e;
 }
 
-.metric-change.green {
-    background-color: #2ecc71;
+.metric-change.negative {
+    background-color: #c6f6d5;
+    color: #38a169;
 }
 
-.metric-change i {
-    font-size: 0.8rem;
-}
+.metric-percentage {
+    font-size: 14px;
+    color: #718096;
+ }
 
 /* Seção dos gráficos */
 .dashboard-charts {
@@ -194,7 +143,7 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5%;
+    gap: 100px;
 }
 
 .chart-container {

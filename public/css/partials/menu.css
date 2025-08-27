@@ -1,5 +1,7 @@
-header {
+aside {
+    position: fixed;
     width: 6%;
+    height: 100vh;
     background-color: var(--dark-black);
     display: flex;
     flex-direction: column;
@@ -8,8 +10,9 @@ header {
     padding: 0;
     margin: 0;
     border-right: 1px solid var(--border-color);
-    flex-shrink: 0;
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.384);
+    transition: width 0.2s ease-out; /* Animação suave para a largura */
+    overflow: hidden;
 }
 
 /* Estilo para o cabeçalho (logo e nome) */
@@ -25,23 +28,33 @@ header {
     color: var(--white-normal);
 }
 
-.logo {
-    width: 100%;
-    height: 60%;
+
+.logo{
     display: flex;
     justify-content: center;
-    
-}
-.logo img {
-    width: 100vh;
-    height: auto;
-    object-fit: contain;
+    align-items: center;
 }
 
+
+.menu-text-logo{
+    display: none; /* Oculta o texto inicialmente */
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white-normal);
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-header .logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 10px;   
+}
 
 .sidebar-header .user-name {
     display: block;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.2;
     padding: 0 10px;
 }
@@ -75,6 +88,25 @@ header {
     transition: all 0.3s ease;
 }
 
+.menu-text{
+    display: none; /* Oculta o texto inicialmente */
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white-normal);
+    transition: opacity 0.3s ease;
+}
+
+.menu-text-active{
+    display: none; /* Oculta o texto inicialmente */
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--darkness-black);
+    transition: opacity 0.3s ease;
+}
+
+
 /* Estilo para o item de menu ativo (ícone do dashboard) */
 .sidebar-nav a.active {
     background-color: var(--white-normal);
@@ -82,32 +114,78 @@ header {
     border-left: 3px solid var(--accent-color);
 }
 
-/* Estilo para o botão de sair no rodapé */
+/* Ajuste do contêiner do rodapé */
 .sidebar-footer {
     width: 100%;
-    margin-top: auto; /* Empurra o rodapé para o final da barra */
+    display: flex; /* Mantido para centralizar o item dentro do footer */
+    justify-content: center; /* Centraliza o ícone quando o menu está fechado */
+    align-items: center; /* Alinha verticalmente */
+    margin-top: auto;
     padding-top: 20px;
     margin-bottom: 5%;
-    
+    height: 60px;
 }
 
 .sidebar-footer a {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Alinha o ícone no centro quando o menu está fechado */
     align-items: center;
-    width: 100%;
+    width: 100%; /* O link ocupa a largura total do contêiner */
     height: 50px;
     color: var(--text-color);
     text-decoration: none;
     font-size: 24px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    gap: 10px; /* Espaçamento entre o ícone e o texto */
 }
 
-/* Efeito hover para os ícones */
-.sidebar-nav a:not(.active):hover,
-.sidebar-footer a:hover {
-    color: var(--accent-color);
+/* HOVER MENU LATERAL */
+aside:hover {
+    width: 17%; /* Largura expandida ao passar o mouse */
 }
 
+aside:hover .menu-text,
+aside:hover .menu-text-logo {
+    display: inline; /* Exibe o texto ao passar o mouse */
+    opacity: 1;
+}
+aside:hover .menu-text-active {
+    display: inline; /* Exibe o texto ao passar o mouse */
+    opacity: 1;
+    color: var(--darkness-black);
+}
 
+aside:hover .sidebar-nav a {
+    justify-content: flex-start; /* Alinha os itens à esquerda ao expandir */
+    padding-left: 10px;
+} 
+
+aside:hover .sidebar-footer {
+    /* No hover, centraliza o alinhamento dos itens */
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+aside:hover .sidebar-footer a {
+    /* No hover, alinha o conteúdo do link à esquerda */
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+aside:hover .sidebar-footer span {
+    display: flex; /* Exibe o texto ao passar o mouse */
+    align-items: flex-start;
+    /* border: 2px solid red; */
+    margin-left: -80%;
     
+}
+
+.sidebar-nav a:hover {
+    border: 2px solid var(--white-normal);
+    border-radius: 10px;
+}
+
+.sidebar-footer a:hover {
+    border: 2px solid var(--white-normal);
+    border-radius: 10px;
+}
