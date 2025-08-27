@@ -1,8 +1,3 @@
-/**
- * Gerenciamento da página de notas fiscais
- * Segue os padrões de nomenclatura: camelCase para JavaScript
- */
-
 const API_URL = "http://localhost:3001/notasFiscais"
 // const API_URL = "http://localhost:8080/notas-fiscais" // endpoint original comentado
 
@@ -100,12 +95,12 @@ class NotasFiscaisManager {
                     <div class="col-emitida">${nota.emitida ? "Sim" : "Não"}</div>
                     <div class="col-edit">
                         <button class="action-btn action-btn--edit" data-action="edit" data-id="${nota.id}">
-                            <img src="/assets/svg/edit.svg" alt="Editar">
+                            <img src="../../public/assets/svg/edit.svg" alt="Editar">
                         </button>
                     </div>
                     <div class="col-delete">
                         <button class="action-btn action-btn--delete" data-action="delete" data-id="${nota.id}">
-                            <img src="/assets/svg/lixo.svg" alt="Excluir">
+                            <img src="../../public/assets/svg/lixo.svg" alt="Excluir">
                         </button>
                     </div>
                     <div class="col-info">

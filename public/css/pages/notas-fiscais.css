@@ -338,7 +338,7 @@
     font-family: "Montserrat", "Poppins", sans-serif;
 }
 
-/* --- Tabela estilo agenda/relacionamento --- */
+
 .card-table {
     background-color: var(--white-normal);
     border-radius: 12px;
@@ -367,7 +367,7 @@
 .table-container {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 2rem;
     overflow-y: auto;
     width: 100%;
     padding-right: 1rem;
@@ -376,13 +376,16 @@
 .table-header,
 .table-row {
     display: grid;
-    grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr 0.7fr 0.7fr 1fr;
+    /* Colunas ajustadas para melhor simetria */
+    grid-template-columns: 2.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
     gap: 1rem;
     align-items: center;
-    padding: 0.75rem 0;
+    /* Padding unificado */
+    padding: 0.75rem 0rem;
     font-family: "Montserrat", "Poppins", sans-serif;
     font-size: 0.95rem;
-    color: #000000;
+    color: #222222;
+    font-weight: 600;
 }
 
 .table-header {
@@ -399,12 +402,32 @@
     margin: 0;
 }
 
+/* Alinhamento de colunas do cabeçalho */
+.table-header .col-status,
+.table-header .col-emitida,
+.table-header .col-edit,
+.table-header .col-delete,
+.table-header .col-info {
+    text-align: center;
+}
+
+
 .table-row {
-    background: var(--white-normal);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
-    padding: 0.6rem 1.2rem;
+    background: #F6F6F6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
     font-size: 1rem;
+}
+
+/* Alinhamento de colunas da linha */
+.table-row .col-status,
+.table-row .col-emitida,
+.table-row .col-edit,
+.table-row .col-delete,
+.table-row .col-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .table-row:last-child {
@@ -426,6 +449,12 @@
     font-family: "Montserrat", "Poppins", sans-serif;
 }
 
+.description{
+    color: #000000;
+    font-size: 20px;
+    font-family: "Montserrat", "Poppins", "sans-serif";
+    font-weight: 400;
+}
 .modal__desativar.is-open {
     display: flex;
 }

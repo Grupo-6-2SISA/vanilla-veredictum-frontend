@@ -6,6 +6,7 @@
     color: #000000;
     font-size: 20px;
     font-family: "Montserrat", "Poppins", "sans-serif";
+    font-weight: 400;
 }
 .resumo-cards {
     display: grid;
@@ -299,7 +300,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-   /* border-bottom: 1px solid var(--gray-8); */
+    /* border-bottom: 1px solid var(--gray-8); */
 }
 
 .modal__title {
@@ -377,7 +378,7 @@
 .table-container {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 2rem;
     overflow-y: auto;
     width: 100%;
     padding-right: 1rem;
@@ -386,13 +387,15 @@
 .table-header,
 .table-row {
     display: grid;
-    grid-template-columns: 2fr 1.5fr 1.5fr 1fr ;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
     gap: 1rem;
     align-items: center;
-    padding: 0.75rem 0;
+    /* Padding unificado para alinhamento */
+    padding: 0.75rem 0rem;
     font-family: "Montserrat", "Poppins", sans-serif;
     font-size: 0.95rem;
-    color: #000000;
+    color: #222222;
+    font-weight: 600;
 }
 
 .table-header {
@@ -409,13 +412,30 @@
     margin: 0;
 }
 
+/* Alinhamento de colunas do cabeçalho */
+.table-header .col-edit,
+.table-header .col-info,
+.table-header .col-status {
+    text-align: center;
+}
+
+
 .table-row {
-    background: var(--white-normal);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
-    padding: 0.6rem 1.2rem;
+    background: #F6F6F6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
     font-size: 1rem;
 }
+
+/* Alinhamento das colunas da linha (centralizando botões) */
+.table-row .col-edit,
+.table-row .col-info,
+.table-row .col-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .table-row:last-child {
     border-bottom: none;
@@ -437,7 +457,7 @@
     }
 
     .form-grid {
-        grid-template-columns: 3fr;
+        grid-template-columns: 1fr;
     }
 
     .modal-content {

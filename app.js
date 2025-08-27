@@ -40,7 +40,7 @@ frontend.stderr.on('data', (data) => {
 // Iniciar o JSON Server (API)
 const api = exec(`json-server --watch db.json --port ${jsonServerPort}`);
 api.stdout.on('data', (data) => {
-    // Silenciar a saída padrão do json-server para não poluir o console
+  // Silenciar a saída padrão do json-server para não poluir o console
 });
 api.stderr.on('data', (data) => {
   console.error(chalk.red(`[API ERROR] ${data}`));

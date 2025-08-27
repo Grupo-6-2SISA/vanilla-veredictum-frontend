@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veredictum - Gestão de Clientes</title>
-    <!-- Corrigido: caminhos absolutos para funcionar via Express -->
     <link rel="stylesheet" href="../../public/css/main.css">
     <link rel="stylesheet" href="../../public/css/pages/style.css">
     <link rel="stylesheet" href="../../public/css/pages/clientes.css">
     <link rel="stylesheet" href="../../public/css/partials/colors.css">
     <link rel="stylesheet" href="../../public/css/partials/menu.css">
 
-    <!-- SEO Padrão -->
     <meta name="keywords" content="veredictium, analytics, dashboard, kpi, métricas, business intelligence,advocacia, lei, gestão, crm, pessoas">
     <meta name="author" content="Veredictium">
     <meta name="robots" content="index, follow">
@@ -25,7 +23,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Adicionando CSS para scroll customizado -->
     <style>
         /* Scroll customizado */
         ::-webkit-scrollbar {
@@ -105,13 +102,10 @@
         </div>
     </header>
 
-    <!-- Fim navbar.html -->
-
     <main class="main-content">
         <div class="header-top">
             <div>
                 <h1>Gestão de Clientes</h1>
-                <!-- Adicionando texto descritivo embaixo do h1 -->
                 <p class="description">Acesse, altere e mantenha as informações dos clientes<br> sempre atualizadas.</p>
             </div>
             <button class="btn-new-appointment" id="cadastrarClienteBtn">
@@ -122,7 +116,6 @@
 
         <div class="clients-table">
             <div class="card-table">
-                <!-- Removendo h3 Clientes conforme solicitado -->
                 <div class="table-container" id="clientsTableBody">
                     <div class="table-header">
                         <p class="col-name">Nome</p>
@@ -130,14 +123,12 @@
                         <p class="col-info">Informações</p>
                         <p class="col-status">Status</p>
                     </div>
-                    <!-- Linhas serão renderizadas via JS -->
                 </div>
             </div>
         </div>
     </main>
 </div>
 
-<!-- Modal Cadastrar/Editar Cliente -->
 <div class="modal" id="modalCadastroCliente">
     <div class="modal__overlay" id="modalCadastroClienteOverlay"></div>
     <div class="modal__content">
@@ -229,7 +220,6 @@
     </div>
 </div>
 
-<!-- Modal Informações do Cliente -->
 <div class="modal" id="modalInfoCliente">
     <div class="modal__overlay" id="modalInfoClienteOverlay"></div>
     <div class="modal__content">
@@ -243,7 +233,6 @@
     </div>
 </div>
 
-<!-- Modal Desativar Cliente -->
 <div class="modal" id="modalDesativarCliente">
     <div class="modal__overlay__desativar" id="modalDesativarClienteOverlay"></div>
     <div class="modal__content__desativar modal__content_desativar">

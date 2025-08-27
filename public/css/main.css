@@ -8,7 +8,7 @@
 @import url(./partials/spacing.css);
 @import url(./partials/icons.css);
 
-/* ----- IMPORTANDO PÁGINAS DO SITE ----- */
+
 
 @import url(./pages/visao_geral.css);
 @import url(./pages/dashboard.css);
