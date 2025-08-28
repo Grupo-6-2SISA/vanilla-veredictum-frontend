@@ -7,6 +7,7 @@
     <title>Gestão de Despesas</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/pages/gestao_despesas_css.css">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -21,7 +22,7 @@
 
     <div class="container">
 
-       <aside class="sidebar">
+        <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
                     <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
@@ -190,9 +191,12 @@
     <!-- Modal Adicionar Despesa -->
     <div id="expenseModal" class="modal" style="display:none;">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal()"><img src="assets/svg/fechar.svg" alt=""></span>
+
             <h2>Adicionar Despesa</h2>
+
             <form id="expenseForm">
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="etiqueta">Etiqueta</label>
@@ -203,6 +207,7 @@
                         <input type="text" id="url" name="url">
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="vencimento">Data de Vencimento</label>
@@ -215,10 +220,15 @@
                 </div>
                 <div class="form-row">
                     <label>Pago?</label>
-                    <label><input type="radio" name="pago" value="sim" checked> SIM</label>
-                    <label><input type="radio" name="pago" value="nao"> NÃO</label>
+                    <label><input style="background-color: #414141;" type="checkbox" name="pago" value="sim" checked>
+                        SIM</label>
+                    <label><input type="checkbox" name="pago" value="nao"> NÃO</label>
                 </div>
-                <button type="submit" class="modal-add-btn">Adicionar</button>
+                <div id="div_para_botao">
+
+                    <button type="submit" class="modal-add-btn">Adicionar</button>
+
+                </div>
             </form>
         </div>
     </div>
@@ -227,7 +237,7 @@
     <!-- Modal Editar Despesa -->
     <div id="editExpenseModal" class="modal" style="display:none;">
         <div class="modal-content">
-            <span class="close" onclick="closeModalEdit()">&times;</span>
+            <span class="close" onclick="closeModalEdit()"><img src="assets/svg/fechar.svg" alt=""></span>
             <h2>Editar Despesa</h2>
             <form id="editExpenseForm">
                 <div class="form-row">
@@ -252,10 +262,14 @@
                 </div>
                 <div class="form-row">
                     <label>Pago?</label>
-                    <label><input type="radio" name="edit-pago" value="sim"> SIM</label>
-                    <label><input type="radio" name="edit-pago" value="nao"> NÃO</label>
+                    <label><input type="checkbox" name="edit-pago" value="sim"> SIM</label>
+                    <label><input type="checkbox" name="edit-pago" value="nao"> NÃO</label>
                 </div>
-                <button type="submit" class="modal-add-btn">Salvar</button>
+                <div id="div_para_botao">
+
+                    <button type="submit" class="modal-add-btn_save">Salvar</button>
+
+                </div>
             </form>
         </div>
     </div>
@@ -264,8 +278,8 @@
     <!-- Modal Informação sobre a Despesa -->
     <div id="infoExpenseModal" class="modal" style="display:none;">
         <div class="modal-content">
-            <span class="close" onclick="closeModalVerMais()">&times;</span>
-            <h2>Informação sobre a Despesa</h2>
+            <span class="close" onclick="closeModalVerMais()"><img src="assets/svg/fechar.svg" alt=""></span>
+            <h2>Informação sobre a Despesa</h2> <br><br>
             <form>
                 <div class="form-row">
                     <div class="form-group">
@@ -289,13 +303,12 @@
                 </div>
                 <div class="form-row">
                     <label>Pago?</label>
-                    <label><input type="radio" name="info-pago" value="sim" disabled> SIM</label>
-                    <label><input type="radio" name="info-pago" value="nao" disabled> NÃO</label>
+                    <label><input type="checkbox" name="info-pago" value="sim" disabled> SIM</label>
+                    <label><input type="checkbox" name="info-pago" value="nao" disabled> NÃO</label>
                 </div>
             </form>
         </div>
     </div>
-    <!-- /Modal Informação sobre a Despesa -->
 
     <script src="./js/gestao_dispesas.js"></script>
 </body>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log de envio de e-mails</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/public/assets/svg/logo_veredictum.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="/public/css/partials/log_envio_email.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-edit">
+                    <img src="/public/assets/svg/logo_veredictum.svg" alt="Logo Veredictum">
+                </div>
+                <span class="user-name">Lismara Ribeiro</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"> <img src="/public/assets/svg/visao-geral-black.svg" class="icon_vg"
+                                alt=""></a></li>
+                    <li><a href="./dashboard.html"><img src="/public/assets/svg/dash.svg" class="icon_dash" alt=""></a>
+                    </li>
+                    <li><a href="#"><img src="/public/assets/svg/painel.svg" class="icon_painel" alt=""></a></li>
+                    <li><a href="#"><img src="/public/assets/svg/funcionario.svg" class="icon_funcionario" alt=""></a>
+                    </li>
+                    <li><a href="./agenda_relacionamento.html"><img src="/public/assets/svg/agenda.svg"
+                                class="icon_agenda" alt=""></a></li>
+                    <li><a href="#"><img src="/public/assets/svg/despezas.svg" class="icon_notas" alt=""></a></li>
+                    <li><a href="#"><img src="/public/assets/svg/notas_fiscais.svg" class="icon_notas" alt=""></a></li>
+                    <li><a href="#"><img src="/public/assets/svg/logs.svg" class="icon_logs" alt=""></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#"><img src="/public/assets/svg/exit.svg" class="icon_exit" alt=""></a>
+            </div>
+        </header>
+
+        <!-- ----------------------------------------------------------------------------------------------------- -->
+        <div class="main-content">
+
+            <h1 class="page-title">Histórico de envio de email</h1>
+
+            <p class="page-description">
+                Visualize todos os logs de envio de email para lembretes de conta, nota e atendimento.
+            </p>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label class="filter-label">Ordenar Por</label>
+                    <select class="filter-select">
+                        <option>Todas</option>
+                        <option>Data de Envio</option>
+                        <option>Tipo</option>
+                        <option>Cliente</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Filtrar por cliente</label>
+                    <input type="text" class="filter-input" placeholder="Nome do Cliente">
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Data de Envio</th>
+                            <th>Mensagem</th>
+                            <th>Cliente Relacionado</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="type-badge">Atendimento</span></td>
+                            <td>09/06/2025</td>
+                            <td>Lembrete de atendimento...</td>
+                            <td><span class="client-name">Márcio Ribeiro</span></td>
+
+                            <td>
+                                <button class="action-btn" onclick="openModalVerMais()">Ver Mais</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="type-badge">Nota</span></td>
+                            <td>09/06/2025</td>
+                            <td>Lembrete de nota fiscal...</td>
+                            <td><span class="client-name">Gabriel Cordeiro</span></td>
+
+                            <td>
+                                <button class="action-btn" onclick="openModalVerMais()">Ver Mais</button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td><span class="type-badge">Contas</span></td>
+                            <td>09/06/2025</td>
+                            <td>Lembrete de pagamento...</td>
+                            <td><span class="empty-cell">-</span></td>
+                            <td>
+                                <button class="action-btn" onclick="openModalVerMais()">Ver Mais</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="type-badge">Aniversário</span></td>
+                            <td>09/06/2025</td>
+                            <td>Lembrete de aniversário...</td>
+                            <td><span class="client-name">Manuela Monteiro</span></td>
+
+                            <td>
+                                <button class="action-btn" onclick="openModalVerMais()">Ver Mais</button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal Ver mais-->
+
+        <div id="modalVerMais" class="modal">
+            <div class="modal-content">
+
+                <div id="div_para_titulo">
+                    <span class="close" onclick="closeModalVerMais()">
+                        <img src="assets/svg/fechar.svg" alt="">
+                    </span>
+
+                    <h2>Informações sobre Logs</h2>
+                </div>
+
+                <div class="modal-column">
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <input type="text" value="Atendimento" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea readonly>Lembrete de atendimento agendado para amanhã às 14:00</textarea>
+                    </div>
+                </div>
+
+                <div class="modal-column">
+                    <div class="form-group">
+                        <label>Data de Envio</label>
+                        <input type="date" value="2025-06-05" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cliente Relacionado</label>
+                        <input type="text" value="Márcio Ribeiro" readonly>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        </div>
+
+
+        <script src="js/log_envio_email.js"></script>
+
+</body>
+
+</html>
