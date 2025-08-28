@@ -10,7 +10,7 @@
 @import url(./partials/modals.css);
 
 /* ----- IMPORTANDO PÁGINAS DO SITE ----- */
-@import url(./pages/home.css);
+@import url(./pages/log_envio_email.css);
 @import url(./pages/cadastro.css);
 @import url(./pages/recSenha.css);
 @import url(./pages/visao_geral.css);

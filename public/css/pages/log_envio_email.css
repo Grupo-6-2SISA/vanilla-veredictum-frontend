@@ -11,7 +11,7 @@
      min-height: 100vh;
  }
 
- /* Sidebar */
+ /* Sidebar
  .sidebar {
      width: 80px;
      background-color: #2d2d2d;
@@ -34,7 +34,7 @@
      font-size: 12px;
      font-weight: bold;
      margin-bottom: 30px;
- }
+ } */
 
  .nav-icon {
      width: 40px;
@@ -60,11 +60,14 @@
  }
 
  /* Main Content */
- .main-content {
+ .main_content {
      flex: 1;
-     padding: 30px 40px;
-     max-width: 1200px;
-     margin: 0
+     margin: 0 0 0 8%;
+     display: flex;
+     flex-direction: column;
+     flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+     gap: 20px;
+     
  }
 
  .breadcrumb {
@@ -77,15 +80,15 @@
      font-size: 60px;
      font-weight: bold;
      color: #000;
-     margin-bottom: 10px;
-     margin-right: 20%;
+     margin-bottom: 3px;
+     margin-left: -0.5%;
  }
 
  .page-description {
      color: #000;
      font-size: 16px;
      font-weight: 500;
-     margin-bottom: 30px;
+     margin-bottom: 40px;
      line-height: 1.5;
  }
 
@@ -94,7 +97,7 @@
      background: white;
      border-radius: 12px;
      padding: 20px;
-     margin-bottom: 20px;
+     margin-bottom: 10px;
      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
      display: flex;
      gap: 70px;
@@ -134,13 +137,14 @@
  }
 
  /* Table */
- .table-container {
+ .table_container {
      background: white;
      border-radius: 12px;
      overflow: hidden;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+     /* margin-left: -0.5%; */
      height: 45%;
-     width: 120%;
+     width: 95%;
  }
 
  .table {
