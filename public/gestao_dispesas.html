@@ -22,7 +22,7 @@
 
     <div class="container">
 
-       <aside class="sidebar">
+        <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
                     <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
@@ -192,8 +192,11 @@
     <div id="expenseModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
+
             <h2>Adicionar Despesa</h2>
+
             <form id="expenseForm">
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="etiqueta">Etiqueta</label>
@@ -204,6 +207,7 @@
                         <input type="text" id="url" name="url">
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="vencimento">Data de Vencimento</label>
@@ -216,10 +220,15 @@
                 </div>
                 <div class="form-row">
                     <label>Pago?</label>
-                    <label><input type="radio" name="pago" value="sim" checked> SIM</label>
-                    <label><input type="radio" name="pago" value="nao"> NÃO</label>
+                    <label><input style="background-color: #414141;" type="checkbox" name="pago" value="sim" checked>
+                        SIM</label>
+                    <label><input type="checkbox" name="pago" value="nao"> NÃO</label>
                 </div>
-                <button type="submit" class="modal-add-btn">Adicionar</button>
+                <div id="div_para_botao">
+
+                    <button type="submit" class="modal-add-btn">Adicionar</button>
+
+                </div>
             </form>
         </div>
     </div>
@@ -253,10 +262,14 @@
                 </div>
                 <div class="form-row">
                     <label>Pago?</label>
-                    <label><input type="radio" name="edit-pago" value="sim"> SIM</label>
-                    <label><input type="radio" name="edit-pago" value="nao"> NÃO</label>
+                    <label><input type="checkbox" name="edit-pago" value="sim"> SIM</label>
+                    <label><input type="checkbox" name="edit-pago" value="nao"> NÃO</label>
                 </div>
-                <button type="submit" class="modal-add-btn">Salvar</button>
+                <div id="div_para_botao">
+
+                    <button type="submit" class="modal-add-btn_save">Salvar</button>
+
+                </div>
             </form>
         </div>
     </div>
@@ -266,7 +279,7 @@
     <div id="infoExpenseModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close" onclick="closeModalVerMais()">&times;</span>
-            <h2>Informação sobre a Despesa</h2>
+            <h2>Informação sobre a Despesa</h2> <br><br>
             <form>
                 <div class="form-row">
                     <div class="form-group">
@@ -290,8 +303,8 @@
                 </div>
                 <div class="form-row">
                     <label>Pago?</label>
-                    <label><input type="radio" name="info-pago" value="sim" disabled> SIM</label>
-                    <label><input type="radio" name="info-pago" value="nao" disabled> NÃO</label>
+                    <label><input type="checkbox" name="info-pago" value="sim" disabled> SIM</label>
+                    <label><input type="checkbox" name="info-pago" value="nao" disabled> NÃO</label>
                 </div>
             </form>
         </div>
