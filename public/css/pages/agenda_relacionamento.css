@@ -16,11 +16,11 @@
 */
 
 .main-content{
-    margin: 0;
+    margin-left: 6%;
     display: flex;
     flex-direction: column;
     flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
-    gap: 20px;
+    gap: 2px;
 }
 
 .header-top{
@@ -238,4 +238,94 @@
 .birthday-item .date {
     color: #888;
     margin: 0;
+}
+
+
+/* Estilo para o pop-up */
+.month-picker-popup {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: absolute; /* Posição absoluta para sobrepor a página */
+    z-index: 1000; /* Garante que ele fique sobre outros elementos */
+    width: 300px;
+    top: 55%;
+    left: 17%;
+    transform: translate(-50%, -50%); /* Centraliza o pop-up na tela */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Esconde o pop-up */
+.month-picker-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Estilo do cabeçalho do calendário */
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Botões de navegação */
+.month-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* Botões de mês */
+.month-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.month-buttons button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.month-buttons button.selected {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+/* Ações no rodapé do calendário */
+.calendar-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#cancel-btn, #ok-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cancel-btn {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #666;
+}
+
+#ok-btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
 }
