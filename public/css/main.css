@@ -30,12 +30,12 @@
 
 .container {
     background-color: var(--white-light);
-    width: 100%;
+    width: 100%;    
     display: flex;
     position: fixed;
     flex-direction: row;
     min-height: 100vh;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
-
+    
 }

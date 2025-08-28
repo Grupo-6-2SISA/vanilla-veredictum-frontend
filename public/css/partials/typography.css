@@ -12,9 +12,10 @@
 
 @media (min-width: 1440px) {
     h1 {
-        font-size: 64px;
+        font-size: 50px;
         line-height: 100%;
         font-weight: 300px;
+        
     }
 
     h2 {

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Veredictum</title>
+
+    <link rel="icon" href="./imgs/logo-veredictum.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/pages/cadastro.css">
+
+</head>
+
+<body>
+    <div class="cadastro-image">
+        <div class="image-text"> <!-- textinho -->
+             <img src="./assets/img/img-cadastro.png" alt="">
+            <span class="subtitle-image">Não tem uma conta?</span>
+            <span class="subtitle-image">Cadastre-se aqui</span>
+            <button class="login-btn">Cadastre-se</button>
+        </div>
+    </div>
+
+
+
+    <div class="cadastro-info">
+        <div class="voltar-icon">
+            <img src="./assets/img/voltar-icon.png" alt="Icone de voltar" />
+        </div>
+
+        <div class="logo-row">
+            <img src="./assets/svg/logo_veredictum.svg" alt="Veredictum" />
+            <span class="logo-title">Veredictum</span>
+            <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
+        </div>
+
+        <form class="login-form" id="login-form">
+            <div class="login-form-row">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="E-mail">
+
+            </div>
+
+            <div class="login-form-row">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Senha">
+            </div>
+
+
+            <a href="./rec-senha.html"><span class="esqueceu-senha">Esqueceu a senha? Recupere aqui</span></a>
+
+            <a href="./visao_geral.html"><button class="cadastro-btn" type="submit" onclick="Autenticacao()">Entrar</button></a>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    // Array para simular usuários cadastrados. Em um sistema real, viriam do backend.
+const usuariosCadastrados = [
+    { email: 'admin@veredictum.com', senha: '123' },
+    { email: 'joao@email.com', senha: 'senha123' }
+];
+
+// Seleciona o formulário de login pelo ID
+const loginForm = document.getElementById('login-form');
+
+// Define a função de autenticação
+function Autenticacao() {
+    loginForm.addEventListener('submit', function(event) {
+        // Evita que o formulário seja submetido e a página recarregue
+        event.preventDefault();
+
+        // Pega os valores dos campos de email e senha
+        const emailInput = document.getElementById('email').value;
+        const senhaInput = document.getElementById('senha').value;
+        
+        // Procura por um usuário que corresponda ao email e senha inseridos
+        const usuarioEncontrado = usuariosCadastrados.find(usuario => {
+            return usuario.email === emailInput && usuario.senha === senhaInput;
+        });
+
+        if (usuarioEncontrado) {
+            // Se o usuário for encontrado, exibe uma mensagem de sucesso e redireciona
+            alert('Login bem-sucedido!');
+            window.location.href = './visao_geral.html';
+        } else {
+            // Se o usuário não for encontrado, exibe uma mensagem de erro
+            alert('E-mail ou senha incorretos. Tente novamente.');
+        }
+    });
+}
+
+// Chama a função para que ela seja executada e o "ouvinte" seja ativado
+Autenticacao();
+</script>
+

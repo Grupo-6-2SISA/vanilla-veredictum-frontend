@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão Geral | Veredictum</title>
+    <link rel="icon" href="./assets/svg/logo_vectorized.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
+                    <span class="menu-text-logo">Veredictum</span>
+                </div>
+                <span class="user-name">Lismara Ribeiro</span>
+            </div>
+            <nav class="sidebar-nav">
+
+                <ul>
+                    <li>
+                        <a href="./visao_geral.html" class="active">
+                            <img src="./assets/svg/visao-geral-black.svg" class="icon_vg" alt="">
+                            <span class="menu-text-active">Visão Geral</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">
+                            <img src="./assets/svg/dash.svg" class="icon_dash" alt="">
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/painel.svg" class="icon_painel" alt="">
+                            <span class="menu-text">Painel</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/funcionario.svg" class="icon_funcionario" alt="">
+                            <span class="menu-text">Gestão de Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./agenda_relacionamento.html" >
+                            <img src="./assets/svg/agenda.svg" class="icon_agenda" alt="">
+                            <span class="menu-text">Agenda & Relacionamento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./gestao_dispesas.html">
+                            <img src="./assets/svg/despezas.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Despezas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/notas_fiscais.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Notas Fiscais</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/logs.svg" class="icon_logs" alt="">
+                            <span class="menu-text">Gestão de Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="./home.html"><img src="./assets/svg/exit.svg" class="icon_exit" alt=""></a>
+                <span class="menu-text">Sair</span>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <h1>Visão Geral</h1>
+
+
+            <section class="dashboard-grid">
+                <div class="card-top">
+                    <div class="card" id="card-appointments">
+                        <div class="card-header">
+                            <h2><img src="./assets/svg/calendar.svg" class="icon_calendar" alt="">Próximos atendimentos
+                            </h2>
+
+                        </div>
+                        <div class="card-content">
+                            <div class="list-header">
+                                <p class="list-atendimento-nome">Nome</p>
+                                <p class="list-atendimento-dia">Dia</p>
+                                <p class="list-atendimento-horario">Horário</p>
+                            </div>
+                            <div id="appointments-list" class="list-items-container">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" id="card-invoices">
+                        <div class="card-header">
+                            <h2><img src="./assets/svg/notas.svg" class="icon_nota" alt="">Prazos de Notas Fiscais</h2>
+
+                        </div>
+                        <div class="card-content">
+                            <div class="list-header">
+                                <p class="list-nf-nota">Número da Nota</p>
+                                <p class="list-nf-data">Data Limite</p>
+                            </div>
+                            <div id="invoices-list" class="list-items-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-bottom">
+                    <div class="card" id="card-birthdays">
+                        <div class="card-header">
+                            <h2><img src="./assets/svg/aniversário.svg" class="icon_aniversario" alt="">Aniversariantes
+                                do mês</h2>
+
+                        </div>
+                        <div class="card-content">
+                            <div class="list-header">
+                                <p class="list-birthdays-nome" >Nome</p>
+                                <p class="list-birthdays-dia">Dia</p>
+                            </div>
+                            <div id="birthdays-list" class="list-items-container">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" id="card-bills">
+                        <div class="card-header">
+                            <h2><img src="./assets/svg/contas.svg" class="icon_contas" alt="">Contas a pagar</h2>
+
+                        </div>
+                        <div class="card-content">
+                            <div class="list-header">
+                                <p class="list-contas-etiqueta">Etiqueta</p>
+                                <p class="list-contas-data">Data Limite</p>
+                            </div>
+                            <div id="bills-list" class="list-items-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./js/visao_geral.js"></script>
+</body>
+
+
+</html>

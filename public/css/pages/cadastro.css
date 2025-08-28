@@ -1,0 +1,223 @@
+body {
+  height: 100vh;
+  background: #222;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.voltar-icon img {
+  width: 30px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.cadastro-image {
+  position: relative;       
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.cadastro-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      
+}
+
+.image-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  width: 90%;
+  height: 40px;
+  background: #F4A100;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.login-btn:hover {
+  background: #9b9494;
+  color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;     
+    background: none;      
+    border: none;       
+}
+
+.cadastro-info {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #000
+}
+
+.logo-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logo-row img {
+  width: 20%;
+  height: 20%;
+  margin-right: -20px;
+}
+
+.logo-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: -20px;
+}
+
+.subtitle-logo {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin-top: 40px;
+  margin-left: 100px;
+  width: 80%;
+}
+
+
+.login-form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.login-form input {
+  box-sizing: border-box;
+  width: 90%;
+  height: 40px;
+  border-radius: 8px;
+  /* padding-left: 10px; */
+
+}
+
+.cadastro-btn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  background: #F4A100;
+  color: #fff;
+  border: none;
+  /* padding: 12px 32px; */
+  border-radius: 8px;
+  width: 90%;
+  height: 40px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.cadastro-btn:hover {
+  background: #9b9494;
+  color: #fff;
+}
+
+
+/* para o login */
+.esqueceu-senha{
+  font-size: 12px;
+  color: #F4A100;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 1024px) {
+  .cadastro-image {
+    width: 40%;
+  }
+
+  .cadastro-info {
+    width: 60%;
+  }
+
+  .login-form {
+    margin-left: 40px;
+    width: 85%;
+  }
+
+  .login-form input,
+  .cadastro-btn {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cadastro-image {
+    width: 100%;
+    height: 250px;
+    background-position: top;
+  }
+
+  .image-text {
+    font-size: 22px;
+  }
+
+  .cadastro-info {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-form {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .login-form input,
+  .cadastro-btn {
+    width: 100%;
+  }
+}
+
+
+

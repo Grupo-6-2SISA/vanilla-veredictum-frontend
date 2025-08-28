@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Despesas</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pages/gestao_despesas_css.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/svg/logo_veredictum.svg" type="image/svg+xml">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+       <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
+                    <span class="menu-text-logo">Veredictum</span>
+                </div>
+                <span class="user-name">Lismara Ribeiro</span>
+            </div>
+            <nav class="sidebar-nav">
+
+                <ul>
+                    <li>
+                        <a href="./visao_geral.html">
+                            <img src="./assets/svg/visao-geral.svg" class="icon_vg" alt="">
+                            <span class="menu-text">Visão Geral</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">
+                            <img src="./assets/svg/dash.svg" class="icon_dash" alt="">
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/painel.svg" class="icon_painel" alt="">
+                            <span class="menu-text">Painel</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/funcionario.svg" class="icon_funcionario" alt="">
+                            <span class="menu-text">Gestão de Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./agenda_relacionamento.html" >
+                            <img src="./assets/svg/agenda.svg" class="icon_agenda" alt="">
+                            <span class="menu-text">Agenda & Relacionamento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./gestao_dispesas.html" class="active">
+                            <img src="./assets/svg/despezas_black.svg" class="icon_notas" alt="">
+                            <span class="menu-text-active">Gestão de Despezas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/notas_fiscais.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Notas Fiscais</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/logs.svg" class="icon_logs" alt="">
+                            <span class="menu-text">Gestão de Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="./home.html"><img src="./assets/svg/exit.svg" class="icon_exit" alt=""></a>
+                <span class="menu-text">Sair</span>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Gestão de Despesas</h1>
+
+                <button class="add-expense-btn" onclick="openModal()">
+                    <span>Adicionar Despesa</span>
+                    <img src="./assets/svg/btn.svg" alt="">
+                </button>
+
+            </header>
+
+            <div class="month-selector">
+                <select id="monthSelect" onchange="updateMonth()">
+                    <option value="janeiro">Janeiro</option>
+                    <option value="fevereiro">Fevereiro</option>
+                    <option value="março">Março</option>
+                    <option value="abril">Abril</option>
+                    <option value="maio">Maio</option>
+                    <option value="junho" selected>Junho</option>
+                    <option value="julho">Julho</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="setembro">Setembro</option>
+                    <option value="outubro">Outubro</option>
+                    <option value="novembro">Novembro</option>
+                    <option value="dezembro">Dezembro</option>
+                </select>
+                <div class="total-month">
+                    <span>Total do mês: <strong id="monthTotal">124,33</strong></span>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <!-- Bills Table -->
+                <div class="bills-section">
+
+                    <div class="section-header">
+                        <h2>Contas a Pagar</h2>
+                        <button class="expand-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="bills-table">
+                            <thead>
+                                <tr>
+                                    <th>Etiqueta</th>
+                                    <th>Data de Vencimento</th>
+                                    <th>Pago</th>
+                                    <th>Editor</th>
+                                    <th>Informações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="billsTableBody">
+                                <tr>
+                                    <td>Luz</td>
+                                    <td>09/06/2025</td>
+                                    <td><span class="status paid">Sim</span></td>
+                                    <td>
+                                        <button class="edit-btn" onclick="openModalEdit(this)">
+                                            <img src="./assets/svg/edit.svg" alt="">
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="info-link" onclick="modalVerMais(this)">Ver mais</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Água</td>
+                                    <td>11/06/2025</td>
+                                    <td><span class="status unpaid">Não</span></td>
+                                    <td>
+                                        <button class="edit-btn">
+                                            <img src="./assets/svg/edit.svg" alt="">
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="info-link" onclick="modalVerMais(this)">Ver mais</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="chart-section">
+                    <h2>Valor Gasto por Ano</h2>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Adicionar Despesa -->
+    <div id="expenseModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Adicionar Despesa</h2>
+            <form id="expenseForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="etiqueta">Etiqueta</label>
+                        <input type="text" id="etiqueta" name="etiqueta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="url">URL</label>
+                        <input type="text" id="url" name="url">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vencimento">Data de Vencimento</label>
+                        <input type="date" id="vencimento" name="vencimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentario">Comentário</label>
+                        <input type="text" id="comentario" name="comentario">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Pago?</label>
+                    <label><input type="radio" name="pago" value="sim" checked> SIM</label>
+                    <label><input type="radio" name="pago" value="nao"> NÃO</label>
+                </div>
+                <button type="submit" class="modal-add-btn">Adicionar</button>
+            </form>
+        </div>
+    </div>
+    <!-- /Modal Adicionar Despesa -->
+
+    <!-- Modal Editar Despesa -->
+    <div id="editExpenseModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalEdit()">&times;</span>
+            <h2>Editar Despesa</h2>
+            <form id="editExpenseForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-etiqueta">Etiqueta</label>
+                        <input type="text" id="edit-etiqueta" name="etiqueta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-url">URL</label>
+                        <input type="text" id="edit-url" name="url">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-vencimento">Data de Vencimento</label>
+                        <input type="date" id="edit-vencimento" name="vencimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-comentario">Comentário</label>
+                        <input type="text" id="edit-comentario" name="comentario">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Pago?</label>
+                    <label><input type="radio" name="edit-pago" value="sim"> SIM</label>
+                    <label><input type="radio" name="edit-pago" value="nao"> NÃO</label>
+                </div>
+                <button type="submit" class="modal-add-btn">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <!-- /Modal Editar Despesa -->
+
+    <!-- Modal Informação sobre a Despesa -->
+    <div id="infoExpenseModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModalVerMais()">&times;</span>
+            <h2>Informação sobre a Despesa</h2>
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="info-etiqueta">Etiqueta</label>
+                        <input type="text" id="info-etiqueta" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="info-url">URL</label>
+                        <input type="text" id="info-url" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="info-vencimento">Data de Vencimento</label>
+                        <input type="date" id="info-vencimento" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="info-comentario">Comentário</label>
+                        <input type="text" id="info-comentario" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Pago?</label>
+                    <label><input type="radio" name="info-pago" value="sim" disabled> SIM</label>
+                    <label><input type="radio" name="info-pago" value="nao" disabled> NÃO</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /Modal Informação sobre a Despesa -->
+
+    <script src="./js/gestao_dispesas.js"></script>
+</body>
+
+</html>
