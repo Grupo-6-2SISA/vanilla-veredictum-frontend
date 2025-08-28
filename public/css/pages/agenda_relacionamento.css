@@ -127,7 +127,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 0.9rem;
     color: #666;
-    
+
 }
 
 .table-header {
@@ -135,7 +135,7 @@
     font-weight: 1000;
     color: var(--normal-black-normal);
 
-  
+
 }
 
 .table-header p {
@@ -158,7 +158,7 @@
     width: 15px;
     height: 15px;
     accent-color: #333;
-    
+
 }
 
 .table-row .col-edit,
