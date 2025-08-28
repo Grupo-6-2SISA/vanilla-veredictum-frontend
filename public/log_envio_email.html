@@ -135,35 +135,48 @@
         </div>
 
         <!-- Modal Ver mais-->
+
         <div id="modalVerMais" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModalVerMais()">&times;</span>
-                <h2>Informações sobre Logs</h2>
 
-                <div class="form-group">
-                    <label>Tipo</label>
-                    <input type="text" value="Atendimento" readonly>
+                <div id="div_para_titulo">
+                    <span class="close" onclick="closeModalVerMais()">
+                        <img src="assets/svg/fechar.svg" alt="">
+                    </span>
+
+                    <h2>Informações sobre Logs</h2>
                 </div>
 
-                <div class="form-group">
-                    <label>Data de Envio</label>
-                    <input type="date" value="2025-06-05" readonly>
+                <div class="modal-column">
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <input type="text" value="Atendimento" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea readonly>Lembrete de atendimento agendado para amanhã às 14:00</textarea>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Mensagem</label>
-                    <textarea readonly>Lembrete de atendimento agendado para amanhã às 14:00</textarea>
-                </div>
+                <div class="modal-column">
+                    <div class="form-group">
+                        <label>Data de Envio</label>
+                        <input type="date" value="2025-06-05" readonly>
+                    </div>
 
-                <div class="form-group">
-                    <label>Cliente Relacionado</label>
-                    <input type="text" value="Márcio Ribeiro" readonly>
+                    <div class="form-group">
+                        <label>Cliente Relacionado</label>
+                        <input type="text" value="Márcio Ribeiro" readonly>
+                    </div>
                 </div>
+                
             </div>
+            
         </div>
 
+        </div>
 
-        
 
         <script src="js/log_envio_email.js"></script>
 

@@ -196,118 +196,6 @@
      color: #999;
  }
 
- /* Modal */
- .modal-overlay {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(0, 0, 0, 0.5);
-     display: none;
-     justify-content: center;
-     align-items: center;
-     z-index: 1000;
- }
-
- .modal-overlay.active {
-     display: flex;
- }
-
- .modal {
-     background: #424242;
-     border-radius: 12px;
-     width: 90%;
-     max-width: 600px;
-     max-height: 90vh;
-     overflow-y: auto;
-     position: relative;
-     color: white;
- }
-
- .modal-header {
-     background-color: #424242;
-     color: white;
-     padding: 20px 24px;
-     border-radius: 12px 12px 0 0;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
- }
-
- .modal-title {
-     font-size: 18px;
-     font-weight: 600;
-     margin: 0;
- }
-
- .modal-close {
-     background: none;
-     border: none;
-     color: white;
-     font-size: 24px;
-     cursor: pointer;
-     padding: 0;
-     width: 30px;
-     height: 30px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 50%;
-     transition: background-color 0.2s;
- }
-
- .modal-close:hover {
-     background-color: rgba(255, 255, 255, 0.1);
- }
-
- .modal-body {
-     padding: 24px;
- }
-
- .modal-form {
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     gap: 20px;
- }
-
- .form-group {
-     display: flex;
-     flex-direction: column;
-     gap: 8px;
- }
-
- .form-group.full-width {
-     grid-column: 1 / -1;
- }
-
- .form-label {
-     font-size: 14px;
-     font-weight: 500;
-     color: #ffffff;
- }
-
- .form-input,
- .form-textarea {
-     padding: 12px;
-     border: 1px solid #ddd;
-     border-radius: 6px;
-     font-size: 14px;
-     font-family: inherit;
-     background: white;
- }
-
- .form-textarea {
-     resize: vertical;
-     min-height: 80px;
- }
-
- .form-input:focus,
- .form-textarea:focus {
-     outline: none;
-     border-color: #ff6b35;
-     box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.1);
- }
 
  /* Responsive */
  @media (max-width: 768px) {
@@ -335,44 +223,85 @@
 
 
  /* Modal container */
+
 .modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  background: none; 
-}
-
-
-.modal-overlay {
-  display: none !important; 
-  background: none !important;
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.6); 
+    width: 100vw;  
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-  background: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  width: 600px;
-  max-width: 90%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    background: #414141;
+    color: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    position: relative;
+    width: 90%;        
+    max-width: 1000px; 
+    height: auto;      
+    border: 1px groove black;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+
+    display: flex;        
+    flex-wrap: wrap;     
+    gap: 20px;
+}
+
+.modal-column {
+    flex: 1;            
+    display: flex;
+    flex-direction: column;
+    gap: 20px;          
+}
+
+.modal-column .form-group input,
+.modal-column .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #f1f1f1;
+    color: #000;
 }
 
 
-/* Botão fechar */
-.close {
-  float: right;
-  font-size: 22px;
-  cursor: pointer;
+#div_para_titulo{
+    height: 55px;
+    width: 100%;
 }
 
- 
-.action-btn {
-    background: none;
-    border: none;   
-    color: inherit; 
-    cursor: pointer; 
-}
+ .modal-content h2 {
+     display: flex;
+     justify-content: center;
+     font-size: 40px;
+     font-weight: bold;
+ }
+
+
+ .form-group label {
+     color: white;
+ }
+
+
+ .close {
+     float: right;
+     font-size: 22px;
+     cursor: pointer;
+ }
+
+
+ .action-btn {
+     background: none;
+     border: none;
+     color: inherit;
+     cursor: pointer;
+ }
