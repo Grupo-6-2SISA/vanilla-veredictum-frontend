@@ -75,7 +75,7 @@ const chartData = {
         pointBorderColor: '#333',
         pointRadius: 4,
         pointHoverRadius: 6,
-        tension: 0
+        tension: 0.4
     }]
 };
 
@@ -124,9 +124,6 @@ function initializeChart() {
                 }
             },
             elements: {
-                line: {
-                    tension: 0 
-                },
                 point: {
                     hoverBackgroundColor: '#ff6b35',
                     hoverBorderColor: '#ff6b35'
@@ -134,23 +131,6 @@ function initializeChart() {
             }
         }
     });
-}
-
-
-function openModal() {
-    document.getElementById('expenseModal').style.display = 'block';
-}
-
-function closeModal() {
-    document.getElementById('expenseModal').style.display = 'none';
-    document.getElementById('expenseForm').reset();
-}
-
-window.onclick = function (event) {
-    const modal = document.getElementById('expenseModal');
-    if (event.target === modal) {
-        closeModal();
-    }
 }
 
 
@@ -263,26 +243,6 @@ function toggleSwitch(element) {
 
 
 
-
-function openModal(tipo, data, mensagem, cliente) {
-    document.getElementById('modalTipo').value = tipo;
-    document.getElementById('modalData').value = data;
-    document.getElementById('modalMensagem').value = mensagem;
-    document.getElementById('modalCliente').value = cliente || '-';
-
-    document.getElementById('modalOverlay').classList.add('active');
-}
-
-function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('active');
-}
-
-document.getElementById('modalOverlay').addEventListener('click', function (e) {
-    if (e.target === this) {
-        closeModal();
-    }
-});
-
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         closeModal();
@@ -291,155 +251,82 @@ document.addEventListener('keydown', function (e) {
 
 
 
-// ------------------------------ Gestão de despesas - Modal
-function openModal() {
-    document.getElementById("expenseModal").style.display = "block"
-    const today = new Date().toISOString().split("T")[0]
-    document.getElementById("expenseDate").value = today
+// ------------------------------ Painel de Controle - Modal
+
+function openModalCriar() {
+    document.getElementById("modalCriar").style.display = "flex";
 }
 
-function closeModal() {
-    document.getElementById("expenseModal").style.display = "none"
-    document.getElementById("expenseForm").reset()
+function closeModalCriar() {
+    document.getElementById("modalCriar").style.display = "none";
 }
 
-function addExpense(event) {
-    event.preventDefault()
 
-    const label = document.getElementById("expenseLabel").value
-    const url = document.getElementById("expenseUrl").value
-    const date = document.getElementById("expenseDate").value
-    const comment = document.getElementById("expenseComment").value
-    const paid = document.querySelector('input[name="expensePaid"]:checked').value === "true"
-
-    // Format date to DD/MM/YYYY
-    const formattedDate = new Date(date).toLocaleDateString("pt-BR")
-
-    // Add new expense
-    expenses.push({
-        label: label,
-        date: formattedDate,
-        paid: paid,
-        url: url,
-        comment: comment,
-    })
-
-    // Update table and close modal
-    updateBillsTable()
-    updateMonthTotal()
-    closeModal()
-
-    console.log("[v0] New expense added:", { label, date: formattedDate, paid, url, comment })
-}
-
-function updateBillsTable() {
-    const tbody = document.getElementById("billsTableBody")
-    tbody.innerHTML = ""
-
-    expenses.forEach((expense, index) => {
-        const row = document.createElement("tr")
-        row.innerHTML = `
-            <td>${expense.label}</td>
-            <td>${expense.date}</td>
-            <td><span class="status ${expense.paid ? "paid" : "unpaid"}">${expense.paid ? "Sim" : "Não"}</span></td>
-            <td>
-                <button class="edit-btn" onclick="togglePaidStatus(${index})">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                    </svg>
-                </button>
-            </td>
-            <td><a href="#" class="info-link" onclick="showExpenseInfo(${index})">Ver mais</a></td>
-        `
-        tbody.appendChild(row)
-    })
-}
-
-function togglePaidStatus(index) {
-    expenses[index].paid = !expenses[index].paid
-    updateBillsTable()
-    updateMonthTotal()
-    console.log("[v0] Toggled payment status for:", expenses[index].label)
-}
-
-function showExpenseInfo(index) {
-    const expense = expenses[index]
-    let info = `Despesa: ${expense.label}\nData: ${expense.date}\nStatus: ${expense.paid ? "Pago" : "Não Pago"}`
-
-    if (expense.url) {
-        info += `\nURL: ${expense.url}`
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeModalCriar();
     }
-
-    if (expense.comment) {
-        info += `\nComentário: ${expense.comment}`
-    }
-
-    alert(info)
-}
-
-
-// --------------------------
-
-function openModalEdit(btn) {
-    // Pega a linha da tabela
-    const row = btn.closest('tr');
-    // Pega os dados das células
-    const etiqueta = row.children[0].textContent.trim();
-    const vencimento = row.children[1].textContent.trim().split('/').reverse().join('-'); // dd/mm/yyyy -> yyyy-mm-dd
-    const pago = row.children[2].textContent.trim().toLowerCase() === 'sim' ? 'sim' : 'nao';
-    // Se quiser buscar URL/comentário de outro lugar, adapte aqui:
-    document.getElementById('edit-etiqueta').value = etiqueta;
-    document.getElementById('edit-vencimento').value = vencimento;
-    document.getElementById('edit-url').value = ''; // Adapte se tiver URL
-    document.getElementById('edit-comentario').value = ''; // Adapte se tiver comentário
-    document.querySelector('input[name="edit-pago"][value="' + pago + '"]').checked = true;
-    document.getElementById('editExpenseModal').style.display = 'flex';
-}
-
-function closeModalEdit() {
-    document.getElementById('editExpenseModal').style.display = 'none';
-}
-
-// Adiciona evento aos botões de edição
-document.querySelectorAll('.edit-btn').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        const row = btn.closest('tr');
-        const etiqueta = row.children[0].textContent.trim();
-        const vencimento = row.children[1].textContent.trim().split('/').reverse().join('-'); // dd/mm/yyyy -> yyyy-mm-dd
-        const pago = row.children[2].textContent.trim();
-        // Se quiser buscar URL/comentário de outro lugar, adapte aqui:
-        openModalEdit(etiqueta, '', vencimento, '', pago);
-    });
 });
 
-// Fecha ao clicar fora do modal
-window.onclick = function (event) {
-    const modal = document.getElementById('editExpenseModal');
-    if (event.target === modal) {
-        closeModalEdit();
+function openModalEditar() {
+    document.getElementById("modalEditar").style.display = "flex";
+}
+
+function closeModalEditar() {
+    document.getElementById("modalEditar").style.display = "none";
+}
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeModalEditar();
+    }
+});
+
+function openModalConfirmar() {
+    document.getElementById("modalConfirmar").style.display = "flex";
+}
+
+function closeModalConfirmar() {
+    document.getElementById("modalConfirmar").style.display = "none";
+}
+
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeModalConfirmar();
+    }
+});
+
+
+function toggleSwitch(element) {
+    if (element.classList.contains('active')) {
+        element.classList.remove('active');
+        element.classList.add('inactive');
+
+        openModalConfirmar();
+    } else {
+        element.classList.remove('inactive');
+        element.classList.add('active');
     }
 }
 
 
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeModalConfirmar();
+    }
+});
 
-// ---------------------------------------------------------------------------------------
-
-function modalVerMais(link) {
-    const row = link.closest('tr');
-    const etiqueta = row.children[0].textContent.trim();
-    const vencimento = row.children[1].textContent.trim().split('/').reverse().join('-');
-    const pago = row.children[2].textContent.trim().toLowerCase() === 'sim' ? 'sim' : 'nao';
-
-    document.getElementById('info-etiqueta').value = etiqueta;
-    document.getElementById('info-vencimento').value = vencimento;
-    document.getElementById('info-url').value = '';
-    document.getElementById('info-comentario').value = '';
-    document.querySelector('input[name="info-pago"][value="sim"]').checked = pago === 'sim';
-    document.querySelector('input[name="info-pago"][value="nao"]').checked = pago === 'nao';
-    document.getElementById('infoExpenseModal').style.display = 'flex';
+function openModalRotina() {
+    document.getElementById("modalRotina").style.display = "flex";
 }
 
-function closeModalVerMais() {
-    document.getElementById('infoExpenseModal').style.display = 'none';
+function closeModalRotina() {
+    document.getElementById("modalRotina").style.display = "none";
 }
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeModalRotina();
+    }
+});
