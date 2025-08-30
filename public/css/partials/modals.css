@@ -121,12 +121,12 @@
 .reminder-label {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--white-normal);
     margin-right: 20%;
 }
 .reminder-label input {
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 /* Modal Editar Agendamento*/
@@ -153,7 +153,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--light-black);
+    background-color: var(--white-dark);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
     width: 500px;
@@ -188,14 +188,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 25px;
-    border-bottom: 1px solid var(--gray-3);
+    border-bottom: 1px solid var(--light-black);
 }
 
 .modal-delete .modal-header h2,
 .modal-mass-delete .modal-header h2 {
     margin: 0;
     font-size: 1.5rem;
-    color: var(--white-normal);
+    color: var(--darkness-black);
 }
 
 .modal-delete .modal-close-delete-btn,
@@ -210,7 +210,7 @@
 .modal-mass-delete .modal-body {
     padding: 25px;
     font-size: 1.2rem;
-    color: var(--white-normal);
+    color: var(--darkness-black);
 }
 
 .modal-delete .modal-body p,
@@ -241,13 +241,13 @@
 .modal-delete .btn-cancel-delete,
 .modal-mass-delete .btn-cancel-mass-delete {
     background-color: transparent;
-    border: 1px solid #ccc;
-    color: var(--white-normal);
+    border: 1px solid var(--darkness-black);
+    color: var(--darkness-black);
 }
 
 .modal-delete .btn-confirm-delete,
 .modal-mass-delete .btn-confirm-mass-delete {
     background-color: #f44336; /* Cor vermelha para exclusão */
     border: none;
-    color: white;
+    color: var(--white-normal);
 }
