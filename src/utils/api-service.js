@@ -30,18 +30,18 @@ const ApiService = {
             const contentType = response.headers.get("content-type")
             if (contentType && contentType.includes("application/json")) {
                 const data = await response.json()
-                console.log(`[v0] API Response:`, data)
+                console.log(` API Response:`, data)
                 return data
             }
 
-            return null // Para respostas sem conteúdo (204 No Content)
+            return null
         } catch (error) {
-            console.error(`[v0] API Error:`, error)
+            console.error(` API Error:`, error)
             throw error
         }
     },
 
-    // Métodos para Clientes
+
     getClientes() {
         return this.request("/clientes")
     },
@@ -76,7 +76,7 @@ const ApiService = {
         })
     },
 
-    // Métodos para Notas Fiscais
+
     getNotasFiscais() {
         return this.request("/notas-fiscais")
     },
@@ -114,5 +114,5 @@ const ApiService = {
     },
 }
 
-// Torna o ApiService disponível globalmente no navegador
+
 window.ApiService = ApiService
