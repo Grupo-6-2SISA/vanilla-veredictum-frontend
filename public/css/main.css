@@ -11,12 +11,12 @@
 
 /* ----- IMPORTANDO PÁGINAS DO SITE ----- */
 /* Telas Gabriel */
-@import url(./pages/notas-fiscais.css);
-@import url(./pages/gestao_despesas_css.css);
+/* @import url(./pages/notas-fiscais.css); */
+/* @import url(./pages/gestao_despesas_css.css); */
 
 /* Telas Davidson */
-@import url(./pages/log_envio_email.css);
-@import url(./pages/painel_controle.css);
+/* @import url(./pages/log_envio_email.css); */
+/* @import url(./pages/painel_controle.css); */
 
 /* Telas Gustavo */
 @import url(./pages/visao_geral.css);
