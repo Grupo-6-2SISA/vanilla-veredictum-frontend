@@ -78,40 +78,32 @@
                         </div>
 
                         <div class="panel-content scrollable-panel-content">
-                            <table class="table">
-                                
+                            <table>
                                 <thead>
                                     <tr>
-                                        <th></th>
                                         <th>ID</th>
                                         <th>Nome</th>
                                         <th>Acesso</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-
-                                    <div class="pills-row">
-                                        <div class="pill">
-                                            <input type="checkbox" class="checkbox">
-                                            <span class="id">100</span>
-                                            <span class="name">Lismara Ribeiro</span>
-                                            <div class="cell-toggle">
-                                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="pill">
-                                            <input type="checkbox" class="checkbox">
-                                            <span class="id">101</span>
-                                            <span class="name">Orlando Matos</span>
-                                            <div class="cell-toggle">
-                                                <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <tr class="pill-row">
+                                        <td>100</td>
+                                        <td>Lismara Ribeiro</td>
+                                        <td>
+                                            <div class="toggle-switch active"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="pill-row">
+                                        <td>101</td>
+                                        <td>Orlando Matos</td>
+                                        <td>
+                                            <div class="toggle-switch"></div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
+
                         </div>
 
                         <button class="expand-btn">⌄</button>
@@ -140,7 +132,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th></th>
                                         <th>Nome de Rotina</th>
                                         <th>Executado</th>
                                         <th>Ações</th>
@@ -148,8 +139,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" class="checkbox"></td>
+                                    <tr class="pill-row">
                                         <td>Aniversário</td>
                                         <td>Sim</td>
                                         <td><a href="#" class="link">Ver Mais</a></td>
@@ -161,181 +151,182 @@
                             </table>
                         </div>
                         <button class="expand-btn">⌄</button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal Criar Funcionário -->
-
-            <div id="modalCriar" class="modal">
-                <div class="modal-content">
-
-                    <div id="div_para_titulo">
-                        <span class="close" onclick="closeModalCriar()">
-                            <img src="assets/svg/fechar.svg" alt="">
-                        </span>
-                        <h2>Cadastrar Funcionário</h2>
-                    </div>
-
-                    <div class="modal-column">
-                        <div class="form-group">
-                            <label>Nome</label>
-                            <input type="text" placeholder="Digite o nome">
-                        </div>
-
-                        <div class="form-group">
-                            <label>E-mail</label>
-                            <input type="email" placeholder="Digite o e-mail">
-                        </div>
-                    </div>
-
-                    <div class="modal-column">
-                        <div class="form-group">
-                            <label>Tipo de Usuário</label>
-                            <select>
-                                <option>Administrador</option>
-                                <option>Usuário</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Senha</label>
-                            <input type="password" placeholder="Digite a senha">
-                        </div>
-                    </div>
-
-                    <button>Cadastrar</button>
-
-                </div>
-            </div>
-
-            <!-- Modal Editar -->
-
-            <div id="modalEditar" class="modal">
-
-                <div class="modal-content">
-                    <div id="div_para_titulo">
-                        <span class="close" onclick="closeModalEditar()">
-                            <img src="assets/svg/fechar.svg" alt="">
-                        </span>
-
-                        <h2>Editar Funcionário</h2>
-                    </div>
-
-                    <div class="modal-column">
-                        <div class="form-group">
-                            <label>Nome</label>
-                            <input type="text" value="Manuela Monteiro">
-                        </div>
-
-                        <div class="form-group">
-                            <label>E-mail</label>
-                            <input type="email" value="manuela@sptech.school">
-                        </div>
-                    </div>
-
-                    <div class="modal-column">
-                        <div class="form-group">
-                            <label>Tipo de Usuário</label>
-                            <select>
-                                <option>Administrador</option>
-                                <option>Usuário</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Senha</label>
-                            <input type="password" value="Manuela123">
-                        </div>
-                    </div>
-
-                    <div id="div_para_botao">
-
-                        <button type="submit" class="modal-add-btn">Salvar</button>
 
                     </div>
                 </div>
-            </div>
 
+                <!-- Modal Criar Funcionário -->
 
-            <!-- Modal de confirmação -->
+                <div id="modalCriar" class="modal">
+                    <div class="modal-content">
 
-            <div id="modalConfirmar" class="modal">
-                <div style="background-color: white; color: black;" class="modal-content">
+                        <div id="div_para_titulo">
+                            <span class="close" onclick="closeModalCriar()">
+                                <img src="assets/svg/fechar.svg" alt="">
+                            </span>
+                            <h2>Cadastrar Funcionário</h2>
+                        </div>
 
-                    <div id="div_para_titulo">
-                        <span class="close" onclick="closeModalConfirmar()">
-                            <img src="assets/svg/fechar.svg" alt="">
-                        </span>
+                        <div class="modal-column">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" placeholder="Digite o nome">
+                            </div>
 
-                        <h2>Desativar Funcionário</h2>
-                    </div>
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="email" placeholder="Digite o e-mail">
+                            </div>
+                        </div>
 
-                    <p>Deseja desativar Lismara Ribeiro?</p>
+                        <div class="modal-column">
+                            <div class="form-group">
+                                <label>Tipo de Usuário</label>
+                                <select>
+                                    <option>Administrador</option>
+                                    <option>Usuário</option>
+                                </select>
+                            </div>
 
-                    <div style="padding-top: 10px; width: 100%;display: flex; justify-content: right; gap: 10px;"
-                        class="actions">
-                        <button style="display:flex; background-color: white; color: #000;"
-                            class="modal-add-btn">Desativar</button>
-                        <button style="display:flex " class="modal-add-btn"
-                            onclick="closeModalConfirmar()">Cancelar</button>
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <input type="password" placeholder="Digite a senha">
+                            </div>
+                        </div>
+
+                        <button>Cadastrar</button>
+
                     </div>
                 </div>
-            </div>
 
-            <!-- Modal de Rotina  -->
-            <div id="modalRotina" class="modal">
-                <div class="modal-content">
-                    <div id="div_para_titulo">
-                        <span class="close" onclick="closeModalRotina()">
-                            <img src="assets/svg/fechar.svg" alt="">
-                        </span>
-                        <h2>Editar Rotina</h2>
-                    </div>
+                <!-- Modal Editar -->
 
-                    <div class="modal-column">
-                        <div class="form-group">
-                            <label>Nome Rotina</label>
-                            <input type="text" value="Aniversário">
-                        </div>
-                        <div class="form-group">
-                            <label>Hora de Início</label>
-                            <input type="time" value="10:00">
-                        </div>
-                        <div class="form-group">
-                            <label>Data de Início</label>
-                            <input type="date" value="2025-11-09">
-                        </div>
-                        <div class="form-group">
-                            <label>Data de Fim</label>
-                            <input type="date" value="2025-11-10">
-                        </div>
-                    </div>
+                <div id="modalEditar" class="modal">
 
-                    <div class="modal-column">
-                        <div class="form-group">
-                            <label>Rotina</label>
-                            <input type="text" value="Aniversario.py">
+                    <div class="modal-content">
+                        <div id="div_para_titulo">
+                            <span class="close" onclick="closeModalEditar()">
+                                <img src="assets/svg/fechar.svg" alt="">
+                            </span>
+
+                            <h2>Editar Funcionário</h2>
                         </div>
-                        <div class="form-group">
-                            <label>Rodou Hoje?</label>
-                            <select>
-                                <option selected>Lista de Clientes</option>
-                                <option>Não Rodou</option>
-                            </select>
+
+                        <div class="modal-column">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" value="Manuela Monteiro">
+                            </div>
+
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="email" value="manuela@sptech.school">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Status</label>
-                            <select>
-                                <option selected>Ativo</option>
-                                <option>Inativo</option>
-                            </select>
+
+                        <div class="modal-column">
+                            <div class="form-group">
+                                <label>Tipo de Usuário</label>
+                                <select>
+                                    <option>Administrador</option>
+                                    <option>Usuário</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <input type="password" value="Manuela123">
+                            </div>
+                        </div>
+
+                        <div id="div_para_botao">
+
+                            <button type="submit" class="modal-add-btn">Salvar</button>
+
                         </div>
                     </div>
-
-                    <button class="save-btn">Adicionar</button>
                 </div>
-            </div>
+
+
+                <!-- Modal de confirmação -->
+
+                <div id="modalConfirmar" class="modal">
+                    <div style="background-color: white; color: black;" class="modal-content">
+
+                        <div id="div_para_titulo">
+                            <span class="close" onclick="closeModalConfirmar()">
+                                <img src="assets/svg/fechar.svg" alt="">
+                            </span>
+
+                            <h2>Desativar Funcionário</h2>
+                        </div>
+
+                        <p>Deseja desativar Lismara Ribeiro?</p>
+
+                        <div style="padding-top: 10px; width: 100%;display: flex; justify-content: right; gap: 10px;"
+                            class="actions">
+                            <button style="display:flex; background-color: white; color: #000;"
+                                class="modal-add-btn">Desativar</button>
+                            <button style="display:flex " class="modal-add-btn"
+                                onclick="closeModalConfirmar()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal de Rotina  -->
+                <div id="modalRotina" class="modal">
+                    <div class="modal-content">
+                        <div id="div_para_titulo">
+                            <span class="close" onclick="closeModalRotina()">
+                                <img src="assets/svg/fechar.svg" alt="">
+                            </span>
+                            <h2>Editar Rotina</h2>
+                        </div>
+
+                        <div class="modal-column">
+                            <div class="form-group">
+                                <label>Nome Rotina</label>
+                                <input type="text" value="Aniversário">
+                            </div>
+                            <div class="form-group">
+                                <label>Hora de Início</label>
+                                <input type="time" value="10:00">
+                            </div>
+                            <div class="form-group">
+                                <label>Data de Início</label>
+                                <input type="date" value="2025-11-09">
+                            </div>
+                            <div class="form-group">
+                                <label>Data de Fim</label>
+                                <input type="date" value="2025-11-10">
+                            </div>
+                        </div>
+
+                        <div class="modal-column">
+                            <div class="form-group">
+                                <label>Rotina</label>
+                                <input type="text" value="Aniversario.py">
+                            </div>
+                            <div class="form-group">
+                                <label>Rodou Hoje?</label>
+                                <select>
+                                    <option selected>Lista de Clientes</option>
+                                    <option>Não Rodou</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select>
+                                    <option selected>Ativo</option>
+                                    <option>Inativo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="save-btn">Adicionar</button>
+                    </div>
+                </div>
 
 
         </main>

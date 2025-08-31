@@ -85,8 +85,10 @@ body {
 
 /* Main Content */
 .main-content {
-    flex: 1;
+    /* flex: 1; */
     padding: 40px;
+    margin-left: 10px;
+    /* background-color: red; */
 }
 
 .page-title {
@@ -110,6 +112,8 @@ body {
     overflow: hidden;
     position: relative;
     min-height: 400px;
+    min-width: 650px;
+    width: 100%;
     
 }
 
@@ -176,79 +180,7 @@ body {
     padding: 0;
 }
 
-/* Table */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
-.table th {
-    background-color: #f7fafc;
-    padding: 12px 20px;
-    text-align: left;
-    font-weight: bold;
-    color: #000;
-    font-size: 18px;
-}
-
-.table td {
-    padding: 16px 20px;
-    border-bottom: 1px solid #f1f5f9;
-    color: #000000;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.table thead {
-    background-color: #294404;
-}
-
-
-.table tr {
-    background-color: #ffffff;
-}
-
-
-
-.table tr:hover {
-    background-color: #f8fafc;
-}
-
-
-/* Toggle Switch */
-.toggle-switch {
-    position: relative;
-    width: 44px;
-    height: 24px;
-    background-color: #cbd5e0;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.toggle-switch.active {
-    background-color: green;
-}
-
-.toggle-switch.inactive {
-    background-color: red;
-}
-
-.toggle-switch::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    transition: transform 0.3s;
-}
-
-.toggle-switch.active::after {
-    transform: translateX(20px);
-}
 
 /* Checkbox */
 .checkbox {
@@ -467,63 +399,58 @@ body {
 }
 
 
-
-.pills-row {
-    display: flex;
-    flex-direction: column;
-    gap: 12px; /* espaço entre as pílulas */
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px; /* espaço entre as linhas */
+  width: 95%;
+  border: #4299e1 solid 2px;
 }
 
-.pill {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border-radius: 50px; /* formato de pílula */
-    background-color: #f0f0f0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    gap: 15px; /* espaço entre os elementos internos */
+.pill-row {
+  background: #fff;
+  border-radius: 50px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  overflow: hidden;
+  margin-left: 10%;
+  /* border: #045c26 solid 2px; */
 }
 
-.pill .id {
-    font-weight: bold;
+.pill-row td {
+  padding: 12px 20px;
+  border: none;
 }
 
-.pill .name {
-    flex: 1; /* ocupa o espaço disponível */
-}
-
-.cell-toggle {
-    display: flex;
-    align-items: center;
-}
-
-/* Toggle customizado */
 .toggle-switch {
-    width: 40px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: #ccc;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.3s;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background: #ccc;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-switch::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .toggle-switch.active {
-    background-color: #4cd964;
+  background: #4cd964; }
+  
+
+.toggle-switch.active::after {
+  left: 22px;
 }
 
-.toggle-switch::before {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: white;
-    transition: transform 0.3s;
-}
-
-.toggle-switch.active::before {
-    transform: translateX(20px);
+.toggle-switch:not(.active) {
+  background: #ff3b30; 
 }
