@@ -237,11 +237,19 @@ body {
 
 
 .scrollable-panel-content {
-    max-height: 260px;
-    overflow-y: auto;
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 
+
+
+.table-wrapper {
+  max-height: 200px; /* altura reduzida */
+  overflow-y: scroll; /* scroll sempre visível */
+  border: 1px solid #444;
+  border-radius: 8px;
+}
 
 /* Modal Editar */
 
@@ -453,4 +461,85 @@ table {
 
 .toggle-switch:not(.active) {
   background: #ff3b30; 
+}
+
+
+/* tab - arrendondamento */
+.panel-content table {
+  border-collapse: separate;
+  border-spacing: 0 12px; 
+  width: 100%;
+  border: none; 
+}
+
+.panel-content {
+  border: none !important;
+}
+
+table {
+  border: none !important;
+}
+
+.pill-row {
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-left: 20px; 
+}
+
+.pill-row td {
+  border: none;
+  padding: 12px 16px;
+  background: transparent;
+  vertical-align: middle;
+}
+
+.pill-row td:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.pill-row td:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.panel-content table thead th {
+  border: none;
+  padding: 12px 16px;
+  font-weight: 600;
+  background: transparent;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.pill-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.pill-row:nth-child(even) {
+  background: linear-gradient(to bottom, rgba(248, 250, 252, 0.9) 0%, rgba(248, 250, 252, 0.5) 50%, rgba(248, 250, 252, 0.1) 100%);
+}
+
+.pill-row:nth-child(odd) {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 100%);
+}
+.expand-btn {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  padding: 8px 16px;
+  color: #3b82f6;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.expand-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
 }
