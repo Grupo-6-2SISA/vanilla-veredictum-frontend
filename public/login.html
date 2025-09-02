@@ -4,27 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Login | Veredictum</title>
-    <link rel="icon" href="./assets/svg/logo_vectorized.svg" type="image/svg+xml">
+
+    <link rel="icon" href="./imgs/logo-veredictum.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pages/cadastro.css">
+
 </head>
 
 <body>
     <div class="cadastro-image">
-        <img src="./assets/img/img-cadastro.png" alt="">
-        <div class="image-text"> <span class="subtitle-image">Não tem uma conta?</span>
+        <div class="image-text"> <!-- textinho -->
+             <img src="./assets/img/img-cadastro.png" alt="">
+            <span class="subtitle-image">Não tem uma conta?</span>
             <span class="subtitle-image">Cadastre-se aqui</span>
-            <a href="./cadastro.html"><button class="login-btn">Cadastre-se</button></a>
+            <button class="login-btn">Cadastre-se</button>
         </div>
     </div>
-    
+
+
+
     <div class="cadastro-info">
         <div class="voltar-icon">
-            <a href="./home.html"><img src="./assets/img/voltar-icon.png" alt="Icone de voltar"/></a>
+            <img src="./assets/img/voltar-icon.png" alt="Icone de voltar" />
         </div>
 
         <div class="logo-row">
-            <img src="./assets/img/logo-veredictum.svg" alt="Veredictum"/>
+            <img src="./assets/svg/logo_veredictum.svg" alt="Veredictum" />
             <span class="logo-title">Veredictum</span>
             <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
         </div>
@@ -33,12 +38,14 @@
             <div class="login-form-row">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" placeholder="E-mail">
+
             </div>
 
             <div class="login-form-row">
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" placeholder="Senha">
             </div>
+
 
             <a href="./rec-senha.html"><span class="esqueceu-senha">Esqueceu a senha? Recupere aqui</span></a>
 
@@ -86,3 +93,4 @@ function Autenticacao() {
 // Chama a função para que ela seja executada e o "ouvinte" seja ativado
 Autenticacao();
 </script>
+

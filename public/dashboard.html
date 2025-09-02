@@ -29,7 +29,6 @@
                 <span class="user-name">Lismara Ribeiro</span>
             </div>
             <nav class="sidebar-nav">
-
                 <ul>
                     <li>
                         <a href="./visao_geral.html">
@@ -38,13 +37,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./dashboard.html" class="active">
-                            <img src="./assets/svg/dash_black.svg" class="icon_dash" alt="">
-                            <span class="menu-text-active">Dashboard</span>
+                        <a href="./dashboard.html">
+                            <img src="./assets/svg/dash.svg" class="icon_dash" alt="">
+                            <span class="menu-text">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./painel_controle.html">
                             <img src="./assets/svg/painel.svg" class="icon_painel" alt="">
                             <span class="menu-text">Painel</span>
                         </a>
@@ -62,9 +61,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./gestao_dispesas.html">
                             <img src="./assets/svg/despezas.svg" class="icon_notas" alt="">
-                            <span class="menu-text">Gestão de Despezas</span>
+                            <span class="menu-text">Gestão de Despesas</span>
                         </a>
                     </li>
                     <li>
@@ -74,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./log_envio_email.html">
                             <img src="./assets/svg/logs.svg" class="icon_logs" alt="">
                             <span class="menu-text">Gestão de Logs</span>
                         </a>
@@ -93,68 +92,156 @@
 
 
             <section class="dashboard-header">
-                <div class="month-selector">
-                    <img src="./assets/svg/calendar.svg" alt="">
-                    <h2>Mês Atual</h2>
-                    <img src="./assets/svg/seta.svg" alt="">
+                <div class="period-selector">
+                    <!-- Cabeçalho do seletor (o que aparece antes de clicar) -->
+                    <div class="selector-header" id="periodSelector">
+                        <img src="./assets/svg/calendar.svg" alt="">
+                        <h2 id="selectedPeriod">Mês Atual</h2>
+                        <img src="./assets/svg/seta.svg" alt="" class="arrow">
+                    </div>
+
+                    <!-- Dropdown (abre somente após clique) -->
+                    <div class="dropdown" id="dropdownMenu">
+                        <label class="option">
+                            <input type="radio" name="period" value="mesAtual" checked>
+                            <span>Mês Atual</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="period" value="3meses">
+                            <span>3 Meses</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="period" value="6meses">
+                            <span>6 Meses</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="period" value="9meses">
+                            <span>9 Meses</span>
+                        </label>
+                    </div>
                 </div>
             </section>
 
-            <section class="dashboard-cards-grid">
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-header">
-                            <div class="metric-icon danger"></div>
-                            <span class="metric-label">Cuidado</span>
+
+
+
+            <section class="kpi-section">
+                <div class="kpi-grid">
+
+                    <div class="kpi-card danger">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
                         </div>
-                        <div class="metric-value">4</div>
-                        <div class="metric-label">Contas Atrasadas</div>
-                        <div class="metric-change positive">+33%</div>
+                        <div class="kpi-main">
+                            <div class="kpi-info">
+                                <div class="kpi-value">4</div>
+                                <div class="kpi-label">Contas Atrasadas</div>
+                            </div>
+                            <span class="kpi-change up">+33%</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <h2>Contas Atrasadas</h2>
+                            <p>Mostra o total de contas vencidas, ajudando no controle e na regularização das
+                                pendências.</p>
+                        </div>
                     </div>
 
-                    <div class="metric-card">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Notas Atrasadas</div>
-                        <div class="metric-change negative">-25%</div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
+                        </div>
+                        <div class="kpi-main">
+                            <div class="kpi-info">
+                                <div class="kpi-value">3</div>
+                                <div class="kpi-label">Notas Atrasadas</div>
+                            </div>
+                            <span class="kpi-change down">-25%</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <h2>Notas Ficais Atrasadas</h2>
+                            <p>Indica a quantidade de notas vencidas, facilitando o acompanhamento financeiro.</p>
+                        </div>
                     </div>
 
-                    <div class="metric-card">
-                        <div class="metric-value">7</div>
-                        <div class="metric-label">Atendimentos Cancelados</div>
-                        <div class="metric-percentage">(20%)</div>
-                        <div class="metric-change positive">+40%</div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
+                        </div>
+                        <div class="kpi-main">
+                            <div class="kpi-info">
+                                <div class="kpi-value">7 <span class="percent">(20%)</span></div>
+                                <div class="kpi-label">Atendimentos Cancelados</div>
+                            </div>
+                            <span class="kpi-change up">+40%</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <h2>Atendimentos Cancelados</h2>
+                            <p>Exibe o total de atendimentos cancelados, ajudando a identificar possíveis falhas ou
+                                padrões.</p>
+                        </div>
                     </div>
 
-                    <div class="metric-card">
-                        <div class="metric-value">28</div>
-                        <div class="metric-label">Atendimentos Concluídos</div>
-                        <div class="metric-percentage">(80%)</div>
-                        <div class="metric-change negative">+12%</div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
+                        </div>
+                        <div class="kpi-main">
+                            <div class="kpi-info">
+                                <div class="kpi-value">28 <span class="percent">(80%)</span></div>
+                                <div class="kpi-label">Atendimentos Concluídos</div>
+                            </div>
+                            <span class="kpi-change up">+12%</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <h2>Atendimentos Concluídos</h2>
+                            <p>Mostra quantos atendimentos foram finalizados com sucesso, indicando a produtividade do
+                                escritório.</p>
+                        </div>
                     </div>
+
                 </div>
             </section>
+
+
 
             <section class="dashboard-charts">
                 <div class="chart-container">
                     <div class="chart-header">
                         <h3>Atendimentos Concluídos</h3>
-                        <img src="./assets/svg/info.svg" alt="">
+                        <div class="info-tooltip-wrapper">
+                            <img src="./assets/svg/info.svg" alt="Informação">
+                            <div class="chart-tooltip">
+                                <h4>Atendimentos Concluídos</h4>
+                                <p>Mostra a evolução dos atendimentos ao longo do tempo, ajudando a identificar padrões e épocas de maior demanda.</p>
+                            </div>
+                        </div>
                     </div>
-                    <canvas id="atendimentosConcluidosChart" width="550" height="300"></canvas>
+                    <canvas id="atendimentosConcluidosChart" width="600" height="300"></canvas>
                 </div>
 
                 <div class="chart-container">
                     <div class="chart-header">
-                        <h3>Taxa de Cancelamento</h3>
-                        <img src="./assets/svg/info.svg" alt="">
+                        <h3>Taxa de Cancelamento de Atendimentos</h3>
+                        <div class="info-tooltip-wrapper">
+                            <img src="./assets/svg/info.svg" alt="Informação">
+                            <div class="chart-tooltip">
+                                <h4>Taxa de Cancelamento de Atendimentos</h4>
+                                <p>Exibe a evolução mensal dos cancelamentos, ajudando a entender causas e identificar tendências.</p>
+                            </div>
+                        </div>
                     </div>
-                    <canvas id="taxaCancelamentoChart" width="550" height="300"></canvas>
+                    <canvas id="taxaCancelamentoChart" width="600" height="300"></canvas>
                 </div>
             </section>
         </main>
     </div>
 
     <script src="./js/dashboard.js"></script>
+    <script src="./js/router.js"></script>
 </body>
 
 </html>

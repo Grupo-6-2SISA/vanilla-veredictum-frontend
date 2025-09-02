@@ -68,10 +68,8 @@ body {
 a {
     text-decoration: none;
     color: inherit;     
-    /* display: inline-block;  */
     background: none;      
     border: none;       
-    /* padding: 0;           */
 }
 
 .cadastro-info {

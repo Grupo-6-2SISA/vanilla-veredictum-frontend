@@ -1,5 +1,5 @@
-@import url(./partials/colors.css);
-@import url(./partials/menu.css);
+@import url(../colors.css);
+@import url(../menu.css);
 
 /*
 * ==============================
@@ -13,6 +13,20 @@
 .btn-new-appointment {
     background-color: var(--normal-black);
     color: #fff;
+    border: solid 3px var(--darkness-black);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+.btn-new-appointment__desativar {
+    background-color: var(--gray-9);
+    color: #1E1E1E;
     border: solid 3px var(--darkness-black);
     padding: 0.6rem 1.2rem;
     border-radius: 8px;

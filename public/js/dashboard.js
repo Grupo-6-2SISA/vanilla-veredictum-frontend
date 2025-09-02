@@ -1,130 +1,233 @@
 document.addEventListener('DOMContentLoaded', function() {
-    //  // Dados dos indicadores
-    // const indicadores = {
-    //     contasAtrasadas: {
-    //         valor: 4,
-    //         porcentagem: '+33%'
-    //     },
-    //     notasAtrasadas: {
-    //         valor: 3,
-    //         porcentagem: '-25%'
-    //     },
-    //     atendimentosCancelados: {
-    //         valor: 7,
-    //         porcentagem: '(20%)',
-    //         variacao: '+40%'
-    //     },
-    //     atendimentosConcluidos: {
-    //         valor: 28,
-    //         porcentagem: '(80%)',
-    //         variacao: '+12%'
-    //     }
-    // };
 
-    // // Função para atualizar os valores dos indicadores na página
-    // function atualizarIndicadores() {
-    //     // Contas Atrasadas
-    //     document.getElementById('contas-atrasadas-valor').textContent = indicadores.contasAtrasadas.valor;
-    //     document.getElementById('contas-atrasadas-porcentagem').textContent = indicadores.contasAtrasadas.porcentagem;
+    const meses = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
 
-    //     // Notas Atrasadas
-    //     document.getElementById('notas-atrasadas-valor').textContent = indicadores.notasAtrasadas.valor;
-    //     document.getElementById('notas-atrasadas-porcentagem').textContent = indicadores.notasAtrasadas.porcentagem;
-
-    //     // Atendimentos Cancelados
-    //     document.getElementById('atendimentos-cancelados-valor').textContent = indicadores.atendimentosCancelados.valor;
-    //     document.getElementById('atendimentos-cancelados-porcentagem').textContent = indicadores.atendimentosCancelados.porcentagem;
-    //     document.getElementById('atendimentos-cancelados-variacao').textContent = indicadores.atendimentosCancelados.variacao;
-
-    //     // Atendimentos Concluídos
-    //     document.getElementById('atendimentos-concluidos-valor').textContent = indicadores.atendimentosConcluidos.valor;
-    //     document.getElementById('atendimentos-concluidos-porcentagem').textContent = indicadores.atendimentosConcluidos.porcentagem;
-    //     document.getElementById('atendimentos-concluidos-variacao').textContent = indicadores.atendimentosConcluidos.variacao;
-    // }
-
-    // // Chama a função para popular os dados assim que a página carregar
-    // atualizarIndicadores();
-
-    // Dados de exemplo para o gráfico de atendimentos concluídos
-    const dadosAtendimentos = {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-        datasets: [{
-            label: 'Atendimentos Concluídos',
-            data: [30, 45, 28, 50, 40, 65],
-            backgroundColor: 'rgba(46, 204, 113, 0.8)', // Cor verde
-            borderColor: 'rgba(39, 174, 96, 1)',
-            borderWidth: 1,
-            borderRadius: 5,
-        }]
+    // Gráfico de Atendimentos Concluídos
+    const atendimentosConcluidosData = {
+        labels: meses,
+        datasets: [
+            {
+                label: 'Ano Anterior',
+                data: [42, 58, 35, 55, 72, 48, 88, 63, 45, 78, 70, 52],
+                backgroundColor: '#333333', // Preto
+                borderRadius: 5,
+            },
+            {
+                label: 'Ano Atual',
+                data: [10, 18, 55, 40, 75, 77, 22, 83, 90, 62, 36, 95],
+                backgroundColor: '#BFBFBF', // Cinza
+                borderRadius: 5,
+            }
+        ]
     };
 
-    // Configuração do gráfico de atendimentos
-    const configAtendimentos = {
-        type: 'bar', // Tipo de gráfico de barra
-        data: dadosAtendimentos,
+    const atendimentosConcluidosConfig = {
+        type: 'bar',
+        data: atendimentosConcluidosData,
         options: {
-            responsive: false,
-            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
-                    suggestedMax: 25
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false // Oculta a legenda
-                },
-                tooltip: {
-                    // Configuração de tooltip (opcional)
+                    max: 100,
+                    ticks: { stepSize: 10 }
                 }
             }
-        },
+        }
     };
 
-    // Renderiza o primeiro gráfico
-    const ctxAtendimentos = document.getElementById('atendimentosConcluidosChart').getContext('2d');
-    new Chart(ctxAtendimentos, configAtendimentos);
+    new Chart(
+        document.getElementById('atendimentosConcluidosChart').getContext('2d'),
+        atendimentosConcluidosConfig
+    );
 
-
-    // Dados de exemplo para o gráfico de taxa de cancelamento
-    const dadosCancelamento = {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-        datasets: [{
-            label: 'Taxa de Cancelamento',
-            data: [15, 10, 20, 12, 18, 10],
-            backgroundColor: 'rgba(231, 76, 60, 0.8)', // Cor vermelha
-            borderColor: 'rgba(192, 57, 43, 1)',
-            borderWidth: 1,
-            tension: 0.4, // Curva suave para o gráfico de linha
-        }]
+    // Gráfico de Taxa de Cancelamento
+    const taxaCancelamentoData = {
+        labels: meses,
+        datasets: [
+            {
+                label: 'Ano Anterior',
+                data: [20, 42, 58, 35, 72, 48, 88, 63, 45, 78, 70, 52],
+                backgroundColor: '#333333',
+                borderRadius: 5,
+            },
+            {
+                label: 'Ano Atual',
+                data: [10, 31, 18, 55, 40, 77, 22, 83, 90, 62, 36, 95],
+                backgroundColor: '#BFBFBF',
+                borderRadius: 5,
+            }
+        ]
     };
 
-    // Configuração do gráfico de cancelamento
-    const configCancelamento = {
-        type: 'bar', // Tipo de gráfico de linha
-        data: dadosCancelamento,
+    const taxaCancelamentoConfig = {
+        type: 'bar',
+        data: taxaCancelamentoData,
         options: {
-            responsive: false,
-            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
-                    suggestedMax: 25 // Sugere um valor máximo para o eixo Y
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false // Oculta a legenda
-                },
-                tooltip: {
-                    // Configuração de tooltip (opcional)
+                    max: 100,
+                    ticks: { stepSize: 10 }
                 }
             }
-        },
+        }
     };
 
-    // Renderiza o segundo gráfico
-    const ctxCancelamento = document.getElementById('taxaCancelamentoChart').getContext('2d');
-    new Chart(ctxCancelamento, configCancelamento);
+    new Chart(
+        document.getElementById('taxaCancelamentoChart').getContext('2d'),
+        taxaCancelamentoConfig
+    );
+
 });
+
+
+
+// Seletor de Período - Dropdown
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selectorHeader = document.getElementById("periodSelector");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const selectedPeriod = document.getElementById("selectedPeriod");
+    const kpiCards = document.querySelectorAll(".kpi-card");
+
+    const months = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+
+    // Dados fictícios dos KPIs para cada período
+    // Adicionei uma propriedade 'percentValue' para o valor numérico
+    const kpiData = {
+        "mesAtual": [
+            { value: 4, label: "Contas Atrasadas", change: "+33%", changeDirection: "up", isDanger: true, percent: null, percentValue: null },
+            { value: 3, label: "Notas Atrasadas", change: "-25%", changeDirection: "down", isDanger: false, percent: null, percentValue: null },
+            { value: 7, label: "Atendimentos Cancelados", change: "+40%", changeDirection: "up", isDanger: false, percent: "20%", percentValue: 20 },
+            { value: 28, label: "Atendimentos Concluídos", change: "+12%", changeDirection: "up", isDanger: false, percent: "80%", percentValue: 80 },
+        ],
+        "3meses": [
+            { value: 12, label: "Contas Atrasadas", change: "-10%", changeDirection: "down", isDanger: false, percent: null, percentValue: null },
+            { value: 8, label: "Notas Atrasadas", change: "+5%", changeDirection: "up", isDanger: false, percent: null, percentValue: null },
+            { value: 20, label: "Atendimentos Cancelados", change: "-15%", changeDirection: "down", isDanger: false, percent: "15%", percentValue: 15 },
+            { value: 85, label: "Atendimentos Concluídos", change: "+8%", changeDirection: "up", isDanger: false, percent: "85%", percentValue: 85 },
+        ],
+        "6meses": [
+            { value: 25, label: "Contas Atrasadas", change: "+5%", changeDirection: "up", isDanger: true, percent: null, percentValue: null },
+            { value: 15, label: "Notas Atrasadas", change: "+10%", changeDirection: "up", isDanger: false, percent: null, percentValue: null },
+            { value: 35, label: "Atendimentos Cancelados", change: "+20%", changeDirection: "up", isDanger: true, percent: "10%", percentValue: 10 },
+            { value: 160, label: "Atendimentos Concluídos", change: "-5%", changeDirection: "down", isDanger: false, percent: "90%", percentValue: 90 },
+        ],
+        "9meses": [
+            { value: 30, label: "Contas Atrasadas", change: "-15%", changeDirection: "down", isDanger: false, percent: null, percentValue: null },
+            { value: 22, label: "Notas Atrasadas", change: "-10%", changeDirection: "down", isDanger: false, percent: null, percentValue: null },
+            { value: 45, label: "Atendimentos Cancelados", change: "+5%", changeDirection: "up", isDanger: true, percent: "8%", percentValue: 8 },
+            { value: 250, label: "Atendimentos Concluídos", change: "+3%", changeDirection: "up", isDanger: false, percent: "92%", percentValue: 92 },
+        ],
+    };
+
+    // Função para atualizar os valores dos KPIs
+    const updateKpis = (period) => {
+        const data = kpiData[period];
+        if (!data) return;
+
+        data.forEach((item, index) => {
+            const card = kpiCards[index];
+            if (card) {
+                const kpiValue = card.querySelector(".kpi-value");
+                kpiValue.textContent = item.value;
+
+                // Trata o valor percentual com toFixed
+                if (item.percentValue !== null) {
+                    // Formata para 2 casas decimais e adiciona o símbolo de %
+                    kpiValue.innerHTML += ` <span class="percent">(${item.percentValue.toFixed(2)}%)</span>`;
+                }
+
+                card.querySelector(".kpi-label").textContent = item.label;
+                
+                const kpiChange = card.querySelector(".kpi-change");
+                kpiChange.textContent = item.change;
+                kpiChange.classList.remove("up", "down");
+                kpiChange.classList.add(item.changeDirection);
+                
+                if (item.isDanger) {
+                    card.classList.add("danger");
+                } else {
+                    card.classList.remove("danger");
+                }
+            }
+        });
+    };
+
+    // Funções para o seletor de período (sem mudanças)
+    const getPeriodMonths = (numMonths) => {
+        const today = new Date();
+        const endDate = new Date(today);
+        const startDate = new Date(today);
+        startDate.setMonth(today.getMonth() - (numMonths - 1));
+
+        const startMonthName = months[startDate.getMonth()];
+        const startYear = startDate.getFullYear();
+        const endMonthName = months[endDate.getMonth()];
+        const endYear = endDate.getFullYear();
+
+        if (numMonths === 1) {
+            return `Mês Atual - ${startMonthName} de ${startYear}`;
+        }
+
+        if (startYear === endYear) {
+            return `${numMonths} meses de análise - (${startMonthName} a ${endMonthName} de ${startYear})`;
+        } else {
+            return `${numMonths} meses de análise - (${startMonthName} de ${startYear} a ${endMonthName} de ${endYear})`;
+        }
+    };
+
+    // Inicialização da página
+    selectedPeriod.textContent = getPeriodMonths(1);
+    updateKpis("mesAtual");
+
+    // Abre/fecha dropdown
+    selectorHeader.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("show");
+        selectorHeader.classList.toggle("active");
+    });
+
+    // Seleciona a opção
+    dropdownMenu.querySelectorAll("input[name='period']").forEach(input => {
+        input.addEventListener("change", () => {
+            const selectedValue = input.value;
+            let displayValue = "";
+            let numMonths = 1;
+
+            if (selectedValue === "mesAtual") {
+                displayValue = getPeriodMonths(1);
+            } else {
+                numMonths = parseInt(selectedValue.replace('meses', ''), 10);
+                displayValue = getPeriodMonths(numMonths);
+            }
+
+            selectedPeriod.textContent = displayValue;
+            updateKpis(selectedValue);
+            dropdownMenu.classList.remove("show");
+            selectorHeader.classList.remove("active");
+
+            console.log("Período selecionado:", selectedValue);
+        });
+    });
+
+    // Fecha clicando fora
+    document.addEventListener("click", (e) => {
+        if (!selectorHeader.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove("show");
+            selectorHeader.classList.remove("active");
+        }
+    });
+});
+
+

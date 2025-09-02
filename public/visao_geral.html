@@ -26,12 +26,11 @@
                 <span class="user-name">Lismara Ribeiro</span>
             </div>
             <nav class="sidebar-nav">
-
                 <ul>
                     <li>
-                        <a href="./visao_geral.html" class="active">
-                            <img src="./assets/svg/visao-geral-black.svg" class="icon_vg" alt="">
-                            <span class="menu-text-active">Visão Geral</span>
+                        <a href="./visao_geral.html">
+                            <img src="./assets/svg/visao-geral.svg" class="icon_vg" alt="">
+                            <span class="menu-text">Visão Geral</span>
                         </a>
                     </li>
                     <li>
@@ -41,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./painel_controle.html">
                             <img src="./assets/svg/painel.svg" class="icon_painel" alt="">
                             <span class="menu-text">Painel</span>
                         </a>
@@ -53,15 +52,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./agenda_relacionamento.html" >
+                        <a href="./agenda_relacionamento.html">
                             <img src="./assets/svg/agenda.svg" class="icon_agenda" alt="">
                             <span class="menu-text">Agenda & Relacionamento</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./gestao_dispesas.html">
                             <img src="./assets/svg/despezas.svg" class="icon_notas" alt="">
-                            <span class="menu-text">Gestão de Despezas</span>
+                            <span class="menu-text">Gestão de Despesas</span>
                         </a>
                     </li>
                     <li>
@@ -71,7 +70,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./log_envio_email.html">
                             <img src="./assets/svg/logs.svg" class="icon_logs" alt="">
                             <span class="menu-text">Gestão de Logs</span>
                         </a>
@@ -99,9 +98,9 @@
                         </div>
                         <div class="card-content">
                             <div class="list-header">
-                                <p class="list-nome">Nome</p>
-                                <p class="list-dia">Dia</p>
-                                <p class="list-horario">Horário</p>
+                                <p class="list-atendimento-nome">Nome</p>
+                                <p class="list-atendimento-dia">Dia</p>
+                                <p class="list-atendimento-horario">Horário</p>
                             </div>
                             <div id="appointments-list" class="list-items-container">
                             </div>
@@ -115,8 +114,8 @@
                         </div>
                         <div class="card-content">
                             <div class="list-header">
-                                <p class="list-nota">Número da Nota</p>
-                                <p class="list-data">Data Limite</p>
+                                <p class="list-nf-nota">Número da Nota</p>
+                                <p class="list-nf-data">Data Limite</p>
                             </div>
                             <div id="invoices-list" class="list-items-container">
                             </div>
@@ -133,8 +132,8 @@
                         </div>
                         <div class="card-content">
                             <div class="list-header">
-                                <p>Nome</p>
-                                <p>Dia</p>
+                                <p class="list-birthdays-nome">Nome</p>
+                                <p class="list-birthdays-dia">Dia</p>
                             </div>
                             <div id="birthdays-list" class="list-items-container">
                             </div>
@@ -148,8 +147,8 @@
                         </div>
                         <div class="card-content">
                             <div class="list-header">
-                                <p>Etiqueta</p>
-                                <p>Data Limite</p>
+                                <p class="list-contas-etiqueta">Etiqueta</p>
+                                <p class="list-contas-data">Data Limite</p>
                             </div>
                             <div id="bills-list" class="list-items-container">
                             </div>
@@ -161,6 +160,7 @@
     </div>
 
     <script src="./js/visao_geral.js"></script>
+    <script src="./js/router.js"></script>
 </body>
 
 

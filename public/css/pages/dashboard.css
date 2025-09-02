@@ -30,19 +30,20 @@ h1 {
     margin-top: 20px;
 }
 
+.main-content h1 {
+
+    margin: 20px 0 15px 40px;
+}
+
 
 /* Seção de seleção de mês */
 .dashboard-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    padding: 1rem 1rem;
-    margin-left: 3%;
-    width: 93%;
-    border-radius: 12px;
-    border: 0.3px solid var(--dark-black);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-bottom: 40px;
+
 }
 
 .month-selector {
@@ -64,78 +65,233 @@ h1 {
     margin: 0;
 }
 
-/* Seção de cards de métricas (agora com Flexbox) */
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 5px;
-    /* margin-bottom: 10px; */
-    justify-items: center;
+
+/* Container principal */
+.period-selector {
+    position: static;
+    width: 93%; /* largura igual ao print */
+    height: 10%;
+    margin-bottom: 10px ;
 }
 
-.metric-card {
-    background: white;
-    border-radius: 12px;
-    width: 250px;
-    height: 110px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
+/* Cabeçalho fechado */
+.selector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.metric-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+.selector-header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.1rem;
 }
 
-.metric-icon {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+.selector-header .arrow {
+  transition: transform 0.3s ease;
 }
 
-.metric-icon.danger { background-color: #e53e3e; }
-.metric-icon.success { background-color: #38a169; }
+.selector-header.active .arrow {
+  transform: rotate(180deg);
+}
 
-.metric-label {
+/* Dropdown escondido */
+.dropdown {
+  display: none;
+  position: fixed;
+  top: 24%;
+  left: 9%;
+  width: 88%;
+  background: var(--white-normal);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 20;
+  padding: 0.2rem 0;
+}
+
+/* Opções */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: var(--white-light);
+  border-radius: 15px;
+}
+
+.option input[type="radio"] {
+  accent-color: #000; /* deixa igual ao print */
+}
+
+/* Mostrar o dropdown */
+.dropdown.show {
+  display: block;
+}
+
+
+/* Seção dos KPIs */
+
+.kpi-section {
+  width: 93%; /* largura igual ao print */
+  /* background: #fff; */
+  border-radius: 10px;
+  /* padding: 15px 20px; */
+  margin: 0 0 15px 50px;
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.08); */
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.kpi-card {
+  background: var(--white-normal);
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* cabeçalho */
+.kpi-header {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #d9534f;
+  margin-bottom: 5px;
+}
+
+.kpi-header .icon {
+  margin-right: 6px;
+}
+
+/* conteúdo principal */
+.kpi-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.kpi-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.percent {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+
+/* variação */
+.kpi-change {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.kpi-change.up {
+  background: #d9534f; /* vermelho */
+}
+
+.kpi-change.down {
+  background: #5cb85c; /* verde */
+}
+  
+.kpi-tooltip {
+    display: none; /* Escondido por padrão */
+    position: absolute;
+    /* Posição agora é 'top', movendo o tooltip para baixo do cartão */
+    top: calc(100% + 10px); 
+    left: 1%;
+    /* transform: translateX(-50%); Centraliza o tooltip */
+    width: 325px;
+    background-color: var(--white-normal);
+    color: var(--dark-black);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    z-index: 100; /* Garante que ele apareça na frente de outros elementos */
     font-size: 14px;
-    color: #4a5568;
-    font-weight: 500;
+    font-weight: 400;
 }
 
-.metric-value {
-    font-size: 32px;
-    font-weight: bold;
-    color: #2d3748;
+/* Adicione esta regra ao seu CSS para estilizar o título */
+.kpi-tooltip h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 5px;
-       
 }
 
-.metric-change {
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    top: 20px;
-    right: 20px;
+.kpi-tooltip p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    /* margin-bottom: 5px; */
 }
 
-.metric-change.positive {
-    background-color: #fed7d7;
-    color: #e53e3e;
+.kpi-tooltip::after {
+    content: '';
+    position: absolute;
+    /* A seta deve ficar na parte superior do tooltip para apontar para cima */
+    bottom: 100%; 
+    left: 7%;
+    /* Centraliza a seta */
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    /* Inverte a cor das bordas para que a seta aponte para cima */
+    border-color: transparent transparent var(--white-normal) transparent; 
 }
 
-.metric-change.negative {
-    background-color: #c6f6d5;
-    color: #38a169;
+/* Mostra o tooltip no hover */
+.kpi-card:hover .kpi-tooltip {
+    display:block; /* Torna visível ao passar o mouse */
 }
 
-.metric-percentage {
-    font-size: 14px;
-    color: #718096;
- }
+/* responsivo */
+@media (max-width: 1024px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Seção dos gráficos */
 .dashboard-charts {
@@ -143,7 +299,7 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 15px;
 }
 
 .chart-container {
@@ -170,12 +326,59 @@ h1 {
     margin: 0;
 }
 
-.chart-header i {
-    color: #888;
+/* * Novo container para envolver o ícone e o tooltip.
+ * Essencial para o hover.
+ */
+.info-tooltip-wrapper {
+    position: relative; /* Contexto de posicionamento para o tooltip */
+    display: inline-block; /* Ocupa apenas o espaço necessário */
+    cursor: pointer; /* Feedback visual para o usuário */
 }
 
-.chart-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+/* Oculta o tooltip por padrão */
+.chart-tooltip {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 500px;
+    background-color: var(--white-normal);
+    color: var(--dark-black);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    z-index: 100;
+    font-size: 14px;
+}
+
+/* Estilos do conteúdo do tooltip */
+.chart-tooltip h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+
+.chart-tooltip p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Seta do tooltip */
+.chart-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-normal) transparent;
+}
+
+/* * A regra mais importante:
+ * Quando o mouse passa sobre o contêiner, o tooltip é exibido.
+ */
+.info-tooltip-wrapper:hover .chart-tooltip {
+    display: block;
 }

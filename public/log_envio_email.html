@@ -20,36 +20,75 @@
 <body>
 
     <div class="container">
-        <header class="sidebar">
+         <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="logo-edit">
-                    <img src="/public/assets/svg/logo_veredictum.svg" alt="Logo Veredictum">
+                <div class="logo">
+                    <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
+                    <span class="menu-text-logo">Veredictum</span>
                 </div>
                 <span class="user-name">Lismara Ribeiro</span>
             </div>
             <nav class="sidebar-nav">
+
                 <ul>
-                    <li><a href="#" class="active"> <img src="/public/assets/svg/visao-geral-black.svg" class="icon_vg"
-                                alt=""></a></li>
-                    <li><a href="./dashboard.html"><img src="/public/assets/svg/dash.svg" class="icon_dash" alt=""></a>
+                    <li>
+                        <a href="./visao_geral.html" class="active">
+                            <img src="./assets/svg/visao-geral-black.svg" class="icon_vg" alt="">
+                            <span class="menu-text-active">Visão Geral</span>
+                        </a>
                     </li>
-                    <li><a href="#"><img src="/public/assets/svg/painel.svg" class="icon_painel" alt=""></a></li>
-                    <li><a href="#"><img src="/public/assets/svg/funcionario.svg" class="icon_funcionario" alt=""></a>
+                    <li>
+                        <a href="./dashboard.html">
+                            <img src="./assets/svg/dash.svg" class="icon_dash" alt="">
+                            <span class="menu-text">Dashboard</span>
+                        </a>
                     </li>
-                    <li><a href="./agenda_relacionamento.html"><img src="/public/assets/svg/agenda.svg"
-                                class="icon_agenda" alt=""></a></li>
-                    <li><a href="#"><img src="/public/assets/svg/despezas.svg" class="icon_notas" alt=""></a></li>
-                    <li><a href="#"><img src="/public/assets/svg/notas_fiscais.svg" class="icon_notas" alt=""></a></li>
-                    <li><a href="#"><img src="/public/assets/svg/logs.svg" class="icon_logs" alt=""></a></li>
+                    <li>
+                        <a href="./painel_controle.html">
+                            <img src="./assets/svg/painel.svg" class="icon_painel" alt="">
+                            <span class="menu-text">Painel</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/funcionario.svg" class="icon_funcionario" alt="">
+                            <span class="menu-text">Gestão de Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./agenda_relacionamento.html" >
+                            <img src="./assets/svg/agenda.svg" class="icon_agenda" alt="">
+                            <span class="menu-text">Agenda & Relacionamento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./gestao_dispesas.html">
+                            <img src="./assets/svg/despezas.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Despezas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./assets/svg/notas_fiscais.svg" class="icon_notas" alt="">
+                            <span class="menu-text">Gestão de Notas Fiscais</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./log_envio_email.html">
+                            <img src="./assets/svg/logs.svg" class="icon_logs" alt="">
+                            <span class="menu-text">Gestão de Logs</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <a href="#"><img src="/public/assets/svg/exit.svg" class="icon_exit" alt=""></a>
+                <a href="./home.html"><img src="./assets/svg/exit.svg" class="icon_exit" alt=""></a>
+                <span class="menu-text">Sair</span>
             </div>
-        </header>
+        </aside>
 
         <!-- ----------------------------------------------------------------------------------------------------- -->
-        <div class="main-content">
+        <div class="main_content">
 
             <h1 class="page-title">Histórico de envio de email</h1>
 
@@ -79,7 +118,7 @@
             </div>
 
             <!-- Table -->
-            <div class="table-container">
+            <div class="table_container">
                 <table class="table">
                     <thead>
                         <tr>

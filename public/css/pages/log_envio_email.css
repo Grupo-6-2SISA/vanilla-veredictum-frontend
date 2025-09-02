@@ -11,8 +11,8 @@
      min-height: 100vh;
  }
 
- /* Sidebar */
- /* .sidebar {
+ /* Sidebar
+ .sidebar {
      width: 80px;
      background-color: #2d2d2d;
      display: flex;
@@ -64,7 +64,7 @@
      flex: 1;
      padding: 30px 40px;
      max-width: 1200px;
-     margin: 0
+     margin: 0;
  }
 
  .breadcrumb {
