@@ -195,11 +195,11 @@ h1 {
 .list-atendimento-dia{
     grid-column: 2 / 3;
     text-align: center;
-    margin-left: 38%;
+    margin-left: 36%;
 }
 .list-atendimento-horario{
     grid-column: 3 / 3;
-    margin-left: 18%;
+    margin-left: 16%;
 
 }
 
@@ -212,7 +212,7 @@ h1 {
 .list-nf-data{
     grid-column: 2 / 2;
     text-align: center;
-    margin-left: 36%;
+    margin-left: 33%;
 }
 
 .list-birthdays-nome{
@@ -224,7 +224,7 @@ h1 {
 .list-birthdays-dia{
     grid-column: 2 / 2;
     text-align: center;
-    margin-left: 55%;
+    margin-left: 52%;
 }
 
 .list-contas-etiqueta{
@@ -236,5 +236,5 @@ h1 {
 .list-contas-data{
     grid-column: 2 / 2;
     text-align: center;
-    margin-left: 50%;
+    margin-left: 47%;
 }
