@@ -51,7 +51,7 @@ const ApiService = {
     },
 
     createCliente(clienteData) {
-        return this.request("/clientes/cadastrar-inativo", {
+        return this.request("/clientes", {
             method: "POST",
             body: JSON.stringify(clienteData),
         })
@@ -65,52 +65,54 @@ const ApiService = {
     },
 
     ativarCliente(id) {
-        return this.request(`/clientes/${id}/ativar`, {
+        return this.request(`/clientes/${id}`, {
             method: "PATCH",
+            body: JSON.stringify({ status: "Ativo" }),
         })
     },
 
     inativarCliente(id) {
-        return this.request(`/clientes/${id}/inativar`, {
+        return this.request(`/clientes/${id}`, {
             method: "PATCH",
+            body: JSON.stringify({ status: "Inativo" }),
         })
     },
 
 
     getNotasFiscais() {
-        return this.request("/notas-fiscais")
+        return this.request("/notasFiscais")
     },
 
     getNotaFiscalById(id) {
-        return this.request(`/notas-fiscais/${id}`)
+        return this.request(`/notasFiscais/${id}`)
     },
 
     createNotaFiscal(notaData) {
-        return this.request("/notas-fiscais", {
+        return this.request("/notasFiscais", {
             method: "POST",
             body: JSON.stringify(notaData),
         })
     },
 
     updateNotaFiscal(id, notaData) {
-        return this.request(`/notas-fiscais/${id}`, {
+        return this.request(`/notasFiscais/${id}`, {
             method: "PUT",
             body: JSON.stringify(notaData),
         })
     },
 
     deleteNotaFiscal(id) {
-        return this.request(`/notas-fiscais/${id}`, {
+        return this.request(`/notasFiscais/${id}`, {
             method: "DELETE",
         })
     },
 
     getNotasMaisAtrasadas() {
-        return this.request("/notas-fiscais/mais-atrasadas")
+        return this.request("/notasFiscais?_sort=dataVencimento&_order=asc&status=Atrasada&_limit=5")
     },
 
     getNotasMaisRecentes() {
-        return this.request("/notas-fiscais/mais-recentes")
+        return this.request("/notasFiscais?_sort=dataVencimento&_order=desc&_limit=5")
     },
 }
 

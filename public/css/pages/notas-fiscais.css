@@ -42,303 +42,7 @@
     color: var(--green-normal);
 }
 
-.resumo-card__icon--warning {
-    background-color: rgba(255, 206, 82, 0.1);
-    color: var(--yellow-normal);
-}
-
-.resumo-card__icon--primary {
-    background-color: rgba(244, 161, 0, 0.1);
-    color: var(--primary-color);
-}
-
-.resumo-card__content {
-    flex: 1;
-}
-
-.resumo-card__title {
-    font-size: 0.875rem;
-    color: var(--gray-4);
-    margin-bottom: 0.25rem;
-}
-
-.resumo-card__value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--normal-black);
-}
-
-/* Filtros específicos para notas fiscais */
-.filters-section {
-    margin-bottom: 2rem;
-}
-
-.filters-container {
-    display: flex;
-    gap: 1rem;
-    align-items: end;
-    flex-wrap: wrap;
-    padding: 1.5rem;
-    background-color: var(--white-normal);
-    border: 1px solid var(--gray-8);
-    border-radius: 12px;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    min-width: 180px;
-}
-
-.filter-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--normal-black);
-}
-
-.filter-input,
-.filter-select {
-    padding: 0.75rem;
-    border: 1px solid var(--gray-8);
-    border-radius: 6px;
-    font-size: 0.875rem;
-    background-color: var(--white-normal);
-}
-
-.filter-input:focus,
-.filter-select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(244, 161, 0, 0.1);
-}
-
-/* Formulários */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group--full {
-    grid-column: 1 / -1;
-}
-
-.form-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--normal-black);
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-    padding: 0.75rem;
-    border: 1px solid var(--gray-8);
-    border-radius: 6px;
-    font-size: 0.875rem;
-    background-color: var(--white-normal);
-    transition: border-color 0.3s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(244, 161, 0, 0.1);
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Checkbox customizado */
-.form-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-}
-
-.form-checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox-mark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--gray-8);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.form-checkbox input[type="checkbox"]:checked + .checkbox-mark {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.form-checkbox input[type="checkbox"]:checked + .checkbox-mark::after {
-    content: "✓";
-    color: var(--white-normal);
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* Ações da tabela */
-.table-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.btn-action {
-    padding: 0.25rem 0.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    transition: all 0.3s ease;
-}
-
-.btn-action--edit {
-    background-color: rgba(244, 161, 0, 0.1);
-    color: var(--primary-color-dark);
-}
-
-.btn-action--edit:hover {
-    background-color: rgba(244, 161, 0, 0.2);
-}
-
-.btn-action--delete {
-    background-color: rgba(235, 61, 61, 0.1);
-    color: var(--red-dark);
-}
-
-.btn-action--delete:hover {
-    background-color: rgba(235, 61, 61, 0.2);
-}
-
-.btn-action--view {
-    background-color: rgba(50, 217, 87, 0.1);
-    color: var(--green-dark);
-}
-
-.btn-action--view:hover {
-    background-color: rgba(50, 217, 87, 0.2);
-}
-
-/* Valor monetário */
-.valor-monetario {
-    font-weight: 600;
-    color: var(--green-dark);
-}
-
-/* Data de vencimento */
-.data-vencimento {
-    font-size: 0.875rem;
-}
-
-.data-vencimento--atrasada {
-    color: var(--red-normal);
-    font-weight: 600;
-}
-
-.data-vencimento--proxima {
-    color: var(--yellow-dark);
-    font-weight: 500;
-}
-
-/* Modal padrão (igual clientes) */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-.modal.is-open {
-    display: flex;
-}
-
-.modal__content{
-    background-color: #424242;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-
-
-.modal__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-
-}
-
-.modal__title {
-    font-size: 36px;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    color: var(--white-normal);
-    font-family: "Poppins", sans-serif;
-}
-
-.modal__close {
-    color: var(--white-normal);
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.modal__body {
-    padding: 1.5rem;
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-.modal__actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-top: 1px solid var(--gray-8);
-}
-
-.form__label,
-.form__input,
-.form__select,
-.form__textarea {
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-
+/* Tabela */
 .card-table {
     background-color: var(--white-normal);
     border-radius: 12px;
@@ -355,70 +59,74 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.7rem;
+    padding: 0 1rem;
 }
 
 .card-header h3 {
-    font-weight: 1000;
-    color: var(--normal-black-normal);
-    font-size: 20px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--normal-black);
     margin: 0;
 }
 
 .table-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     overflow-y: auto;
     width: 100%;
     padding-right: 1rem;
 }
 
+/* ===== CORREÇÃO DA TABELA ===== */
+/* Regra unificada para sincronizar colunas */
 .table-header,
 .table-row {
     display: grid;
-    /* Colunas ajustadas para melhor simetria */
     grid-template-columns: 2.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
     gap: 1rem;
     align-items: center;
-    padding: 0.35rem 0rem;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
-    color: #666;
-
+    padding: 0.75rem 1rem;
+    width: 100%;
 }
 
+/* Estilos específicos do cabeçalho */
 .table-header {
+    font-family: "Montserrat", "Poppins", sans-serif;
     font-size: 1.1rem;
     font-weight: 1000;
     color: var(--normal-black-normal);
     background: none;
     box-shadow: none;
+    padding-bottom: 1rem;
+    white-space: nowrap;
 }
 
-.table-header p {
-    font-weight: 700;
-    color: var(--normal-black-strong);
-    margin: 0;
+/* Estilos específicos da linha */
+.table-row {
+    background-color: var(--white-normal);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
+    font-size: 1rem;
+    font-family: "Montserrat", "Poppins", sans-serif;
+    color: #222222;
+    font-weight: 600;
 }
 
-/* Alinhamento de colunas do cabeçalho */
-.table-header .col-status,
-.table-header .col-emitida,
-.table-header .col-edit,
-.table-header .col-delete,
-.table-header .col-info {
+/* Alinhamento do conteúdo das células */
+.table-header > *,
+.table-row > * {
     text-align: center;
 }
 
-
-.table-row {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
-    border-radius: 15px;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
+/* Alinhamento à esquerda para colunas de texto */
+.table-header .col-name,
+.table-row .col-name,
+.table-header .col-etiqueta,
+.table-row .col-etiqueta {
+    text-align: left;
 }
 
-/* Alinhamento de colunas da linha */
 .table-row .col-status,
 .table-row .col-emitida,
 .table-row .col-edit,
@@ -429,70 +137,100 @@
     align-items: center;
 }
 
-.table-row:last-child {
-    border-bottom: none;
-}
-
-/* Modal desativar */
-.modal__desativar {
-    display: none;
+/* ============================================= */
+/* ESTILIZAÇÃO DO MODAL (REVISADO) */
+/* ============================================= */
+.modal {
+    display: none; /* Inicia oculto */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    align-items: center;
+    /* Flexbox para centralizar */
     justify-content: center;
-    font-family: "Montserrat", "Poppins", sans-serif;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.description{
-    color: #000000;
-    font-size: 20px;
-    font-family: "Montserrat", "Poppins", "sans-serif";
-    font-weight: 400;
+.modal.is-open {
+    display: flex; /* Torna o modal visível */
 }
-.modal__desativar.is-open {
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal__content {
+    background-color: #424242;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px; /* Largura específica para o modal de notas */
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1002;
 }
 
-/* Responsividade */
-@media (max-width: 960px) {
-    .resumo-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .filters-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .filter-group {
-        min-width: auto;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-content {
-        width: 95%;
-        margin: 1rem;
-    }
+.modal__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
 }
 
-@media (max-width: 540px) {
-    .resumo-cards {
-        grid-template-columns: 1fr;
-    }
+.modal__title {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--white-normal);
+    font-family: "Poppins", sans-serif;
+}
 
-    .resumo-card {
-        padding: 1rem;
-    }
+.modal__close {
+    color: var(--white-normal);
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
 
-    .table-actions {
-        flex-direction: column;
-    }
+.modal__body {
+    padding: 1.5rem;
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid var(--gray-8);
+}
+
+/* Modal de confirmação (menor) */
+.modal__content--confirm {
+    max-width: 500px;
+}
+
+.modal__body--confirm {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--white-normal);
+}
+
+.modal__actions--confirm {
+    justify-content: center;
 }

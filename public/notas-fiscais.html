@@ -4,77 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veredictum - Gestão de Notas Fiscais</title>
-    <link rel="stylesheet" href="../../public/css/main.css">
-    <link rel="stylesheet" href="../../public/css/pages/style.css">
-    <link rel="stylesheet" href="../../public/css/pages/notas-fiscais.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pages/style.css">
+    <link rel="stylesheet" href="./css/pages/notas-fiscais.css">
 
     <meta name="keywords" content="veredictium, analytics, dashboard, kpi, métricas, business intelligence,advocacia, lei, gestão, crm, pessoas">
     <meta name="author" content="Veredictium">
     <meta name="robots" content="index, follow">
     <meta name="language" content="pt-BR">
-    <link rel="shortcut icon" type="image/png" href="../../public/assets/svg/logo_veredictum.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../public/assets/svg/logo_veredictum.svg">
-    <link rel="apple-touch-icon" href="../../public/assets/svg/logo_veredictum.svg">
+    <link rel="shortcut icon" type="image/png" href="assets/svg/logo_veredictum.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/svg/logo_veredictum.svg">
+    <link rel="apple-touch-icon" href="assets/svg/logo_veredictum.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display.swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-        /* Scroll customizado */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #ffffff;
-            border-radius: 10px;
-            border: 2px solid #f1f1f1;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #e0e0e0;
-        }
-
-        ::-webkit-scrollbar-button {
-            background: #ffffff;
-            border-radius: 10px;
-            height: 20px;
-            border: 2px solid #f1f1f1;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        ::-webkit-scrollbar-button:vertical:start:decrement {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 4l-4 4h8z' fill='%23666'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        ::-webkit-scrollbar-button:vertical:end:increment {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8l4-4H2z' fill='%23666'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        /* Adicionando estilo para texto descritivo */
-        .header-description {
-            color: var(--gray-5);
-            font-size: 1rem;
-            margin-top: 0.5rem;
-            font-weight: 300;
-        }
-    </style>
 </head>
 <body>
 <div class="container">
-
      <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -140,8 +88,6 @@
                 <span class="menu-text">Sair</span>
             </div>
         </aside>
-
-
     <main class="main-content">
         <div class="header-top">
             <div>
@@ -150,7 +96,7 @@
             </div>
             <button class="btn-new-appointment" id="adicionarNotaBtn">
                 Adicionar Nota Fiscal
-                <img src="../../public/assets/svg/btn.svg" alt="">
+                <img src="assets/svg/btn.svg" alt="">
             </button>
         </div>
 
@@ -171,6 +117,7 @@
             </div>
         </div>
     </main>
+</div> <div class="modal" id="notaModal">
 </div>
 
 <div class="modal" id="notaModal">
@@ -178,6 +125,64 @@
     <div class="modal__content">
         <div class="modal__header">
             <h2 class="modal__title" id="notaModalTitle">Adicionar Nota Fiscal</h2>
+            <button class="modal__close" id="notaModalClose"><img src="assets/svg/close.svg"></img></button>
+        </div>
+        <form class="form" id="notaForm">
+            <div class="modal__body">
+                <div class="form__grid">
+                    <div class="form__group">
+                        <label class="form__label" for="numero">Número da Nota</label>
+                        <select class="form__select" id="numero" name="numero" required>
+                            <option value="NF-001">NF-001</option>
+                            <option value="NF-002">NF-002</option>
+                            <option value="NF-003">NF-003</option>
+                            <option value="NF-004">NF-004</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="valor">Valor</label>
+                        <input class="form__input" type="text" id="valor" name="valor" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="dataVencimento">Data de Vencimento</label>
+                        <input class="form__input" type="date" id="dataVencimento" name="dataVencimento" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="etiqueta">Etiqueta</label>
+                        <input class="form__input" type="text" id="etiqueta" name="etiqueta" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="status">Status</label>
+                        <select class="form__select" id="status" name="status">
+                            <option value="Agendado">Agendado</option>
+                            <option value="Concluído">Concluído</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="Atrasado">Atrasado</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="emitida">Emitida</label>
+                        <select class="form__select" id="emitida" name="emitida">
+                            <option value="true">Sim</option>
+                            <option value="false">Não</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="urlNuvem">URL da Nuvem</label>
+                        <input class="form__input" type="url" id="urlNuvem" name="urlNuvem">
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="clienteId">Cliente</label>
+                        <select class="form__select" id="clienteId" name="clienteId">
+                        </select>
+                    </div>
+                    <div class="form__group form__group--full">
+                        <label class="form__label" for="descricao">Descrição</label>
+                        <textarea class="form__textarea" id="descricao" name="descricao"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__actions">
 
             <button class="modal__close" id="notaModalClose"><img src="../../public/assets/svg/close.svg"></img></button>
 
@@ -228,6 +233,11 @@
     <div class="modal__content">
         <div class="modal__header">
             <h2 class="modal__title">Informações sobre a Nota Fiscal</h2>
+            <button class="modal__close" id="infoNotaModalClose"><img src="assets/svg/close.svg"></button>
+        </div>
+        <div class="modal__body">
+            <div class="info-grid" id="infoNotaContent">
+            </div>
 
             <button class="modal__close" id="infoNotaModalClose"><img src="../../public/assets/svg/close.svg"></button>
 
@@ -237,27 +247,25 @@
     </div>
 </div>
 
-<div class="modal__desativar" id="excluirNotaModal">
-    <div class="modal__overlay__desativar" id="excluirNotaModalOverlay"></div>
-    <div class="modal__content__desativar modal__content__desativar">
-        <div class="modal__header__desativar">
-            <h2 class="modal__title__desativar">Excluir Nota Fiscal</h2>
-
-            <button class="modal__close__desativar" id="excluirNotaModalClose"><img src="../../public/assets/svg/close.svg"></img></button>
-
+<div class="modal" id="excluirNotaModal">
+    <div class="modal__overlay" id="excluirNotaModalOverlay"></div>
+    <div class="modal__content modal__content--confirm">
+        <div class="modal__header">
+            <h2 class="modal__title">Excluir Nota Fiscal</h2>
+            <button class="modal__close" id="excluirNotaModalClose"><img src="assets/svg/close.svg"></img></button>
         </div>
-        <div class="modal__body__desativar">
+        <div class="modal__body modal__body--confirm">
             <p id="excluirNotaMessage">Deseja excluir esta nota fiscal?</p>
         </div>
-        <div class="modal__actions__desativar">
-            <button class="btn-new-appointment__desativar" id="confirmarExcluirBtn">Desativar</button>
+        <div class="modal__actions modal__actions--confirm">
             <button class="btn-new-appointment" id="cancelarExcluirBtn">Cancelar</button>
-
+            <button class="btn-new-appointment__desativar" id="confirmarExcluirBtn">Excluir</button>
         </div>
     </div>
 </div>
 
-<script src="../utils/utils.js"></script>
-<script src="../utils/notas-fiscais.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/api-service.js"></script>
+<script src="js/notas-fiscais.js"></script>
 </body>
 </html>

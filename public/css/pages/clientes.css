@@ -73,294 +73,15 @@
     color: var(--normal-black);
 }
 
-/* Filtros específicos para notas fiscais */
-.filters-section {
-    margin-bottom: 2rem;
-}
-
-.filters-container {
-    display: flex;
-    gap: 1rem;
-    align-items: end;
-    flex-wrap: wrap;
-    padding: 1.5rem;
-    background-color: var(--white-normal);
-    border: 1px solid var(--gray-8);
-    border-radius: 12px;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    min-width: 180px;
-}
-
-.filter-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--normal-black);
-}
-
-.filter-input,
-.filter-select {
-    padding: 0.75rem;
-    border: 1px solid var(--gray-8);
-    border-radius: 6px;
-    font-size: 0.875rem;
-    background-color: var(--white-normal);
-}
-
-.filter-input:focus,
-.filter-select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(244, 161, 0, 0.1);
-}
-
-/* Formulários */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group--full {
-    grid-column: 1 / -1;
-}
-
-.form-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--normal-black);
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-    padding: 0.75rem;
-    border: 1px solid var(--gray-8);
-    border-radius: 6px;
-    font-size: 0.875rem;
-    background-color: var(--white-normal);
-    transition: border-color 0.3s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(244, 161, 0, 0.1);
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Checkbox customizado */
-.form-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-}
-
-.form-checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox-mark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--gray-8);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.form-checkbox input[type="checkbox"]:checked + .checkbox-mark {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.form-checkbox input[type="checkbox"]:checked + .checkbox-mark::after {
-    content: "✓";
-    color: var(--white-normal);
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* Ações da tabela */
-.table-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.btn-action {
-    padding: 0.25rem 0.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    transition: all 0.3s ease;
-}
-
-.btn-action--edit {
-    background-color: rgba(244, 161, 0, 0.1);
-    color: var(--primary-color-dark);
-}
-
-.btn-action--edit:hover {
-    background-color: rgba(244, 161, 0, 0.2);
-}
-
-.btn-action--delete {
-    background-color: rgba(235, 61, 61, 0.1);
-    color: var(--red-dark);
-}
-
-.btn-action--delete:hover {
-    background-color: rgba(235, 61, 61, 0.2);
-}
-
-.btn-action--view {
-    background-color: rgba(50, 217, 87, 0.1);
-    color: var(--green-dark);
-}
-
-.btn-action--view:hover {
-    background-color: rgba(50, 217, 87, 0.2);
-}
-
-/* Valor monetário */
-.valor-monetario {
-    font-weight: 600;
-    color: var(--green-dark);
-}
-
-/* Data de vencimento */
-.data-vencimento {
-    font-size: 0.875rem;
-}
-
-.data-vencimento--atrasada {
-    color: var(--red-normal);
-    font-weight: 600;
-}
-
-.data-vencimento--proxima {
-    color: var(--yellow-dark);
-    font-weight: 500;
-}
-
-/* Modal padrão (igual clientes) */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-.modal.is-open {
-    display: flex;
-}
-
-.modal__content{
-    background-color: #424242;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 1300px;
-    max-height: 100vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-
-.modal__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    /* border-bottom: 1px solid var(--gray-8); */
-}
-
-.modal__title {
-    font-size: 36px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    color: var(--white-normal);
-    font-family: "Montserrat", "Poppins", sans-serif;
-
-}
-
-.modal__close {
-    color: var(--white-normal);
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.modal__body {
-    padding: 1.5rem;
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-.modal__actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-top: 1px solid var(--gray-8);
-}
-
-.form__label,
-.form__input,
-.form__select,
-.form__textarea {
-    font-family: "Montserrat", "Poppins", sans-serif;
-}
-
-.form__grid--3col {
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    gap: 1rem;
-}
-
-/* --- Tabela estilo agenda/relacionamento --- */
+/* Tabela */
 .card-table {
     background-color: var(--white-normal);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.177);
     padding: 0.5rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    height: 60vh;
-    width: 60vw;
+    width: 100%;
     margin-bottom: 2rem;
 }
 
@@ -369,6 +90,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.7rem;
+    padding: 0 1rem;
 }
 
 .card-header h3 {
@@ -381,56 +103,52 @@
 .table-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     overflow-y: auto;
     width: 100%;
     padding-right: 1rem;
 }
 
+/* ===== CORREÇÃO DA TABELA ===== */
 .table-header,
 .table-row {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
     gap: 1rem;
     align-items: center;
-    padding: 0.35rem 0rem;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
-    color: #666;
-
+    padding: 0.75rem 1rem;
+    width: 100%;
 }
 
 .table-header {
+    font-family: "Montserrat", "Poppins", sans-serif;
     font-size: 1.1rem;
     font-weight: 1000;
     color: var(--normal-black-normal);
     background: none;
     box-shadow: none;
+    white-space: nowrap;
 }
 
-.table-header p {
-    font-weight: 700;
-    color: var(--normal-black-strong);
-    margin: 0;
+.table-row {
+    font-family: "Montserrat", "Poppins", sans-serif;
+    font-size: 1rem;
+    color: #222222;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    border-radius: 15px;
 }
 
-/* Alinhamento de colunas do cabeçalho */
-.table-header .col-edit,
-.table-header .col-info,
-.table-header .col-status {
+.table-header > *,
+.table-row > * {
     text-align: center;
 }
 
-
-.table-row {
-
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
-    border-radius: 15px;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
+.table-header .col-name,
+.table-row .col-name {
+    text-align: left;
 }
 
-/* Alinhamento das colunas da linha (centralizando botões) */
 .table-row .col-edit,
 .table-row .col-info,
 .table-row .col-status {
@@ -438,47 +156,131 @@
     justify-content: center;
     align-items: center;
 }
+/* ===== FIM DA CORREÇÃO DA TABELA ===== */
 
 
-.table-row:last-child {
-    border-bottom: none;
+/* ============================================= */
+/* ESTILIZAÇÃO DO MODAL (REVISADO) */
+/* ============================================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal__content {
+    background-color: #424242;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1300px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1002;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.modal__title {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--white-normal);
+    font-family: "Montserrat", "Poppins", sans-serif;
+    text-align: center;
+}
+
+.modal__close {
+    color: var(--white-normal);
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.modal__body {
+    padding: 1.5rem;
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid var(--gray-8);
+}
+
+.modal__content--confirm {
+    max-width: 500px;
+}
+
+.modal__body--confirm {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--white-normal);
+}
+
+.modal__actions--confirm {
+    justify-content: center;
+}
+
+.form__grid--3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 /* Responsividade */
 @media (max-width: 960px) {
-    .resumo-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .filters-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .filter-group {
-        min-width: auto;
-    }
-
-    .form-grid {
+    .table-header, .table-row {
         grid-template-columns: 1fr;
+        text-align: center;
     }
 
-    .modal-content {
-        width: 95%;
-        margin: 1rem;
-    }
-}
-
-@media (max-width: 540px) {
-    .resumo-cards {
-        grid-template-columns: 1fr;
+    .table-header .col-name,
+    .table-row .col-name {
+        text-align: center;
     }
 
-    .resumo-card {
-        padding: 1rem;
+    .table-header {
+        display: none;
     }
 
-    .table-actions {
-        flex-direction: column;
+    .table-row {
+        border-bottom: 1px solid var(--gray-8);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
     }
 }

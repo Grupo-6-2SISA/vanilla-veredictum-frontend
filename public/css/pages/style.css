@@ -12,29 +12,6 @@
     background-color: #EEEEEE;
 }
 
-/* Adicionado para alinhar título e botão e padronizar o espaçamento */
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 40px 40px 20px 40px; /* Adicionado padding */
-}
-
-.header-top h1 {
-    margin: 0 0 8px 0; /* Ajusta a margem do H1 */
-}
-
-/* Classe de descrição movida para cá para ser global */
-.description {
-    color: #000000;
-    font-size: 20px;
-    font-family: "Montserrat", "Poppins", sans-serif;
-    line-height: 1.5; /* Melhora a legibilidade */
-}
-
-
 .main-header {
     background-color: white;
     padding: 30px 40px;
@@ -166,7 +143,7 @@
 /* Tabelas */
 .clients-table,
 .invoices-table {
-    padding: 20px 40px 40px 40px; /* Espaçamento ajustado */
+    padding: 40px;
 }
 
 .table {
@@ -289,30 +266,33 @@
 
 /* Modais */
 .modal__desativar {
-    display: none;
+    display: none; /* Inicia oculto */
     position: fixed;
     z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-}
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
 
-.modal.is-open__desativar {
-    display: flex;
+    /* Centralização com Flexbox */
     align-items: center;
     justify-content: center;
 }
 
+.modal.is-open__desativar {
+    display: flex; /* Classe que torna o modal visível e aplica a centralização */
+}
+
+/* Este seletor foi mantido caso esteja em uso, mas o fundo foi movido para .modal__desativar */
 .modal__overlay__desativar {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); - Removido daqui */
 }
-
 
 .modal__content__desativar {
     position: relative;
@@ -327,25 +307,18 @@
     flex-direction: column;
 }
 
-.modal__header_desativar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 30px;
-
-}
 .modal__header__desativar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 30px;
-
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .modal__title__desativar {
     font-size: 24px;
     font-weight: 600;
-    color: #000000;
+    color: #333;
     justify-content: center;
     display: flex;
     flex: 1;
@@ -356,7 +329,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #1E1E1E;
+    color: #888;
     padding: 0;
     width: 32px;
     height: 32px;
@@ -365,12 +338,12 @@
     justify-content: center;
     border-radius: 6px;
     transition: all 0.2s ease;
-}.
+}
 
- .modal__close__desativar:hover {
-     background-color: #f0f0f0;
-     color: #333;
- }
+.modal__close__desativar:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
 
 .modal__body__desativar {
     padding: 30px;
@@ -384,9 +357,8 @@
     gap: 12px;
     justify-content: flex-end;
     padding: 24px 30px;
-
+    border-top: 1px solid #e0e0e0;
 }
-/* modal desativar */
 
 /* Formulários */
 .form {
@@ -398,7 +370,7 @@
 
 .form__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
     gap: 20px;
     margin-bottom: 0;
 }
@@ -464,7 +436,7 @@
 .info-item__label {
     font-weight: 500;
     margin-bottom: 6px;
-    color: #FFFFFF;
+    color: #666;
     font-size: 14px;
 }
 
@@ -505,7 +477,7 @@
         margin-left: 0;
     }
 
-    .main-header, .header-top {
+    .main-header {
         padding: 20px;
         flex-direction: column;
         align-items: stretch;
@@ -535,7 +507,7 @@
     }
 
     .form__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 3fr;
     }
 
     .info-grid {
