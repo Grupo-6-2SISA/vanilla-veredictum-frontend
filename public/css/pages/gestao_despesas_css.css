@@ -191,6 +191,39 @@ body {
     padding: 24px;
     box-shadow: 0 10px 24px 0 rgba(44, 44, 44, 0.18);
 }
+/* Bills Section - linhas arredondadas */
+.bills-table {
+  border-collapse: separate;
+  border-spacing: 0 8px; 
+}
+
+.bills-table tbody tr {
+  border-radius: 50px; 
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.bills-table tbody tr td {
+  border: none;
+  padding: 12px;
+}
+
+.bills-table tbody tr td:first-child {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-right: none;
+}
+
+.bills-table tbody tr td:last-child {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-left: none;
+}
+
+.bills-table tbody tr td:not(:first-child):not(:last-child) {
+  border-left: none;
+  border-right: none;
+}
 
 .section-header {
     display: flex;
@@ -542,6 +575,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .modal-add-btn_save {
     margin-top: 12px;
     width: 25%;

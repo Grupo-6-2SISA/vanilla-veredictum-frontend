@@ -20,7 +20,7 @@
 <body>
 
     <div class="container">
-         <aside class="sidebar">
+        <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
                     <img src="./assets/svg/logo_vectorized.svg" alt="Logo Veredictum">
@@ -29,12 +29,11 @@
                 <span class="user-name">Lismara Ribeiro</span>
             </div>
             <nav class="sidebar-nav">
-
                 <ul>
                     <li>
-                        <a href="./visao_geral.html" class="active">
-                            <img src="./assets/svg/visao-geral-black.svg" class="icon_vg" alt="">
-                            <span class="menu-text-active">Visão Geral</span>
+                        <a href="./visao_geral.html">
+                            <img src="./assets/svg/visao-geral.svg" class="icon_vg" alt="">
+                            <span class="menu-text">Visão Geral</span>
                         </a>
                     </li>
                     <li>
@@ -56,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./agenda_relacionamento.html" >
+                        <a href="./agenda_relacionamento.html">
                             <img src="./assets/svg/agenda.svg" class="icon_agenda" alt="">
                             <span class="menu-text">Agenda & Relacionamento</span>
                         </a>
@@ -64,7 +63,7 @@
                     <li>
                         <a href="./gestao_dispesas.html">
                             <img src="./assets/svg/despezas.svg" class="icon_notas" alt="">
-                            <span class="menu-text">Gestão de Despezas</span>
+                            <span class="menu-text">Gestão de Despesas</span>
                         </a>
                     </li>
                     <li>
@@ -129,7 +128,6 @@
             <section class="kpi-section">
                 <div class="kpi-grid">
 
-                    <!-- Card 1 -->
                     <div class="kpi-card danger">
                         <div class="kpi-header">
                             <span class="icon">⚠️</span>
@@ -142,10 +140,18 @@
                             </div>
                             <span class="kpi-change up">+33%</span>
                         </div>
+                        <div class="kpi-tooltip">
+                            <h2>Contas Atrasadas</h2>
+                            <p>Mostra o total de contas vencidas, ajudando no controle e na regularização das
+                                pendências.</p>
+                        </div>
                     </div>
 
-                    <!-- Card 2 -->
                     <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
+                        </div>
                         <div class="kpi-main">
                             <div class="kpi-info">
                                 <div class="kpi-value">3</div>
@@ -153,10 +159,17 @@
                             </div>
                             <span class="kpi-change down">-25%</span>
                         </div>
+                        <div class="kpi-tooltip">
+                            <h2>Notas Ficais Atrasadas</h2>
+                            <p>Indica a quantidade de notas vencidas, facilitando o acompanhamento financeiro.</p>
+                        </div>
                     </div>
 
-                    <!-- Card 3 -->
                     <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
+                        </div>
                         <div class="kpi-main">
                             <div class="kpi-info">
                                 <div class="kpi-value">7 <span class="percent">(20%)</span></div>
@@ -164,16 +177,29 @@
                             </div>
                             <span class="kpi-change up">+40%</span>
                         </div>
+                        <div class="kpi-tooltip">
+                            <h2>Atendimentos Cancelados</h2>
+                            <p>Exibe o total de atendimentos cancelados, ajudando a identificar possíveis falhas ou
+                                padrões.</p>
+                        </div>
                     </div>
 
-                    <!-- Card 4 -->
                     <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="icon">⚠️</span>
+                            <span class="label">Cuidado</span>
+                        </div>
                         <div class="kpi-main">
                             <div class="kpi-info">
                                 <div class="kpi-value">28 <span class="percent">(80%)</span></div>
                                 <div class="kpi-label">Atendimentos Concluídos</div>
                             </div>
-                            <span class="kpi-change down">+12%</span>
+                            <span class="kpi-change up">+12%</span>
+                        </div>
+                        <div class="kpi-tooltip">
+                            <h2>Atendimentos Concluídos</h2>
+                            <p>Mostra quantos atendimentos foram finalizados com sucesso, indicando a produtividade do
+                                escritório.</p>
                         </div>
                     </div>
 
@@ -186,15 +212,27 @@
                 <div class="chart-container">
                     <div class="chart-header">
                         <h3>Atendimentos Concluídos</h3>
-                        <img src="./assets/svg/info.svg" alt="">
+                        <div class="info-tooltip-wrapper">
+                            <img src="./assets/svg/info.svg" alt="Informação">
+                            <div class="chart-tooltip">
+                                <h4>Atendimentos Concluídos</h4>
+                                <p>Mostra a evolução dos atendimentos ao longo do tempo, ajudando a identificar padrões e épocas de maior demanda.</p>
+                            </div>
+                        </div>
                     </div>
                     <canvas id="atendimentosConcluidosChart" width="600" height="300"></canvas>
                 </div>
 
                 <div class="chart-container">
                     <div class="chart-header">
-                        <h3>Taxa de Cancelamento</h3>
-                        <img src="./assets/svg/info.svg" alt="">
+                        <h3>Taxa de Cancelamento de Atendimentos</h3>
+                        <div class="info-tooltip-wrapper">
+                            <img src="./assets/svg/info.svg" alt="Informação">
+                            <div class="chart-tooltip">
+                                <h4>Taxa de Cancelamento de Atendimentos</h4>
+                                <p>Exibe a evolução mensal dos cancelamentos, ajudando a entender causas e identificar tendências.</p>
+                            </div>
+                        </div>
                     </div>
                     <canvas id="taxaCancelamentoChart" width="600" height="300"></canvas>
                 </div>
@@ -203,6 +241,7 @@
     </div>
 
     <script src="./js/dashboard.js"></script>
+    <script src="./js/router.js"></script>
 </body>
 
 </html>

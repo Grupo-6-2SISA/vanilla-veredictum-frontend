@@ -13,6 +13,7 @@ aside {
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.384);
     transition: width 0.2s ease-out; /* Animação suave para a largura */
     overflow: hidden;
+    z-index: 1000;
 }
 
 /* Estilo para o cabeçalho (logo e nome) */
