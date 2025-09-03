@@ -1,22 +1,30 @@
-import {inilializeMenu} from './menu.js';
-import {inilializeDashboard} from './dashboard.js';
-import {inilializeVisaoGeral} from './visao_geral';
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Exemplo de como você poderia usar uma rota
-    const path = window.location.pathname;
+    const currentPath = window.location.pathname;
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a'); // Melhor usar a classe da nav
 
-    if (path.includes('./visao_geral.html')) {
-        initializeVisaoGeral();
-    } else if (path.includes('./dashboard.html')) {
-        initializeSidebar();
-    } else if (path.includes('./menu.js')) {
-        initializeMenu();
-    } else {
-        // Inicializa ambos para a página principal
-        initializeDashboard();
-        initializeSidebar();
-        initializeMenu();
-    }
+    sidebarLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // CORREÇÃO: Extrair o nome do arquivo de ambos os caminhos
+        const currentFile = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+        const linkFile = linkPath.substring(linkPath.lastIndexOf('/') + 1);
+        
+        if (currentFile === linkFile) {
+            link.classList.add('active');
+            
+            const menuText = link.querySelector('.menu-text');
+            const menuIcon = link.querySelector('img');
+
+            if (menuText) {
+                menuText.classList.remove('menu-text');
+                menuText.classList.add('menu-text-active');
+            }
+            
+            if (menuIcon) {
+                const iconSrc = menuIcon.getAttribute('src');
+                const activeIconSrc = iconSrc.replace('.svg', '_black.svg');
+                menuIcon.src = activeIconSrc;
+            }
+        }
+    });
 });

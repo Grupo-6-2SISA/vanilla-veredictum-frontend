@@ -111,31 +111,34 @@
     display: flex;
     gap: 4%;
     flex-direction: column;
-    overflow-y: auto; /* Permite rolagem vertical se necessário */
+    overflow-y:scroll; /* Permite rolagem vertical se necessário */
     height: 90%; /* Permite que a tabela ocupe todo o espaço disponível */
     width: 95%;
     padding-right: 1rem; /* Espaço para a barra de rolagem */
     scrollbar-width: thin; /* Para navegadores Firefox */
 }
 
-.table-header,
-.table-row {
+.table-header{
     display: grid;
-    grid-template-columns: 0.5fr 3fr 1.5fr 1.5fr 1.5fr 1fr 1fr;
+    grid-template-columns: 1fr 2.8fr 1.3fr 1.5fr 1.5fr 1fr 1fr;
     gap: 1rem;
     padding: 0.75rem 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
-    color: #666;
+}
 
+.table-row {
+    display: grid;
+    grid-template-columns: 0.6fr 3fr 1.5fr 1.5fr 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    color: var(--gray-1);
+    font-weight: 400;
 }
 
 .table-header {
     font-size: 20px;
     font-weight: 1000;
     color: var(--normal-black-normal);
-
-
 }
 
 .table-header p {
@@ -145,9 +148,10 @@
 
 .table-row {
     align-items: center;
-    padding: 0.6rem 1.2rem;
+    padding: 0.3rem 1.2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
     border-radius: 10px;
+    margin-left: 1%;
 }
 
 .table-row:last-child {
@@ -174,7 +178,7 @@
 }
 
 .table-row .col-edit i:hover {
-    color: #2e8b57; /* Verde para editar */
+    color: var(-green-dark); /* Verde para editar */
 }
 
 .table-row .col-delete i:hover {
