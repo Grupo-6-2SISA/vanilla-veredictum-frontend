@@ -11,13 +11,17 @@
       "cep": "01001-000",
       "logradouro": "Rua das Flores",
       "bairro": "Centro",
-      "cidade": "São Paulo",
+      "localidade": "São Paulo",
       "numero": "123",
+      "complemento": "Sala 101",
       "inscricaoEstadual": "ISENTO",
       "proBono": false,
       "status": "Ativo",
-      "indicacao": "Lista de clientes",
-      "descricao": "Cliente corporativo de grande porte"
+      "indicacao": "1",
+      "descricao": "Cliente corporativo de grande porte.",
+      "dataNascimento": "1980-05-20",
+      "dataInicio": "2022-01-15",
+      "isJuridico": true
     },
     {
       "id": 2,
@@ -30,13 +34,17 @@
       "cep": "20010-000",
       "logradouro": "Avenida Principal",
       "bairro": "Centro",
-      "cidade": "Rio de Janeiro",
+      "localidade": "Rio de Janeiro",
       "numero": "456",
+      "complemento": "Andar 2",
       "inscricaoEstadual": "123456789",
       "proBono": true,
       "status": "Ativo",
-      "indicacao": "Indicação",
-      "descricao": "Cliente industrial com demandas recorrentes"
+      "indicacao": "1",
+      "descricao": "Cliente industrial com demandas recorrentes.",
+      "dataNascimento": "1995-11-10",
+      "dataInicio": "2021-03-20",
+      "isJuridico": true
     },
     {
       "id": 3,
@@ -49,70 +57,64 @@
       "cep": "30110-000",
       "logradouro": "Praça Central",
       "bairro": "Centro",
-      "cidade": "Belo Horizonte",
+      "localidade": "Belo Horizonte",
       "numero": "789",
+      "complemento": "",
       "inscricaoEstadual": "987654321",
       "proBono": false,
       "status": "Inativo",
       "indicacao": "Marketing",
-      "descricao": "Cliente do setor varejista"
+      "descricao": "Cliente do setor varejista.",
+      "dataNascimento": "2000-02-25",
+      "dataInicio": "2023-08-01",
+      "isJuridico": true
     }
   ],
   "notasFiscais": [
     {
+      "id": 1,
+      "numero": "NF-001",
+      "valor": 1500,
+      "dataVencimento": "2024-07-20",
+      "etiqueta": "Serviço",
+      "status": "Paga",
+      "emitida": true,
+      "urlNuvem": "https://example.com/nf001",
+      "cliente": {
+        "id": 1,
+        "nome": "Empresa Alpha"
+      },
+      "descricao": "Serviços de consultoria fiscal."
+    },
+    {
       "id": 2,
-      "numeroNota": "NF-002",
+      "numero": "NF-002",
       "valor": 3200.5,
       "dataVencimento": "2024-07-22",
       "etiqueta": "Produto",
       "status": "Pendente",
       "emitida": false,
-      "urlCloud": "https://exemplo.com/nf002",
+      "urlNuvem": "https://example.com/nf002",
       "cliente": {
         "id": 2,
         "nome": "Indústria Beta"
-      }
+      },
+      "descricao": "Venda de matéria-prima."
     },
     {
       "id": 3,
-      "numeroNota": "NF-003",
+      "numero": "NF-003",
       "valor": 850.75,
       "dataVencimento": "2024-07-25",
       "etiqueta": "Consultoria",
-      "status": "Pendente",
-      "emitida": false,
-      "urlCloud": "",
+      "status": "Atrasada",
+      "emitida": true,
+      "urlNuvem": "",
       "cliente": {
         "id": 1,
         "nome": "Empresa Alpha"
-      }
-    },
-    {
-      "id": 4,
-      "numeroNota": "NF-004",
-      "valor": 2000,
-      "dataVencimento": "2024-08-01",
-      "etiqueta": "Serviço",
-      "status": "Paga",
-      "emitida": true,
-      "urlCloud": "https://exemplo.com/nf004",
-      "cliente": {
-        "id": 3,
-        "nome": "Comércio Gama"
-      }
-    },
-    {
-      "numeroNota": "NF-001",
-      "valor": "222,22",
-      "dataVencimento": "2025-08-21",
-      "etiqueta": "Produto",
-      "status": "Ativo",
-      "emitida": true,
-      "urlCloud": "https://canaltech.com.br/entretenimento/chupa-pedro-ator-de-succession-zoa-pedro-pascal-ao-ganhar-globo-de-ouro-275119/",
-      "cliente": {
-        "nome": "Lismar"
       },
-      "id": 5
+      "descricao": "Consultoria de marketing digital."
     }
   ]
 }

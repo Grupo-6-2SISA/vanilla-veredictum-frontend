@@ -1,6 +1,3 @@
-const API_URL = "http://localhost:3001/notasFiscais"
-// const API_URL = "http://localhost:8080/notas-fiscais" // endpoint original comentado
-
 class NotasFiscaisManager {
     constructor() {
         this.currentNotaId = null
@@ -37,12 +34,11 @@ class NotasFiscaisManager {
         const valorInput = document.getElementById("valor")
         if (valorInput) {
             valorInput.addEventListener("input", (e) => {
-                // Simples máscara de moeda
                 let v = e.target.value.replace(/\D/g, "")
                 v = (v / 100).toFixed(2) + ""
                 v = v.replace(".", ",")
                 v = v.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
-                e.target.value = v
+                e.target.value = `R$ ${v}`
             })
         }
     }
@@ -52,14 +48,11 @@ class NotasFiscaisManager {
      */
     async loadNotasFiscais() {
         try {
-            const res = await fetch(API_URL)
-            if (!res.ok) throw new Error("Erro ao buscar notas fiscais")
-            const notas = await res.json()
-            this.notas = notas
+            const notas = await window.ApiService.getNotasFiscais()
             this.renderNotasTable(notas)
         } catch (error) {
             console.error("Erro ao carregar notas fiscais:", error)
-            alert("Erro ao carregar notas fiscais")
+            window.Utils.dom.showToast("Erro ao carregar notas fiscais", "error")
         }
     }
 
@@ -88,19 +81,19 @@ class NotasFiscaisManager {
         notas.forEach(nota => {
             container.innerHTML += `
                 <div class="table-row">
-                    <div class="col-name">${nota.numeroNota || nota.numero}</div>
+                    <div class="col-name">${nota.numero}</div>
                     <div class="col-etiqueta">${nota.etiqueta || "-"}</div>
-                    <div class="col-day">${this.formatDate(nota.dataVencimento || nota.data_emissao)}</div>
+                    <div class="col-day">${window.Utils.formatters.formatDate(nota.dataVencimento)}</div>
                     <div class="col-status">${nota.status || '-'}</div>
                     <div class="col-emitida">${nota.emitida ? "Sim" : "Não"}</div>
                     <div class="col-edit">
                         <button class="action-btn action-btn--edit" data-action="edit" data-id="${nota.id}">
-                            <img src="../../public/assets/svg/edit.svg" alt="Editar">
+                            <img src="../assets/svg/edit.svg" alt="Editar">
                         </button>
                     </div>
                     <div class="col-delete">
                         <button class="action-btn action-btn--delete" data-action="delete" data-id="${nota.id}">
-                            <img src="../../public/assets/svg/lixo.svg" alt="Excluir">
+                            <img src="../assets/svg/lixo.svg" alt="Excluir">
                         </button>
                     </div>
                     <div class="col-info">
@@ -130,11 +123,13 @@ class NotasFiscaisManager {
      * Abre o modal de nota fiscal (cadastro/edição)
      * @param {Object} nota - Dados da nota (opcional, para edição)
      */
-    openNotaModal(nota = null) {
+    async openNotaModal(nota = null) {
         const modal = document.getElementById("notaModal")
         const title = document.getElementById("notaModalTitle")
         const saveBtn = document.getElementById("salvarNotaBtn")
         const form = document.getElementById("notaForm")
+
+        await this.populateClientesSelect()
 
         if (nota) {
             this.isEditMode = true
@@ -153,6 +148,25 @@ class NotasFiscaisManager {
     }
 
     /**
+     * Popula o select de clientes
+     */
+    async populateClientesSelect() {
+        const select = document.getElementById("clienteId")
+        select.innerHTML = ""
+        try {
+            const clientes = await window.ApiService.getClientes()
+            clientes.forEach(cliente => {
+                const option = document.createElement("option")
+                option.value = cliente.id
+                option.textContent = cliente.nome
+                select.appendChild(option)
+            })
+        } catch (error) {
+            console.error("Erro ao popular clientes:", error)
+        }
+    }
+
+    /**
      * Fecha o modal de nota fiscal
      */
     closeNotaModal() {
@@ -165,16 +179,15 @@ class NotasFiscaisManager {
      * @param {Object} nota - Dados da nota fiscal
      */
     fillNotaForm(nota) {
-        document.getElementById("numeroNota").value = nota.numeroNota || nota.numero || ""
-        document.getElementById("valor").value = nota.valor || ""
-        document.getElementById("dataVencimento").value = (nota.dataVencimento || nota.data_emissao || "").split("T")[0]
-        document.getElementById("etiqueta").value = nota.etiqueta || ""
-        if (document.getElementById("status")) {
-            document.getElementById("status").value = nota.status || "Ativo"
-        }
+        document.getElementById("numero").value = nota.numero
+        document.getElementById("valor").value = window.Utils.formatters.formatCurrency(nota.valor)
+        document.getElementById("dataVencimento").value = nota.dataVencimento
+        document.getElementById("etiqueta").value = nota.etiqueta
+        document.getElementById("status").value = nota.status
         document.getElementById("emitida").value = nota.emitida ? "true" : "false"
-        document.getElementById("urlCloud").value = nota.urlCloud || ""
-        document.getElementById("cliente").value = (nota.cliente && nota.cliente.nome) || ""
+        document.getElementById("urlNuvem").value = nota.urlNuvem
+        document.getElementById("clienteId").value = nota.cliente.id
+        document.getElementById("descricao").value = nota.descricao
     }
 
     /**
@@ -183,38 +196,41 @@ class NotasFiscaisManager {
     async handleSaveNota() {
         const form = document.getElementById("notaForm")
         const formData = new FormData(form)
+
+        const clienteId = formData.get("clienteId")
+        const cliente = await window.ApiService.getClienteById(clienteId)
+
         const notaData = {
-            numeroNota: formData.get("numeroNota"),
-            valor: formData.get("valor"),
+            numero: formData.get("numero"),
+            valor: window.Utils.formatters.unformatCurrency(formData.get("valor")),
             dataVencimento: formData.get("dataVencimento"),
             etiqueta: formData.get("etiqueta"),
-            status: formData.get("status") || "Ativo",
+            status: formData.get("status"),
             emitida: formData.get("emitida") === "true",
-            urlCloud: formData.get("urlCloud"),
-            cliente: { nome: formData.get("cliente") }
+            urlNuvem: formData.get("urlNuvem"),
+            cliente: {
+                id: cliente.id,
+                nome: cliente.nome
+            },
+            descricao: formData.get("descricao"),
+            dataCriacao: new Date().toISOString().split('T')[0] // Adiciona data de criação
         }
+
         if (!this.validateNotaData(notaData)) return
+
         try {
             if (this.isEditMode) {
-                await fetch(`${API_URL}/${this.currentNotaId}`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(notaData)
-                })
-                alert("Nota fiscal atualizada com sucesso!")
+                await window.ApiService.updateNotaFiscal(this.currentNotaId, notaData)
+                window.Utils.dom.showToast("Nota fiscal atualizada com sucesso!", "success")
             } else {
-                await fetch(API_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(notaData)
-                })
-                alert("Nota fiscal criada com sucesso!")
+                await window.ApiService.createNotaFiscal(notaData)
+                window.Utils.dom.showToast("Nota fiscal criada com sucesso!", "success")
             }
             this.closeNotaModal()
             this.loadNotasFiscais()
         } catch (error) {
             console.error("Erro ao salvar nota fiscal:", error)
-            alert("Erro ao salvar nota fiscal")
+            window.Utils.dom.showToast("Erro ao salvar nota fiscal", "error")
         }
     }
 
@@ -224,8 +240,8 @@ class NotasFiscaisManager {
      * @returns {boolean} - true se válido, false se inválido
      */
     validateNotaData(notaData) {
-        if (!notaData.numeroNota || !notaData.valor || !notaData.dataVencimento || !notaData.cliente.nome) {
-            alert("Preencha todos os campos obrigatórios")
+        if (!notaData.numero || !notaData.valor || !notaData.dataVencimento || !notaData.cliente.id) {
+            window.Utils.dom.showToast("Preencha todos os campos obrigatórios", "warning")
             return false
         }
         return true
@@ -237,13 +253,11 @@ class NotasFiscaisManager {
      */
     async editNota(notaId) {
         try {
-            const res = await fetch(`${API_URL}/${notaId}`)
-            if (!res.ok) throw new Error("Nota não encontrada")
-            const nota = await res.json()
+            const nota = await window.ApiService.getNotaFiscalById(notaId)
             this.openNotaModal(nota)
         } catch (error) {
             console.error("Erro ao carregar nota fiscal:", error)
-            alert("Erro ao carregar dados da nota fiscal")
+            window.Utils.dom.showToast("Erro ao carregar dados da nota fiscal", "error")
         }
     }
 
@@ -253,14 +267,12 @@ class NotasFiscaisManager {
      */
     async showNotaInfo(notaId) {
         try {
-            const res = await fetch(`${API_URL}/${notaId}`)
-            if (!res.ok) throw new Error("Nota não encontrada")
-            const nota = await res.json()
+            const nota = await window.ApiService.getNotaFiscalById(notaId)
             this.renderNotaInfo(nota)
             document.getElementById("infoNotaModal").classList.add("is-open")
         } catch (error) {
             console.error("Erro ao carregar informações da nota fiscal:", error)
-            alert("Erro ao carregar informações")
+            window.Utils.dom.showToast("Erro ao carregar informações", "error")
         }
     }
 
@@ -271,19 +283,18 @@ class NotasFiscaisManager {
     renderNotaInfo(nota) {
         const container = document.getElementById("infoNotaContent")
         const fields = [
-            { key: "numeroNota", label: "Número da Nota" },
-            { key: "valor", label: "Valor" },
-            { key: "dataVencimento", label: "Data de Vencimento", format: this.formatDate },
+            { key: "numero", label: "Número da Nota" },
+            { key: "valor", label: "Valor", format: window.Utils.formatters.formatCurrency },
+            { key: "dataVencimento", label: "Data de Vencimento", format: window.Utils.formatters.formatDate },
             { key: "etiqueta", label: "Etiqueta" },
             { key: "status", label: "Status" },
             { key: "emitida", label: "Emitida", format: (v) => (v ? "Sim" : "Não") },
-            { key: "urlCloud", label: "URL Cloud", format: (v) => v ? `<a href="${v}" target="_blank">Link</a>` : '-' },
+            { key: "urlNuvem", label: "URL da Nuvem", format: (v) => v ? `<a href="${v}" target="_blank">Link</a>` : '-' },
             { key: "cliente", label: "Cliente", format: (c) => c?.nome || "-" },
+            { key: "descricao", label: "Descrição" },
         ]
         container.innerHTML = fields.map(field => {
-            let value = nota[field.key]
-            if (field.key === "numeroNota" && !value) value = nota.numero
-            if (field.key === "dataVencimento" && !value) value = nota.data_emissao
+            const value = nota[field.key]
             const formattedValue = field.format ? field.format(value) : (value || "-")
             return `<div class="info-item"><div class="info-item__label">${field.label}</div><div class="info-item__value">${formattedValue}</div></div>`
         }).join("")
@@ -302,45 +313,33 @@ class NotasFiscaisManager {
      */
     async showExcluirModal(notaId) {
         try {
-            const res = await fetch(`${API_URL}/${notaId}`)
-            if (!res.ok) throw new Error("Nota não encontrada")
-            const nota = await res.json()
+            const nota = await window.ApiService.getNotaFiscalById(notaId)
             this.currentNotaId = notaId
             const message = document.getElementById("excluirNotaMessage")
-            message.textContent = `Deseja excluir a nota ${nota.numeroNota} de etiqueta "${nota.etiqueta}"?`
+            message.textContent = `Deseja excluir a nota ${nota.numero} de etiqueta "${nota.etiqueta}"?`
             document.getElementById("excluirNotaModal").classList.add("is-open")
         } catch (error) {
             console.error("Erro ao carregar nota fiscal:", error)
-            alert("Erro ao carregar dados da nota fiscal")
+            window.Utils.dom.showToast("Erro ao carregar dados da nota fiscal", "error")
         }
     }
 
-    /**
-     * Fecha o modal de excluir
-     */
+
     closeExcluirModal() {
         document.getElementById("excluirNotaModal").classList.remove("is-open")
     }
 
-    /**
-     * Confirma a exclusão da nota fiscal
-     */
+
     async handleExcluirNota() {
         try {
-            await fetch(`${API_URL}/${this.currentNotaId}`, { method: "DELETE" })
-            alert("Nota fiscal excluída com sucesso!")
+            await window.ApiService.deleteNotaFiscal(this.currentNotaId)
+            window.Utils.dom.showToast("Nota fiscal excluída com sucesso!", "success")
             this.closeExcluirModal()
             this.loadNotasFiscais()
         } catch (error) {
             console.error("Erro ao excluir nota fiscal:", error)
-            alert("Erro ao excluir nota fiscal")
+            window.Utils.dom.showToast("Erro ao excluir nota fiscal", "error")
         }
-    }
-
-    formatDate(dateStr) {
-        if (!dateStr) return "-"
-        const d = new Date(dateStr)
-        return d.toLocaleDateString("pt-BR")
     }
 }
 

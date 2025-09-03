@@ -44,7 +44,7 @@ class ClientesManager {
      */
     async loadClientes() {
         try {
-            const clientes = await window.ApiService.getClientes() // Corrigido: busca clientes da API
+            const clientes = await window.ApiService.getClientes()
             this.renderClientesTable(clientes)
         } catch (error) {
             console.error("Erro ao carregar clientes:", error)
@@ -81,7 +81,7 @@ class ClientesManager {
                     <div class="col-name">${cliente.nome}</div>
                     <div class="col-edit">
                         <button class="action-btn action-btn--edit" data-action="edit" data-id="${cliente.id}">
-                            <img src="../../public/assets/svg/edit.svg" alt="Editar">
+                            <img src="../assets/svg/edit.svg" alt="Editar">
                         </button>
                     </div>
                     <div class="col-info">
@@ -148,26 +148,32 @@ class ClientesManager {
             { key: "nome", label: "Nome" },
             { key: "email", label: "E-mail" },
             { key: "rg", label: "RG" },
-            { key: "cpf", label: "CPF" },
-            { key: "telefone", label: "Telefone" },
-            { key: "cep", label: "CEP" },
+            { key: "cpf", label: "CPF", format: window.Utils.formatters.formatCpf },
+            { key: "telefone", label: "Telefone", format: window.Utils.formatters.formatPhone },
+            { key: "dataNascimento", label: "Data de Nascimento", format: window.Utils.formatters.formatDate },
+            { key: "dataInicio", label: "Data de Início", format: window.Utils.formatters.formatDate },
+            { key: "cep", label: "CEP", format: window.Utils.formatters.formatCep },
             { key: "logradouro", label: "Logradouro" },
-            { key: "bairro", label: "Bairro" },
             { key: "numero", label: "Número" },
-            { key: "cidade", label: "Cidade" },
+            { key: "complemento", label: "Complemento" },
+            { key: "bairro", label: "Bairro" },
+            { key: "localidade", label: "Localidade" },
+            { key: "isJuridico", label: "Pessoa Jurídica?", format: (v) => (v ? "Sim" : "Não") },
+            { key: "cnpj", label: "CNPJ", format: window.Utils.formatters.formatCnpj },
             { key: "inscricaoEstadual", label: "Inscrição Estadual" },
             { key: "indicacao", label: "Indicação" },
             { key: "proBono", label: "Pro-Bono?", format: (v) => (v ? "Sim" : "Não") },
             { key: "status", label: "Status" },
-            { key: "descricao", label: "Descrição" },
+            { key: "descricao", label: "Descrição", fullWidth: true },
         ]
 
         container.innerHTML = fields
             .map((field) => {
                 const value = cliente[field.key]
                 const formattedValue = field.format ? field.format(value) : value || "-"
+                const fullWidthClass = field.fullWidth ? "info-item--full" : ""
                 return `
-                <div class="info-item">
+                <div class="info-item ${fullWidthClass}">
                     <div class="info-item__label">${field.label}</div>
                     <div class="info-item__value">${formattedValue}</div>
                 </div>`
@@ -195,6 +201,7 @@ class ClientesManager {
             try {
                 await window.ApiService.ativarCliente(clienteId)
                 window.Utils.dom.showToast("Cliente ativado com sucesso!", "success")
+                this.loadClientes()
             } catch (error) {
                 console.error("Erro ao ativar cliente:", error)
                 window.Utils.dom.showToast("Erro ao ativar cliente", "error")
@@ -227,6 +234,7 @@ class ClientesManager {
     closeDesativarModal() {
         const modal = document.getElementById("modalDesativarCliente")
         modal.classList.remove("is-open")
+        this.loadClientes()
     }
 
     /**
@@ -248,11 +256,13 @@ class ClientesManager {
      * Abre o modal de cliente (cadastro/edição)
      * @param {Object} cliente - Dados do cliente (opcional, para edição)
      */
-    openClienteModal(cliente = null) {
+    async openClienteModal(cliente = null) {
         const modal = document.getElementById("modalCadastroCliente")
         const title = document.getElementById("tituloModalCliente")
         const saveBtn = document.getElementById("salvarClienteBtn")
         const form = document.getElementById("formCliente")
+
+        await this.populateIndicacaoSelect()
 
         if (cliente) {
             this.isEditMode = true
@@ -272,6 +282,26 @@ class ClientesManager {
     }
 
     /**
+     * Popula o select de indicação com os clientes
+     */
+    async populateIndicacaoSelect() {
+        const select = document.getElementById("indicacao")
+        select.innerHTML = '<option value="">Selecione um cliente</option>'
+        try {
+            const clientes = await window.ApiService.getClientes()
+            clientes.forEach(cliente => {
+                const option = document.createElement("option")
+                option.value = cliente.id
+                option.textContent = cliente.nome
+                select.appendChild(option)
+            })
+        } catch (error) {
+            console.error("Erro ao popular indicações:", error)
+        }
+    }
+
+
+    /**
      * Fecha o modal de cliente
      */
     closeClienteModal() {
@@ -285,29 +315,25 @@ class ClientesManager {
      * @param {Object} cliente - Dados do cliente
      */
     fillClienteForm(cliente) {
-        const fields = [
-            "nome",
-            "email",
-            "rg",
-            "cpf",
-            "cnpj",
-            "telefone",
-            "cep",
-            "logradouro",
-            "bairro",
-            "numero",
-            "cidade",
-            "inscricaoEstadual",
-            "indicacao",
-            "status",
-            "descricao",
-        ]
-
-        fields.forEach((field) => {
-            const element = document.getElementById(field)
-            if (element) element.value = cliente[field] || ""
-        })
+        document.getElementById("nome").value = cliente.nome || ""
+        document.getElementById("email").value = cliente.email || ""
+        document.getElementById("telefone").value = cliente.telefone || ""
+        document.getElementById("cpf").value = cliente.cpf || ""
+        document.getElementById("rg").value = cliente.rg || ""
+        document.getElementById("dataNascimento").value = cliente.dataNascimento || ""
+        document.getElementById("cep").value = cliente.cep || ""
+        document.getElementById("logradouro").value = cliente.logradouro || ""
+        document.getElementById("numero").value = cliente.numero || ""
+        document.getElementById("bairro").value = cliente.bairro || ""
+        document.getElementById("localidade").value = cliente.localidade || ""
+        document.getElementById("complemento").value = cliente.complemento || ""
+        document.getElementById("dataInicio").value = cliente.dataInicio || ""
+        document.getElementById("indicacao").value = cliente.indicacao || ""
+        document.getElementById("isJuridico").value = cliente.isJuridico ? "true" : "false"
+        document.getElementById("cnpj").value = cliente.cnpj || ""
+        document.getElementById("inscricaoEstadual").value = cliente.inscricaoEstadual || ""
         document.getElementById("proBono").value = cliente.proBono ? "true" : "false"
+        document.getElementById("descricao").value = cliente.descricao || ""
     }
 
     /**
@@ -318,6 +344,8 @@ class ClientesManager {
         const formData = new FormData(form)
         const clienteData = Object.fromEntries(formData.entries())
         clienteData.proBono = clienteData.proBono === "true"
+        clienteData.isJuridico = clienteData.isJuridico === "true"
+        clienteData.status = "Ativo" // Default status
 
         if (!this.validateClienteData(clienteData)) return
 
@@ -387,7 +415,7 @@ class ClientesManager {
 
             document.getElementById("logradouro").value = address.logradouro || ""
             document.getElementById("bairro").value = address.bairro || ""
-            document.getElementById("cidade").value = address.localidade || ""
+            document.getElementById("localidade").value = address.localidade || ""
             Utils.dom.showToast("Endereço encontrado!", "success")
         } catch (error) {
             console.error("Erro ao buscar CEP:", error)
