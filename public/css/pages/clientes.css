@@ -356,8 +356,11 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.177);
     padding: 0.5rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 100%;
+    height: 60vh;
+    width: 60vw;
     margin-bottom: 2rem;
 }
 
@@ -390,12 +393,11 @@
     grid-template-columns: 0.5fr 1fr 1fr 1fr;
     gap: 1rem;
     align-items: center;
-    /* Padding unificado para alinhamento */
-    padding: 0.75rem 0rem;
-    font-family: "Montserrat", "Poppins", sans-serif;
-    font-size: 0.95rem;
-    color: #222222;
-    font-weight: 600;
+    padding: 0.35rem 0rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+
 }
 
 .table-header {
@@ -421,9 +423,10 @@
 
 
 .table-row {
-    background: #F6F6F6;
+
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
     border-radius: 15px;
+    padding: 0.6rem 1.2rem;
     font-size: 1rem;
 }
 

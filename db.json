@@ -60,26 +60,18 @@
   ],
   "notasFiscais": [
     {
-      "id": 1,
-      "numeroNota": "NF-001",
-      "valor": 1500.00,
-      "dataVencimento": "2024-07-20",
-      "etiqueta": "Serviço",
-      "status": "Paga",
-      "emitida": true,
-      "urlCloud": "https://exemplo.com/nf001",
-      "cliente": { "id": 1, "nome": "Empresa Alpha" }
-    },
-    {
       "id": 2,
       "numeroNota": "NF-002",
-      "valor": 3200.50,
+      "valor": 3200.5,
       "dataVencimento": "2024-07-22",
       "etiqueta": "Produto",
       "status": "Pendente",
       "emitida": false,
       "urlCloud": "https://exemplo.com/nf002",
-      "cliente": { "id": 2, "nome": "Indústria Beta" }
+      "cliente": {
+        "id": 2,
+        "nome": "Indústria Beta"
+      }
     },
     {
       "id": 3,
@@ -90,18 +82,37 @@
       "status": "Pendente",
       "emitida": false,
       "urlCloud": "",
-      "cliente": { "id": 1, "nome": "Empresa Alpha" }
+      "cliente": {
+        "id": 1,
+        "nome": "Empresa Alpha"
+      }
     },
     {
       "id": 4,
       "numeroNota": "NF-004",
-      "valor": 2000.00,
+      "valor": 2000,
       "dataVencimento": "2024-08-01",
       "etiqueta": "Serviço",
       "status": "Paga",
       "emitida": true,
       "urlCloud": "https://exemplo.com/nf004",
-      "cliente": { "id": 3, "nome": "Comércio Gama" }
+      "cliente": {
+        "id": 3,
+        "nome": "Comércio Gama"
+      }
+    },
+    {
+      "numeroNota": "NF-001",
+      "valor": "222,22",
+      "dataVencimento": "2025-08-21",
+      "etiqueta": "Produto",
+      "status": "Ativo",
+      "emitida": true,
+      "urlCloud": "https://canaltech.com.br/entretenimento/chupa-pedro-ator-de-succession-zoa-pedro-pascal-ao-ganhar-globo-de-ouro-275119/",
+      "cliente": {
+        "nome": "Lismar"
+      },
+      "id": 5
     }
   ]
 }

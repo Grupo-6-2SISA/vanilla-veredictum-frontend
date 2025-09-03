@@ -358,9 +358,9 @@
 }
 
 .card-header h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--normal-black);
+    font-weight: 1000;
+    color: var(--normal-black-normal);
+    font-size: 20px;
     margin: 0;
 }
 
@@ -380,12 +380,11 @@
     grid-template-columns: 2.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
     gap: 1rem;
     align-items: center;
-    /* Padding unificado */
-    padding: 0.75rem 0rem;
-    font-family: "Montserrat", "Poppins", sans-serif;
-    font-size: 0.95rem;
-    color: #222222;
-    font-weight: 600;
+    padding: 0.35rem 0rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+
 }
 
 .table-header {
@@ -413,9 +412,9 @@
 
 
 .table-row {
-    background: #F6F6F6;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
     border-radius: 15px;
+    padding: 0.6rem 1.2rem;
     font-size: 1rem;
 }
 
