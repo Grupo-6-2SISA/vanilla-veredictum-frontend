@@ -8,37 +8,15 @@
 @import url(./partials/spacing.css);
 @import url(./partials/icons.css);
 
-<<<<<<< HEAD
 /* ----- IMPORTANDO PÁGINAS DO   SITE ----- */
 @import url(./pages/log_envio_email.css);
 @import url(./pages/cadastro.css);
 @import url(./pages/recSenha.css);
-=======
-/* ----- IMPORTANDO PÁGINAS DO SITE ----- */
-/* Telas Gabriel */
-/* @import url(./pages/notas-fiscais.css); */
-/* @import url(./pages/gestao_despesas_css.css); */
-
-/* Telas Davidson */
-/* @import url(./pages/log_envio_email.css); */
-/* @import url(./pages/painel_controle.css); */
-
-/* Telas Gustavo */
->>>>>>> ce79725ccc36d321f8aef68bad80af1a574426bd
 @import url(./pages/visao_geral.css);
 @import url(./pages/dashboard.css);
 @import url(./pages/agenda_relacionamento.css);
-<<<<<<< HEAD
 @import url(./pages/clientes.css);
 @import url(./pages/notas-fiscais.css);
-=======
-
-/* Telas Manuela */
-@import url(./pages/home.css);
-@import url(./pages/cadastro.css);
-@import url(./pages/recSenha.css);
-
->>>>>>> ce79725ccc36d321f8aef68bad80af1a574426bd
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     margin: 0;
