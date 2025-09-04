@@ -81,7 +81,7 @@ class ClientesManager {
                     <div class="col-name">${cliente.nome}</div>
                     <div class="col-edit">
                         <button class="action-btn action-btn--edit" data-action="edit" data-id="${cliente.id}">
-                            <img src="../assets/svg/edit.svg" alt="Editar">
+                            <img src="./assets/svg/edit.svg" alt="Editar">
                         </button>
                     </div>
                     <div class="col-info">

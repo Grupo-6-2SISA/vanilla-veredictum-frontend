@@ -188,14 +188,16 @@
     </div>
 
     <!-- Modal Adicionar Despesa -->
-    <div id="expenseModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()"><img src="assets/svg/fechar.svg" alt=""></span>
+    <div class="modal-backdrop hidden"></div>
 
-            <h2>Adicionar Despesa</h2>
+    <div id="expenseModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Despesa</h2>
+                <a href="#" class="modal-close-btn"><img src="./assets/svg/close.svg" alt="Fechar"></a>
+            </div>
 
             <form id="expenseForm">
-
                 <div class="form-row">
                     <div class="form-group">
                         <label for="etiqueta">Etiqueta</label>
@@ -217,16 +219,13 @@
                         <input type="text" id="comentario" name="comentario">
                     </div>
                 </div>
-                <div class="form-row">
-                    <label>Pago?</label>
-                    <label><input style="background-color: #414141;" type="checkbox" name="pago" value="sim" checked>
-                        SIM</label>
-                    <label><input type="checkbox" name="pago" value="nao"> NÃO</label>
-                </div>
-                <div id="div_para_botao">
 
-                    <button type="submit" class="modal-add-btn">Adicionar</button>
-
+                <div class="form-footer">
+                    <label class="pagamento-label">
+                        <input type="checkbox" name="pago_sim" value="sim" checked>
+                        Pago
+                    </label>
+                    <button type="submit" class="btn-new-appointment">Adicionar</button>
                 </div>
             </form>
         </div>
