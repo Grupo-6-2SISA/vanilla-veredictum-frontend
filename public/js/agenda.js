@@ -226,6 +226,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ========================================================= */
+    /* Lógica para o Modal de Adicionar (Novo Agendamento) */
+    /* ========================================================= */
+    const newAppointmentBtn = document.querySelector('.btn-new-appointment');
+    const addModal = document.getElementById('new-appointment-modal-add');
+    const addModalBackdrop = document.querySelector('.modal-backdrop-add');
+    const addModalCloseBtn = addModal.querySelector('.modal-close-btn');
+
+    function openAddModal() {
+        addModal.classList.remove('hidden');
+        addModalBackdrop.classList.remove('hidden');
+    }
+
+    function closeAddModal() {
+        addModal.classList.add('hidden');
+        addModalBackdrop.classList.add('hidden');
+    }
+
+    newAppointmentBtn.addEventListener('click', openAddModal);
+    addModalCloseBtn.addEventListener('click', closeAddModal);
+    addModalBackdrop.addEventListener('click', closeAddModal);
+
+
+/* ========================================================= */
+/* Lógica para o Modal de Editar Agendamento */
+/* ========================================================= */
+    const editButtons = document.querySelectorAll('.icon_edit');
+    const editModal = document.getElementById('new-appointment-modal-edit');
+    const editModalBackdrop = document.querySelector('.modal-backdrop-edit');
+    const editModalCloseBtn = editModal.querySelector('.modal-close-btn');
+
+    function openEditModal() {
+        editModal.classList.remove('hidden');
+        editModalBackdrop.classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+        editModal.classList.add('hidden');
+        editModalBackdrop.classList.add('hidden');
+    }
+
+    // Adiciona o evento de clique a todos os botões de edição encontrados
+    editButtons.forEach(button => {
+        button.addEventListener('click', openEditModal);
+    });
+    
+    editModalCloseBtn.addEventListener('click', closeEditModal);
+    editModalBackdrop.addEventListener('click', closeEditModal);
+
+});
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

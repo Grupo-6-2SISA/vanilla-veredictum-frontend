@@ -1,299 +1,145 @@
-/* Resumo Cards */
-.resumo-section {
-    margin-bottom: 2rem;
+/* ----- IMPORTANDO PADRÕES DO SITE ----- */
+
+@import url(../main.css);
+@import url(../partials/typography.css);
+@import url(../partials/colors.css);
+@import url(../partials/buttons.css);
+@import url(../partials/layout.css);
+@import url(../partials/menu.css);
+@import url(../partials/spacing.css);
+
+
+
+/* --- Seção de Gestão de Clientes --- */
+
+.head-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -20px;
 }
-.description{
-    color: #000000;
-    font-size: 20px;
-    /* font-family: "Montserrat", "Poppins", "sans-serif"; */
+
+.head-description p{
+    font-size: 18px;
     font-weight: 400;
-    margin-left: 40px;
-}
-.resumo-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    color: var(--dark-black);
+    margin-left: 50px;
 }
 
-.resumo-card {
-    background-color: var(--white-normal);
-    border: 1px solid var(--gray-8);
-    border-radius: 12px;
+
+
+.client-management-section {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center; /* Centraliza o card na página */
     padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: transform 0.3s ease;
+    
 }
 
-.resumo-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.resumo-card__icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(244, 161, 0, 0.1);
-    color: var(--primary-color);
-    font-size: 1.5rem;
-}
-
-.resumo-card__icon--success {
-    background-color: rgba(50, 217, 87, 0.1);
-    color: var(--green-normal);
-}
-
-.resumo-card__icon--warning {
-    background-color: rgba(255, 206, 82, 0.1);
-    color: var(--yellow-normal);
-}
-
-.resumo-card__icon--primary {
-    background-color: rgba(244, 161, 0, 0.1);
-    color: var(--primary-color);
-}
-
-.resumo-card__content {
-    flex: 1;
-}
-
-.resumo-card__title {
-    font-size: 0.875rem;
-    color: var(--gray-4);
-    margin-bottom: 0.25rem;
-}
-
-.resumo-card__value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--normal-black);
-}
-
-/* Tabela */
-.card-table {
+.client-table-card {
+    width: 75vw;
+    height: 400px;
+    max-height: 100vh;
+    border-radius: 10px;
     background-color: var(--white-normal);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.177);
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin-bottom: 1rem;
-    margin-left: 8%;
-    height: 14em;
-    max-height: 600px;
+    overflow-y: auto; /* Adicione aqui para o scroll ficar no card */
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.7rem;
-    padding: 0 1rem;
-}
-
-.card-header h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--normal-black);
-    margin: 0;
-}
-
-.table-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    /* Adicione estas duas linhas para a rolagem funcionar */
-    max-height: 230px; /* Defina a altura máxima para a área da tabela. Ajuste esse valor se precisar. */
-    overflow-y: auto; /* Habilita a barra de rolagem vertical apenas quando necessário */
-}
-
-/* Alvo da barra de rolagem inteira */
-.table-container::-webkit-scrollbar {
-    width: 5px; /* Define a largura da barra de rolagem */
-    background-color: transparent; /* Fundo invisível */
-}
-
-/* A trilha da barra de rolagem */
-.table-container::-webkit-scrollbar-track {
-    background-color: #773232; /* Cor de fundo da trilha, levemente cinza */
-    border-radius: 4px;
-}
-
-/* A parte "arrastável" da barra de rolagem */
-.table-container::-webkit-scrollbar-thumb {
-    background-color: var(--normal-black); /* A cor do "thumb" (o elemento que você move) */
-    border-radius: 4px;
-    border: 2px solid var(--normal-black); /* Cria um pequeno espaçamento visual */
-}
-
-/* Estilo para a barra de rolagem no Firefox */
-.table-container {
-    scrollbar-width: thin;
-    scrollbar-color: var(--light-black) var(--white-normal); /* Cor do thumb e da trilha */
-}
-
-/* ===== CORREÇÃO DA TABELA ===== */
-.table-header{
+.client-list-header-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+    grid-template-columns: 3fr 1fr 1.5fr 1.5fr;
     gap: 1rem;
-    align-items: center;
-    padding: 0.1rem 0.8rem;
-    width: 95%;
-}
-
-.table-row {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.01px 0.8rem;
-    width: 95%;
-}
-
-.table-header {
-    font-family: "Montserrat", "Poppins", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 1000;
-    color: var(--normal-black-normal);
-    background: none;
-    box-shadow: none;
-    white-space: nowrap;
-}
-
-.table-row {
-    font-family: "Montserrat", "Poppins", sans-serif;
-    font-size: 1rem;
-    color: #222222;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
-    border-radius: 15px;
-}
-
-.table-header > *,
-.table-row > * {
-    text-align: center;
-}
-
-.table-header .col-name,
-.table-row .col-name {
-    text-align: left;
-}
-
-.table-row .col-edit,
-.table-row .col-info,
-.table-row .col-status {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* ===== FIM DA CORREÇÃO DA TABELA ===== */
-
-
-/* ============================================= */
-/* ESTILIZAÇÃO DO MODAL (REVISADO) */
-/* ============================================= */
-
-.modal__overlay {
-    position: absolute;
-    top: 10;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.modal__content {
-    background-color: #424242;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 1300px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 1002;
-}
-
-.modal__title {
-    font-size: 36px;
+    padding: 0.75rem 1.2rem;
     font-weight: bold;
-    color: var(--white-normal);
-    font-family: "Montserrat", "Poppins", sans-serif;
-    text-align: center;
+    color: var(--normal-black-strong);
 }
 
-.modal__close {
-    color: var(--white-normal);
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-}
-
-.modal__body {
-    padding: 1.5rem;
-}
-
-.modal__actions {
+.client-list-items-container {
     display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-top: 1px solid var(--gray-8);
+    flex-direction: column;
+    /* Remova o overflow-y daqui */
+    padding-right: 1rem;
 }
 
-.modal__content--confirm {
-    max-width: 500px;
-}
-
-.modal__body--confirm {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--white-normal);
-}
-
-.modal__actions--confirm {
-    justify-content: center;
-}
-
-.form__grid--3col {
+.client-list-item-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 3fr 1fr 1.5fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.3rem 1.2rem;
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
+    background-color: #f6f6f6;
+    /* background-color: var(--white-normal); */
+    margin-left: 1%;
 }
 
-/* Responsividade */
-@media (max-width: 960px) {
-    .table-header, .table-row {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+.client-list-item-grid p {
+    margin: 0;
+    font-size: 1rem;
+    /* color: #555; */
+    font-weight: bold;
+}
 
-    .table-header .col-name,
-    .table-row .col-name {
-        text-align: center;
-    }
+/* Estilos para o link "Ver mais" */
+.client-list-item-grid .col-info a {
+    text-decoration: none;
+    color: var(--blue-link); /* Crie esta variável no seu `colors.css` */
+    font-weight: 500;
+}
 
-    .table-header {
-        display: none;
-    }
+.client-list-item-grid .col-info a:hover {
+    text-decoration: underline;
+}
 
-    .table-row {
-        border-bottom: 1px solid var(--gray-8);
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-    }
+/* Estilos para o toggle switch (botão de status) */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--green-normal);
+    transition: 0.4s;
+    border-radius: 28px;
+}
+
+.toggle-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked + .slider {
+    background-color: var(--red-normal);
+}
+
+.toggle-switch input:focus + .slider {
+    box-shadow: 0 0 1px #007bff;
+}
+
+.toggle-switch input:checked + .slider:before {
+    transform: translateX(22px);
 }

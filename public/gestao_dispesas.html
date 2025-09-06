@@ -221,11 +221,24 @@
                 </div>
 
                 <div class="form-footer">
-                    <label class="pagamento-label">
-                        <input type="checkbox" name="pago_sim" value="sim" checked>
-                        Pago
-                    </label>
-                    <button type="submit" class="btn-new-appointment">Adicionar</button>
+
+                    <div id="div_para_checkbox">
+                        <label class="pagamento-label">Pago?</label> 
+                        <div class="switch-row">
+                            <span class="switch-text off">Não</span>
+                            <label class="switch">
+                                <input type="checkbox" id="pago_sim" name="pago_sim" value="sim" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span class="switch-text on">Sim</span>
+                        </div>
+                    </div>
+
+                    <div id="div_para_botao">
+
+                        <button type="submit" class="btn-new-appointment">Adicionar</button>
+
+                    </div>
                 </div>
             </form>
         </div>

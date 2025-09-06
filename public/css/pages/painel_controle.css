@@ -30,7 +30,7 @@
 
 .panel-header {
     padding: 20px;
-    border-bottom: 1px solid #e2e8f0;
+    /* border-bottom: 1px solid #e2e8f0; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,6 +89,8 @@
 
 .panel-content {
     padding: 0;
+    /* background-color: red; */
+    padding-left: 10px;
 }
 
 
@@ -251,6 +253,7 @@
 }
 
 
+
 #div_para_titulo{
     height: 55px;
     width: 100%;
@@ -331,7 +334,6 @@ table {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   overflow: hidden;
   margin-left: 10%;
-  /* border: #045c26 solid 2px; */
 }
 
 .pill-row td {
@@ -387,34 +389,45 @@ table {
   border: none !important;
 }
 
-/* table {
-  border: none !important;
-} */
 
 .pill-row {
-  border-radius: 25px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
   border: 1px solid rgba(0, 0, 0, 0.15);
-  margin-left: 20px; 
+  margin-left: 30px;
 }
+
 
 .pill-row td {
   border: none;
-  padding: 12px 16px;
   background: transparent;
   vertical-align: middle;
+  width: 10px;
+  background: var(--white-darknes);
+  width: 10px;
+  padding-left: 100px;
 }
 
 .pill-row td:first-child {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+
+  padding-left: 30px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.pill-row td:not(:first-child):not(:last-child) {
+  color: #222;
+  text-align: center;
+  padding-left: 45px;
+  
 }
 
 .pill-row td:last-child {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  padding-left: 100px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .panel-content table thead th {
@@ -422,7 +435,7 @@ table {
   padding: 12px 16px;
   font-weight: 600;
   background: transparent;
-  border-bottom: 2px solid #e5e7eb;
+  /* border-bottom: 2px solid #e5e7eb; */
 }
 
 .pill-row:hover {
@@ -453,4 +466,26 @@ table {
   background: rgba(59, 130, 246, 0.2);
   border-color: rgba(59, 130, 246, 0.5);
   transform: translateY(-1px);
+}
+
+
+
+.col-excluir button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.col-excluir button img {
+    display: block;
+    background: transparent !important;
+    width: 20px;   /* ajuste conforme necessário */
+    height: 20px;  /* ajuste conforme necessário */
+    object-fit: contain;
+    pointer-events: none; /* evita que img capture o clique do botão */
 }

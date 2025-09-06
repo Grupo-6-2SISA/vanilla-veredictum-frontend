@@ -1,236 +1,324 @@
-/* Resumo Cards */
-.resumo-section {
-    margin-bottom: 2rem;
-}
+/* ----- IMPORTANDO PADRÕES DO SITE ----- */
 
-.resumo-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
+@import url(../main.css);
+@import url(../partials/typography.css);
+@import url(../partials/colors.css);
+@import url(../partials/buttons.css);
+@import url(../partials/layout.css);
+@import url(../partials/menu.css);
+@import url(../partials/spacing.css);
 
-.resumo-card {
-    background-color: var(--white-normal);
-    border: 1px solid var(--gray-8);
-    border-radius: 12px;
-    padding: 1.5rem;
+
+
+/* --- Seção de Gestão de Clientes --- */
+
+.head-description {
+    
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: transform 0.3s ease;
-}
-
-.resumo-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.resumo-card__icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(244, 161, 0, 0.1);
-    color: var(--primary-color);
-    font-size: 1.5rem;
+    margin-left: -20px;
 }
 
-.resumo-card__icon--success {
-    background-color: rgba(50, 217, 87, 0.1);
-    color: var(--green-normal);
+.head-description p {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dark-black);
+    margin-left: 50px;
+    /* border: #007bff solid 2px; */
 }
 
-/* Tabela */
-.card-table {
-    background-color: var(--white-normal);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.177);
-    padding: 0.5rem;
+
+
+.nf-management-section {
+    margin-top: 3%;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 2rem;
+    justify-content: center;
+    /* Centraliza o card na página */
+    height: 75%;
+
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.7rem;
-    padding: 0 1rem;
+.nf-table-card {
+    /* Estilos herdados de .card, mas com dimensões personalizadas */
+    width: 85vw;
+    height: 400px;
+    max-height: 100vh;
+    border-radius: 10px;
+    /* background-color: red; */
 }
 
-.card-header h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--normal-black);
-    margin: 0;
-}
-
-.table-container {
-    display: flex;
-    flex-direction: column;
+.nf-list-header-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1.5fr 1.5fr;
     gap: 1rem;
+    padding: 0.75rem 1.2rem;
+    font-weight: 700;
+    color: var(--normal-black-strong);
+}
+
+.nf-list-items-container {
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-    width: 100%;
+    /* Permite rolagem se a lista for longa */
     padding-right: 1rem;
 }
 
-/* ===== CORREÇÃO DA TABELA ===== */
-/* Regra unificada para sincronizar colunas */
-.table-header,
-.table-row {
+.nf-list-item-grid {
     display: grid;
-    grid-template-columns: 2.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
+    grid-template-columns: 3fr 1fr 1.5fr 1fr;
     gap: 1rem;
     align-items: center;
-    padding: 0.75rem 1rem;
-    width: 100%;
-}
-
-/* Estilos específicos do cabeçalho */
-.table-header {
-    font-family: "Montserrat", "Poppins", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 1000;
-    color: var(--normal-black-normal);
-    background: none;
-    box-shadow: none;
-    padding-bottom: 1rem;
-    white-space: nowrap;
-}
-
-/* Estilos específicos da linha */
-.table-row {
+    padding: 0.3rem 1.2rem;
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
     background-color: var(--white-normal);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
-    border-radius: 15px;
+    margin-left: 1%;
+}
+
+.nf-list-item-grid p {
+    margin: 0;
     font-size: 1rem;
-    font-family: "Montserrat", "Poppins", sans-serif;
-    color: #222222;
-    font-weight: 600;
+    color: #555;
 }
 
-/* Alinhamento do conteúdo das células */
-.table-header > *,
-.table-row > * {
-    text-align: center;
+/* Estilos para o link "Ver mais" */
+.nf-list-item-grid .col-info a {
+    text-decoration: none;
+    color: var(--blue-link);
+    /* Crie esta variável no seu `colors.css` */
+    font-weight: 500;
 }
 
-/* Alinhamento à esquerda para colunas de texto */
-.table-header .col-name,
-.table-row .col-name,
-.table-header .col-etiqueta,
-.table-row .col-etiqueta {
-    text-align: left;
+.nf-list-item-grid .col-info a:hover {
+    text-decoration: underline;
 }
 
-.table-row .col-status,
-.table-row .col-emitida,
-.table-row .col-edit,
-.table-row .col-delete,
-.table-row .col-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Estilos para o toggle switch (botão de status) */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
 }
 
-/* ============================================= */
-/* ESTILIZAÇÃO DO MODAL (REVISADO) */
-/* ============================================= */
-.modal {
-    display: none; /* Inicia oculto */
-    position: fixed;
-    top: 50;
-    left: 50;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    /* Flexbox para centralizar */
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-.modal.is-open {
-    display: flex; /* Torna o modal visível */
-}
-
-.modal__overlay {
+.toggle-switch .slider {
     position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--green-normal);
+    transition: 0.4s;
+    border-radius: 28px;
+}
+
+.toggle-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked+.slider {
+    background-color: var(--red-normal);
+}
+
+.toggle-switch input:focus+.slider {
+    box-shadow: 0 0 1px #007bff;
+}
+
+.toggle-switch input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+
+.div_topo h1 {
+    transform: translate(-3%, 0%);
+}
+
+
+/* ====== CLASSES EXCLUSIVAS DE NOTAS FISCAIS ====== */
+
+
+.list-header-nf {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr 1.5fr;
+    padding: 12px 16px;
+    width: 92%;
+}
+
+.list-header-nf p{
+    font-weight: bold;
+}
+
+.list-item-nf {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr 1.5fr;
+    padding: 8px 16px;
+    align-items: center;
+    width: 98%;
+    background-color: #F6F6F6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.list-item-nf:last-child {
+    border-bottom: none;
+}
+
+.list-item-nf p {
+    margin: 0;
+    color: black;
+    font-weight: bold;
+}
+
+.list-item-nf img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+}
+
+.list-item-nf a {
+    color: #333;
+    text-decoration: none;
+}
+
+.list-item-nf a:hover {
+    text-decoration: underline;
+}
+
+
+/* Modal */
+
+
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    cursor: pointer;
-    z-index: 1001;
+    /* background-color: red; */
 }
 
-.modal__content {
-    background-color: #424242;
+.modal-content {
+    background: #414141;
+    color: #fff;
+    padding: 32px;
     border-radius: 12px;
+    position: relative;
     width: 90%;
-    max-width: 800px; /* Largura específica para o modal de notas */
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    height: auto;
+    border: 1px groove black;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 20px;            
+}
+
+.modal-column {
+    flex: 1 1 45%;     
     display: flex;
     flex-direction: column;
-    position: relative;
-    z-index: 1002;
+    gap: 15px;
 }
 
-.modal__header {
+.modal-column input,
+.modal-column select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    background: #f1f1f1;
+    color: #000;
+}
+
+
+
+#div_para_botao {
+    width: 100%;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
-    position: relative;
+    /* background-color: purple; */
 }
 
-.modal__title {
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--white-normal);
-    font-family: "Poppins", sans-serif;
-}
 
-.modal__close {
-    color: var(--white-normal);
-    background: none;
-    border: none;
-    font-size: 1.8rem;
+.modal-add-btn {
+    margin-top: 12px;
+    width: 25%;
+    height: 50px;
+    padding: 10px 0;
+    background: #2c2c2c;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 1.1em;
     cursor: pointer;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-}
-
-.modal__body {
-    padding: 1.5rem;
-}
-
-.modal__actions {
+    transition: background 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
     display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-top: 1px solid var(--gray-8);
-}
-
-/* Modal de confirmação (menor) */
-.modal__content--confirm {
-    max-width: 500px;
-}
-
-.modal__body--confirm {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--white-normal);
-}
-
-.modal__actions--confirm {
     justify-content: center;
+    align-items: center;
 }
+.modal-add-btn_save {
+    margin-top: 12px;
+    width: 25%;
+    height: 50px;
+    padding: 10px 0;
+    background: #2c2c2c;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-add-btn:hover {
+    background: #444;
+}
+
+
+
+#div_para_titulo{
+    height: 100px;
+    width: 100%;
+}
+
+ .modal-content h2 {
+     display: flex;
+     justify-content: center;
+     font-size: 40px;
+     font-weight: bold;
+ }
