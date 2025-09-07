@@ -65,7 +65,7 @@ h1 {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px var(--light-black);
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.151);
     overflow: hidden;  /* Garante que o scrollbar não saia do card */
     width: 45%;
     height: 100%;
@@ -125,7 +125,7 @@ h1 {
     display: grid; /* Usando grid para alinhar os itens */
     align-items: center;
     padding: 10px 13px;
-    background-color: var(--white-normal);
+    background-color: var(--white-darknes);
     border-radius: 10px;
     box-shadow: 0 1px 3px var(--light-black);
     color: var(--dark-black);

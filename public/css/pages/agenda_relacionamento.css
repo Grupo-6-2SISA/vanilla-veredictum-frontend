@@ -142,16 +142,18 @@
 }
 
 .table-header p {
-    font-weight: 700;
+    font-weight: bold;
     color: var(--normal-black-strong);
 }
 
 .table-row {
     align-items: center;
     padding: 0.3rem 1.2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.151);
     border-radius: 10px;
     margin-left: 1%;
+    background: var(--white-darknes);
+    font-weight: bold;
 }
 
 .table-row:last-child {
@@ -209,6 +211,7 @@
     font-weight: 500;
     color: #333;
     margin-bottom: 1rem;
+    
 }
 .list-header .list-nome {
     flex: auto;
@@ -229,18 +232,20 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     padding: 0.6rem 1.2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.151);
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.151);
     border-radius: 10px;
     color: #333;
+    background: var(--white-darknes);
 }
 
 .birthday-item .name {
-    font-weight: 500;
+    font-weight: bold;
     margin: 0;
 }
 
 .birthday-item .date {
-    color: #888;
+    /* color: #888; */
+    font-weight: bold;
     margin: 0;
 }
 

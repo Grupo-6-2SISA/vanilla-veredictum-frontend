@@ -34,10 +34,10 @@
  }
 
  .page-title {
-     font-size: 60px;
+     font-size: 50px;
      font-weight: bold;
      color: #000;
-     margin-bottom: 10px;
+     margin-bottom: 1px;
      margin-right: 20%;
  }
 
@@ -105,13 +105,12 @@
      font-weight: bold;
      color: #000000;
      font-size: 20px;
-     /* border-bottom: 1px solid #0c5dad; */
  }
 
  .table td {
      padding: 16px;
      color: #000000;
-     font-weight: 500;
+     font-weight: bold;
      font-size: 14px;
  }
 
@@ -121,6 +120,7 @@
 
  .table tr:last-child td {
      border-bottom: none;
+     font-weight: bold;
  }
 
  .action-link {
@@ -201,7 +201,6 @@
      height: auto;
      border: 1px groove black;
      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-
      display: flex;
      flex-wrap: wrap;
      gap: 20px;
@@ -308,10 +307,6 @@
      border-bottom-left-radius: 10px;
  }
 
-
- /* .table tbody tr td:not(:first-child):not(:last-child) {
-     background-color: green;
- } */
 
  .table tbody tr td:last-child {
      border-top-right-radius: 10px;

@@ -1,4 +1,4 @@
-@import url(/public/css/main.css);
+@import url(../main.css);
 @import url(./colors.css);
 @import url(./buttons.css);
 
@@ -38,7 +38,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
     width: 1200px; /* Ajuste a largura conforme o protótipo */
     max-width: 65%; /* Garante que ele seja responsivo */
-    height: 55%;
+    height: 50%;
     z-index: 1000;
 }
 
@@ -114,8 +114,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    gap: 15px;
+    margin-top: -5px;
+}
+
+.form-footer .btn-new-appointment {
+    margin-right: 42%;
 }
 
 .reminder-label {
@@ -123,7 +126,7 @@
     align-items: center;
     font-size: 1rem;
     color: var(--white-normal);
-    margin-right: 20%;
+    margin-right: 18%;
 }
 .reminder-label input {
     margin-right: 10px;
@@ -188,7 +191,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 25px;
-    border-bottom: 1px solid var(--light-black);
+    
 }
 
 .modal-delete .modal-header h2,
@@ -342,4 +345,333 @@
     align-items: center;
     margin-top: 5px;
     gap: 15px;
+}
+
+/* ============================================= */
+/* MODAIS (NOTAS) */
+/* ============================================= */
+
+/* Estilos para o modal de Adicionar Nota Fiscal */
+#new-appointment-modal-add-note {
+    position: fixed;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    background-color: var(--light-black);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
+    width: 1000px;
+    max-width: 90%;
+    height: 75%;
+    z-index: 5;
+}
+
+/* Estilos para o modal de Editar Nota Fiscal */
+#new-appointment-modal-edit-note {
+    position: fixed;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    background-color: var(--light-black);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
+    width: 1000px;
+    max-width: 90%;
+    height: 75%;
+    z-index: 5;
+}
+
+/* Estilos para o modal de Informações da Nota Fiscal */
+#new-appointment-modal-view-note {
+    position: fixed;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    background-color: var(--light-black);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
+    width: 1000px;
+    max-width: 90%;
+    height: 75%;
+    z-index: 5;
+}
+
+/* Estilos para o modal de confirmação de exclusão */
+#modal-delete-note {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-dark);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
+    width: 500px;
+    max-width: 90%;
+    z-index: 1000;
+}
+
+/* Fundo escuro que cobre a tela */
+.modal-backdrop-add.hidden,
+.modal-backdrop-edit.hidden,
+.modal-backdrop-view.hidden,
+.modal-backdrop-delete.hidden,
+.modal-delete.hidden,
+.modal.hidden {
+    display: none;
+}
+
+/* Adaptação dos estilos de clientes para notas fiscais */
+.modal-backdrop-add,
+.modal-backdrop-edit,
+.modal-backdrop-view,
+.modal-backdrop-delete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4; /* Nível de z-index menor para ficar atrás dos modais */
+}
+
+.form-group-notas {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-notas .description {
+    flex-grow: 1;
+}
+.form-group-notas label {
+    font-size: 1rem;
+    color: var(--white-normal);
+    /* color: #f44336; */
+    margin-bottom: 5px;
+    font-weight: 600;
+    margin-left: 3%;
+}
+.form-group-notas input, .form-group-notas select, .form-group-notas textarea {
+    padding: 10px;
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    margin-left: 3%;
+    margin-bottom: 10px;
+}
+.form-group-notas input:focus, .form-group-notas select:focus, .form-group-notas textarea:focus {
+    outline: none;
+    border-color: var(--gray-3);
+    box-shadow: 0 0 0 2px rgba(147, 147, 147, 0.25);
+    /* margin-bottom: 20px; */
+}
+.form-group-notas textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Rodapé do formulário */
+.form-footer-notas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    gap: 15px;
+}
+
+
+.modal-delete-note {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-dark);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
+    width: 450px;
+    max-width: 90%;
+    z-index: 500;
+}
+
+/* Estilos compartilhados para todos os fundos de modal */
+.modal-backdrop-delete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Estilos para esconder os modais e fundos */
+.modal-delete-note.hidden,
+.modal-backdrop-delete.hidden {
+    display: none;
+}
+
+/* Estilos para o cabeçalho dos modais */
+.modal-delete-note .modal-header{
+    display: flex;
+    gap: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+      
+    
+}
+
+.modal-delete-note .modal-header h2{
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--darkness-black);
+}
+
+.modal-delete-note .modal-close-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos para o corpo do modal */
+.modal-delete-note .modal-body {
+    padding: 25px;
+    font-size: 1.2rem;
+    color: var(--darkness-black);
+}
+
+.modal-delete-note .modal-body p {
+    margin-left: -70px;
+}
+
+/* Estilos para o rodapé do modal */
+.modal-delete-note .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 25px;
+}
+
+/* Estilos para os botões de ação */
+.modal-delete-note .btn-cancel-delete,
+.modal-delete-note .btn-confirm-delete {
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-delete-note .btn-cancel-delete{
+    background-color: transparent;
+    border: 1px solid var(--darkness-black);
+    color: var(--darkness-black);
+}
+
+.modal-delete-note .btn-confirm-delete {
+    background-color: #f44336; /* Cor vermelha para exclusão */
+    border: none;
+    color: var(--white-normal);
+}
+
+/* Modal rotinas */
+
+.modal-delete-rotinas {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-dark);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.373);
+    width: 450px;
+    max-width: 90%;
+    z-index: 500;
+}
+
+/* Estilos compartilhados para todos os fundos de modal */
+.modal-backdrop-delete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Estilos para esconder os modais e fundos */
+.modal-delete-rotinas.hidden,
+.modal-backdrop-delete.hidden {
+    display: none;
+}
+
+/* Estilos para o cabeçalho dos modais */
+.modal-delete-rotinas .modal-header{
+    display: flex;
+    gap: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+      
+    
+}
+
+.modal-delete-rotinas .modal-header h2{
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--darkness-black);
+}
+
+.modal-delete-rotinas .modal-close-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos para o corpo do modal */
+.modal-delete-rotinas .modal-body {
+    padding: 25px;
+    font-size: 1.2rem;
+    color: var(--darkness-black);
+}
+
+.modal-delete-rotinas .modal-body p {
+    margin-left: -30px;
+}
+
+/* Estilos para o rodapé do modal */
+.modal-delete-rotinas .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 25px;
+}
+
+/* Estilos para os botões de ação */
+.modal-delete-rotinas .btn-cancel-delete,
+.modal-delete-rotinas .btn-confirm-delete {
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-delete-rotinas .btn-cancel-delete{
+    background-color: transparent;
+    border: 1px solid var(--darkness-black);
+    color: var(--darkness-black);
+}
+
+.modal-delete-rotinas .btn-confirm-delete {
+    background-color: #f44336; /* Cor vermelha para exclusão */
+    border: none;
+    color: var(--white-normal);
 }

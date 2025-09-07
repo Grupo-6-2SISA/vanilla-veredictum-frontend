@@ -90,22 +90,14 @@
 
         <main class="main-content">
             <div class="header-top">
-
                 <div class="head-description">
-
                     <div class="div_topo">
-
                         <h1>Gestão de Notas Fiscais</h1>
-
                     </div>
-
                     <p class="description"> Organize, atualize e controle todas as suas notas fiscais de forma
-                        eficiente.
-                    </p>
-
+                        eficiente. </p>
                 </div>
-
-                <button class="btn-new-appointment" onclick="openModalAdicionar_notas()">
+                <button class="btn-new-appointment" onclick="openModalAdicionar()">
                     Adicionar Nota Fiscal
                     <img src="./assets/svg/btn.svg" alt="">
                 </button>
@@ -113,10 +105,8 @@
 
             <section class="nf-management-section">
                 <div class="card nf-table-card">
-
                     <div class="card-header">
                     </div>
-
                     <div class="card-content">
                         <div class="list-header-nf nf-list-header-grid">
                             <p class="col-name">Número da Nota</p>
@@ -127,286 +117,182 @@
                             <p class="col-excluir">Excluir</p>
                             <p class="col-info">Informações</p>
                         </div>
-
                         <div class="list-items-container nf-list-items-container">
-
-                            <div class="list-item-nf nf-list-item-grid">
-                                <p class="col-name">NF-e 1235474873626...</p>
-
-                                <p class="col-etiqueta">Atendimento X</p>
-                                <p class="col-data">09/01/2025</p>
-                                <p class="col-emitida">Sim</p>
-                                <p class="col-editar">
-                                    <img src="assets/svg/edit.svg" alt="Editar" onclick="openModalEditar_notas()">
-                                </p>
-
-                                <p class="col-excluir">
-
-                                    <button  onclick="openModalExcluir()" style="border: none;">
-                                        <img  src="assets/svg/lixo.svg" alt="Excluir">
-                                    </button>
-                                </p>
-
-                                <p class="col-info">
-                                    <a href="javascript:void(0)" onclick="openModalVerMais()" aria-haspopup="dialog"
-                                        role="button">Ver mais</a>
-                                </p>
-
-                            </div>
-
-                            <div class="list-item-nf nf-list-item-grid">
-                                <p class="col-name">NF-e 123234567987...</p>
-
-                                <p class="col-etiqueta">Consultoria Y</p>
-                                <p class="col-data">09/01/2025</p>
-                                <p class="col-emitida">Sim</p>
-                                <p class="col-editar">
-                                    <img src="assets/svg/edit.svg" alt="Editar" onclick="openModalEditar_notas()">
-                                </p>
-
-                                <p class="col-excluir">
-
-                                    <button  onclick="openModalExcluir()" style="border: none;">
-                                        <img  src="assets/svg/lixo.svg" alt="Excluir">
-                                    </button>
-                                </p>
-
-                                <p class="col-info">
-                                    <a href="javascript:void(0)" onclick="openModalVerMais()" aria-haspopup="dialog"
-                                        role="button">Ver mais</a>
-                                </p>
-
-                            </div>
-
-                            <div class="list-item-nf nf-list-item-grid">
-                                <p class="col-name">NF-e 15678765678...</p>
-                                <p class="col-etiqueta">Serviço Prestado Z</p>
-                                <p class="col-data">09/01/2025</p>
-                                <p class="col-emitida">Sim</p>
-
-                                <p class="col-editar">
-                                    <button style="border: none;"  >
-                                        <img src="assets/svg/edit.svg" alt="Editar" onclick="openModalEditar_notas()">
-                                    </button>
-                                </p>
-                                <p class="col-excluir" >
-
-                                    <button style="border: none;"  onclick="openModalExcluir()">
-                                        <img  src="assets/svg/lixo.svg" alt="Excluir">
-                                    </button>
-                                </p>
-
-                                <p class="col-info">
-                                    <a href="javascript:void(0)" onclick="openModalVerMais()" aria-haspopup="dialog"
-                                        role="button">Ver mais</a>
-                                </p>
-                            </div>
-
-
                         </div>
                     </div>
                 </div>
 
-
-                <div id="modal_editar_notas" class="modal">
-
+                <div id="new-appointment-modal-add-note" class="modal hidden">
                     <div class="modal-content">
-
-                        <div id="div_para_titulo">
-                            <span class="close" onclick="closeModalEditar()">
-                                <img src="assets/svg/fechar.svg" alt="">
-                            </span>
-
-                            <h2>Editar Nota Fiscal</h2>
-                        </div>
-
-                        <div class="modal-column">
-                            <div class="form-group">
-                                <label>Número da Nota</label>
-                                <input type="text" value="123234567987">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Data de Vencimento</label>
-                                <input type="text" value="09/01/2025">
-                            </div>
-                            <div class="form-group">
-                                <label>Emitida</label>
-                                <input type="text" value="Sim">
-                            </div>
-                            <div class="form-group">
-                                <label>Cliente</label>
-                                <input type="text" value="Davidson Ferreira Mendes">
-                            </div>
-                        </div>
-
-                        <div class="modal-column" style="flex: 1 1 45%;">
-                            <div class="form-group">
-                                <label>Valor</label>
-                                <input type="text" value="R$ 1.234,56">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Etiqueta</label>
-                                <input type="text" value="Consultoria Y">
-                            </div>
-                            <div class="form-group">
-                                <label>URL Cloud</label>
-                                <input type="text" value="www.onedrive.com">
-                            </div>
-                        </div>
-
-
-
-                        <div id="div_para_botao">
-
-                            <button type="submit" class="modal-add-btn">Salvar</button>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div id="modalConfirmar" class="modal">
-
-                    <div style="background-color: white; color: black;" class="modal-content">
-
-                        <div id="div_para_titulo">
-                            <span class="close" onclick="closeModalConfirmar()">
-                                <img src="assets/svg/fechar.svg" alt="">
-                            </span>
-
-                            <h2>Excluir Nota Fiscal</h2>
-                        </div>
-
-                        <p>Deseja excluir a Nota Fiscal de NF-123456 ?</p>
-
-                        <div style="padding-top: 10px; width: 100%;display: flex; justify-content: right; gap: 10px;"
-                            class="actions">
-                            <button style="display:flex; background-color: white; color: #000;"
-                                class="modal-add-btn">Desativar</button>
-                            <button style="display:flex " class="modal-add-btn"
-                                onclick="closeModalConfirmar()">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="modal_adicionar_notas" class="modal">
-
-                    <div class="modal-content">
-                        <div id="div_para_titulo">
-                            <span class="close" onclick="closeModalCadastrar()">
-                                <img src="assets/svg/fechar.svg" alt="">
-                            </span>
-
+                        <div class="modal-header">
                             <h2>Adicionar Nota Fiscal</h2>
+                            <a href="#" class="modal-close-btn" onclick="closeModalAdicionar()"><img
+                                    src="./assets/svg/close.svg" alt="Fechar"></a>
                         </div>
-
-                        <div class="modal-column">
-                            <div class="form-group">
-                                <label>Número da Nota</label>
-                                <input type="text" value="123234567987">
+                        <form class="appointment-form" id="formNota">
+                            <div class="form-row"
+                                style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                                <div class="form-column">
+                                    <div class="form-group-notas">
+                                        <label for="numeroNota">Número da Nota</label>
+                                        <input type="text" id="numeroNota" name="numeroNota" required>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="dataVencimento">Data de Vencimento</label>
+                                        <input type="date" id="dataVencimento" name="dataVencimento" required>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="emitida">Emitida</label>
+                                        <select id="emitida" name="emitida" required>
+                                            <option value="true">Sim</option>
+                                            <option value="false">Não</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="cliente">Cliente</label>
+                                        <input type="text" id="cliente" name="cliente" required>
+                                    </div>
+                                </div>
+                                <div class="form-column">
+                                    <div class="form-group-notas">
+                                        <label for="valor">Valor</label>
+                                        <input type="text" id="valor" name="valor" required>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="etiqueta">Etiqueta</label>
+                                        <input type="text" id="etiqueta" name="etiqueta">
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="urlCloud">URL Cloud</label>
+                                        <input type="text" id="urlCloud" name="urlCloud">
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label>Data de Vencimento</label>
-                                <input type="text" value="09/01/2025">
+                            <div class="form-footer-notas">
+                                <button type="submit" class="btn-new-appointment">Salvar</button>
                             </div>
-                            <div class="form-group">
-                                <label>Emitida</label>
-                                <input type="text" value="Sim">
-                            </div>
-                            <div class="form-group">
-                                <label>Cliente</label>
-                                <input type="text" value="Davidson Ferreira Mendes">
-                            </div>
-                        </div>
-
-                        <div class="modal-column" style="flex: 1 1 45%;">
-                            <div class="form-group">
-                                <label>Valor</label>
-                                <input type="text" value="R$ 1.234,56">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Etiqueta</label>
-                                <input type="text" value="Consultoria Y">
-                            </div>
-                            <div class="form-group">
-                                <label>URL Cloud</label>
-                                <input type="text" value="www.onedrive.com">
-                            </div>
-                        </div>
-
-                        <div id="div_para_botao">
-
-                            <button type="submit" class="modal-add-btn">Salvar</button>
-
-                        </div>
+                        </form>
                     </div>
-
                 </div>
 
-
-                <div id="modal_ver_mais" class="modal">
-
+                <div id="new-appointment-modal-edit-note" class="modal hidden">
                     <div class="modal-content">
-                        <div id="div_para_titulo">
-                            <span class="close" onclick="closeModalVerMais()">
-                                <img src="assets/svg/fechar.svg" alt="">
-                            </span>
-
-                            <h2>Informações sobre a Nota Fiscal</h2>
+                        <div class="modal-header">
+                            <h2>Editar Nota Fiscal</h2>
+                            <a href="#" class="modal-close-btn" onclick="closeModalEditar()"><img
+                                    src="./assets/svg/close.svg" alt="Fechar"></a>
                         </div>
-
-                        <div class="modal-column">
-                            <div class="form-group">
-                                <label>Número da Nota</label>
-                                <input type="text" value="123234567987">
+                        <form class="appointment-form" id="formNotaEdit">
+                            <div class="form-row"
+                                style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                                <div class="form-column">
+                                    <div class="form-group-notas">
+                                        <label for="numeroNotaEdit">Número da Nota</label>
+                                        <input type="text" id="numeroNotaEdit" name="numeroNota" required>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="dataVencimentoEdit">Data de Vencimento</label>
+                                        <input type="date" id="dataVencimentoEdit" name="dataVencimento" required>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="emitidaEdit">Emitida</label>
+                                        <select id="emitidaEdit" name="emitida" required>
+                                            <option value="true">Sim</option>
+                                            <option value="false">Não</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="clienteEdit">Cliente</label>
+                                        <input type="text" id="clienteEdit" name="cliente" required>
+                                    </div>
+                                </div>
+                                <div class="form-column">
+                                    <div class="form-group-notas">
+                                        <label for="valorEdit">Valor</label>
+                                        <input type="text" id="valorEdit" name="valor" required>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="etiquetaEdit">Etiqueta</label>
+                                        <input type="text" id="etiquetaEdit" name="etiqueta">
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label for="urlCloudEdit">URL Cloud</label>
+                                        <input type="text" id="urlCloudEdit" name="urlCloud">
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label>Data de Vencimento</label>
-                                <input type="text" value="09/01/2025">
+                            <div class="form-footer-notas">
+                                <button type="submit" class="btn-new-appointment">Salvar</button>
                             </div>
-                            <div class="form-group">
-                                <label>Emitida</label>
-                                <input type="text" value="Sim">
-                            </div>
-                            <div class="form-group">
-                                <label>Cliente</label>
-                                <input type="text" value="Davidson Ferreira Mendes">
-                            </div>
-                        </div>
-
-                        <div class="modal-column" style="flex: 1 1 45%;">
-                            <div class="form-group">
-                                <label>Valor</label>
-                                <input type="text" value="R$ 1.234,56">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Etiqueta</label>
-                                <input type="text" value="Consultoria Y">
-                            </div>
-                            <div class="form-group">
-                                <label>URL Cloud</label>
-                                <input type="text" value="www.onedrive.com">
-                            </div>
-                        </div>
-
-                        <div id="div_para_botao">
-
-                            <button type="submit" class="modal-add-btn">Salvar</button>
-
-                        </div>
+                        </form>
                     </div>
-
                 </div>
 
+                <div id="new-appointment-modal-view-note" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Informações sobre a Nota Fiscal</h2>
+                            <a href="#" class="modal-close-btn" onclick="closeModalVerMais()"><img
+                                    src="./assets/svg/close.svg" alt="Fechar"></a>
+                        </div>
+                        <form class="appointment-form" id="formNotaView">
+                            <div class="form-row"
+                                style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                                <div class="form-column">
+                                    <div class="form-group-notas">
+                                        <label>Número da Nota</label>
+                                        <input type="text" id="numeroNotaView" readonly>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label>Data de Vencimento</label>
+                                        <input type="date" id="dataVencimentoView" readonly>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label>Emitida</label>
+                                        <input type="text" id="emitidaView" readonly>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label>Cliente</label>
+                                        <input type="text" id="clienteView" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-column">
+                                    <div class="form-group-notas">
+                                        <label>Valor</label>
+                                        <input type="text" id="valorView" readonly>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label>Etiqueta</label>
+                                        <input type="text" id="etiquetaView" readonly>
+                                    </div>
+                                    <div class="form-group-notas">
+                                        <label>URL Cloud</label>
+                                        <input type="text" id="urlCloudView" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="modal-delete-schedule-note" class="modal-delete-note hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Excluir Nota Fiscal</h2>
+                            <button class="modal-close-delete-btn" onclick="closeModalExcluir()">
+                                <img src="./assets/svg/close_black.svg" alt="Fechar">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Deseja excluir a Nota Fiscal <span class="note-number"></span>?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-cancel-delete" onclick="closeModalExcluir()">Não</button>
+                            <button class="btn-confirm-delete" onclick="confirmarExclusaoNota()">Sim</button>
+                        </div>
+                    </div>
+                </div>
             </section>
-
-
         </main>
     </div>
 

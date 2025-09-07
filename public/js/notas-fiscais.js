@@ -19,88 +19,95 @@ const notasFiscais = [
     }
 ];
 
-// // Função para renderizar a lista de notas fiscais
-// function renderNotasFiscais() {
-//     const container = document.querySelector('.nf-list-items-container');
-//     container.innerHTML = notasFiscais.map(nota => `
-//         <div class="nf-list-item">
-//             <p class="nf-col-name">${nota.numero}</p>
-//             <p class="nf-col-etiqueta">${nota.etiqueta}</p>
-//             <p class="nf-col-data">${nota.vencimento}</p>
-//             <p class="nf-col-emitida">${nota.emitida}</p>
-//             <p class="nf-col-editar">
-//                 <img src="assets/svg/edit.svg" alt="Editar" onclick="openModalEditar_notas()">
-//             </p>
-//             <p class="nf-col-excluir">
-//                 <button onclick="openModalExcluir()" style="border: none;">
-//                     <img src="assets/svg/lixo.svg" alt="Excluir">
-//                 </button>
-//             </p>
-//             <p class="nf-col-info">
-//                 <a href="javascript:void(0)" onclick="openModalVerMais()" aria-haspopup="dialog" role="button">Ver mais</a>
-//             </p>
-//         </div>
-//     `).join('');
-// }
+// Função para renderizar a lista de notas fiscais
+function renderNotasFiscais() {
+    const container = document.querySelector('.nf-list-items-container');
+    if (!container) return; // Garante que o container existe antes de renderizar
 
-// document.addEventListener('DOMContentLoaded', renderNotasFiscais);
-
-function openModalEditar_notas() {
-    document.getElementById("modal_editar_notas").style.display = "flex";
+    container.innerHTML = notasFiscais.map((nota, index) => `
+        <div class="nf-list-item">
+            <p class="nf-col-name">${nota.numero}</p>
+            <p class="nf-col-etiqueta">${nota.etiqueta}</p>
+            <p class="nf-col-data">${nota.vencimento}</p>
+            <p class="nf-col-emitida">${nota.emitida}</p>
+            <p class="nf-col-editar">
+                <img src="assets/svg/edit.svg" alt="Editar" onclick="openModalEditar(${index})">
+            </p>
+            <p class="nf-col-excluir">
+                <button onclick="openModalExcluir(${index})" style="border: none;">
+                    <img src="assets/svg/lixo.svg" alt="Excluir">
+                </button>
+            </p>
+            <p class="nf-col-info">
+                <a href="javascript:void(0)" onclick="openModalVerMais(${index})" aria-haspopup="dialog" role="button">Ver mais</a>
+            </p>
+        </div>
+    `).join('');
 }
 
+document.addEventListener('DOMContentLoaded', renderNotasFiscais);
+
+// Funções para Modais
+// Abre o modal de edição
+function openModalEditar(index) {
+    // Você pode usar o 'index' para carregar os dados da nota fiscal específica no modal
+    console.log(`Abrindo modal de edição para a nota fiscal no índice ${index}`);
+    document.getElementById("new-appointment-modal-edit-note").style.display = "flex";
+}
+
+// Fecha o modal de edição
 function closeModalEditar() {
-    document.getElementById("modal_editar_notas").style.display = "none";
+    document.getElementById("new-appointment-modal-edit-note").style.display = "none";
 }
 
-function openModalAdicionar_notas() {
-    document.getElementById("modal_adicionar_notas").style.display = "flex";
+// Abre o modal de adição
+function openModalAdicionar() {
+    document.getElementById("new-appointment-modal-add-note").style.display = "flex";
 }
 
+// Fecha o modal de adição
 function closeModalAdicionar() {
-    document.getElementById("modal_adicionar_notas").style.display = "none";
-}   
-
-function openModalExcluir() {
-    document.getElementById("modalConfirmar").style.display = "flex";
+    document.getElementById("new-appointment-modal-add-note").style.display = "none";
 }
 
+// Abre o modal de exclusão
+function openModalExcluir(index) {
+    // Você pode usar o 'index' para confirmar a exclusão da nota fiscal específica
+    console.log(`Abrindo modal de exclusão para a nota fiscal no índice ${index}`);
+    document.getElementById("modal-delete-schedule-note").style.display = "flex";
+}
+
+// Fecha o modal de exclusão
 function closeModalExcluir() {
-    document.getElementById("modalConfirmar").style.display = "none";
+    document.getElementById("modal-delete-schedule-note").style.display = "none";
 }
 
-function openModalVerMais() {
-    document.getElementById("modal_ver_mais").style.display = "flex";
+// Abre o modal de "Ver Mais"
+function openModalVerMais(index) {
+    // Você pode usar o 'index' para carregar os detalhes da nota fiscal específica
+    console.log(`Abrindo modal 'Ver Mais' para a nota fiscal no índice ${index}`);
+    document.getElementById("new-appointment-modal-view-note").style.display = "flex";
 }
 
+// Fecha o modal de "Ver Mais"
 function closeModalVerMais() {
-    document.getElementById("modal_ver_mais").style.display = "none";
+    document.getElementById("new-appointment-modal-view-note").style.display = "none";
 }
 
-
-
-function closeAllModals() {
-    document.querySelectorAll('.modal, .modal-backdrop').forEach(el => {
-        if (!el) return;
-        if (getComputedStyle(el).display !== 'none') {
-            el.style.display = 'none';
-        }
-        if (el.classList) el.classList.add('hidden');
-    });
-}
-
+// Função para fechar qualquer modal aberto ao pressionar a tecla 'Esc'
 document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
-        closeAllModals();
+    if (e.key === 'Escape' || e.keyCode === 27) {
+        closeModalEditar();
+        closeModalAdicionar();
+        closeModalExcluir();
+        closeModalVerMais();
     }
 });
 
+// Função para fechar qualquer modal ao clicar fora dele
 document.addEventListener('click', function (e) {
     const target = e.target;
-    if (!target || !target.classList) return;
-
-    if (target.classList.contains('modal') || target.classList.contains('modal-backdrop')) {
+    if (target.id === "new-appointment-modal-edit-note " || target.id === "new-appointment-modal-add-note" || target.id === "modal-delete-schedule" || target.id === "new-appointment-modal-view-note") {
         target.style.display = 'none';
-        if (target.classList) target.classList.add('hidden');
     }
 });

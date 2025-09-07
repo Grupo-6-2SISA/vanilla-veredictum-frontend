@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Array com os dados dos clientes
+
     const clients = [
         { id: 1, clientName: 'Davidson Mendes', info: 'Ver mais', active: true },
         { id: 2, clientName: 'Gabriel Cordeiro', info: 'Ver mais', active: true },
@@ -7,8 +7,26 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const listItemsContainer = document.querySelector('.list-items-container.client-list-items-container');
+    const newAppointmentBtn = document.querySelector('.btn-new-appointment');
 
-    // Função para criar o HTML de uma única linha de cliente
+    // Mapeia todos os modais e seus backdrops para acesso fácil
+    const modals = {
+        add: document.getElementById('new-appointment-modal-add-client'),
+        edit: document.getElementById('new-appointment-modal-edit-client'),
+        view: document.getElementById('new-appointment-modal-view-client'),
+        delete: document.getElementById('modal-delete-schedule')
+    };
+
+    const backdrops = {
+        add: document.querySelector('.modal-backdrop-add'),
+        edit: document.querySelector('.modal-backdrop-edit'),
+        view: document.querySelector('.modal-backdrop-view'),
+        delete: document.querySelector('.modal-backdrop-delete')
+    };
+
+    /* ========================================================= */
+    /* Funções para Renderizar Clientes */
+    /* ========================================================= */
     function createClientRow(client) {
         const row = document.createElement('div');
         row.classList.add('list-item', 'client-list-item-grid');
@@ -31,141 +49,128 @@ document.addEventListener('DOMContentLoaded', () => {
         return row;
     }
 
-    // Função para renderizar todos os clientes
     function renderClients() {
-        listItemsContainer.innerHTML = ''; // Limpa antes de renderizar
-        clients.forEach(client => {
-            const row = createClientRow(client);
-            listItemsContainer.appendChild(row);
-        });
+        if (listItemsContainer) {
+            listItemsContainer.innerHTML = '';
+            clients.forEach(client => {
+                const row = createClientRow(client);
+                listItemsContainer.appendChild(row);
+            });
+        }
     }
 
-    // Renderiza a lista quando a página carrega
     renderClients();
 
     /* ========================================================= */
-    /* Lógica para o Modal de Adicionar (Novo Cliente) */
+    /* Lógica Unificada para Modais (Abrir e Fechar) */
     /* ========================================================= */
-    const newAppointmentBtn = document.querySelector('.btn-new-appointment');
-    const addModal = document.getElementById('new-appointment-modal-add-client');
-    const addModalBackdrop = document.querySelector('.modal-backdrop-add');
-    const addModalCloseBtn = addModal?.querySelector('.modal-close-btn');
 
-    function openAddModal() {
-        if (addModal && addModalBackdrop) {
-            addModal.classList.remove('hidden');
-            addModalBackdrop.classList.remove('hidden');
-            console.log('Modal de Adicionar Cliente: FUNCIONOU ✅');
-        } else {
-            console.error('ERRO: Modal de Adicionar Cliente não encontrado. Verifique os seletores.');
+    // Função para abrir qualquer modal
+    function openModal(modalKey, data = {}) {
+        const modal = modals[modalKey];
+        const backdrop = backdrops[modalKey];
+        
+        if (!modal || !backdrop) {
+            console.error(`ERRO: Elemento do modal "${modalKey}" não encontrado.`);
+            return;
+        }
+
+        // Se houver dados (como o nome do cliente para o modal de exclusão), atualiza o conteúdo
+        if (modalKey === 'delete' && data.clientName) {
+            const nameSpan = modal.querySelector('.client-name');
+            if (nameSpan) {
+                nameSpan.textContent = data.clientName;
+            }
+        }
+
+        modal.classList.remove('hidden');
+        backdrop.classList.remove('hidden');
+    }
+
+    // Função para fechar qualquer modal
+    function closeModal(modalKey) {
+        const modal = modals[modalKey];
+        const backdrop = backdrops[modalKey];
+
+        if (!modal || !backdrop) return;
+
+        modal.classList.add('hidden');
+        backdrop.classList.add('hidden');
+    }
+    
+    // Função para fechar todos os modais
+    function closeAllModals() {
+        for (const key in modals) {
+            closeModal(key);
         }
     }
 
-    function closeAddModal() {
-        addModal.classList.add('hidden');
-        addModalBackdrop.classList.add('hidden');
+    /* ========================================================= */
+    /* Adicionando listeners de eventos */
+    /* ========================================================= */
+
+    // Evento de clique unificado no container da lista de clientes
+    if (listItemsContainer) {
+        listItemsContainer.addEventListener('click', (e) => {
+            const editIcon = e.target.closest('.icon_edit');
+            const viewLink = e.target.closest('.view-client-link');
+
+            if (editIcon) {
+                e.preventDefault();
+                openModal('edit');
+            } else if (viewLink) {
+                e.preventDefault();
+                openModal('view');
+            }
+        });
+
+        // Evento de mudança para o switch
+        listItemsContainer.addEventListener('change', (e) => {
+            if (e.target.matches('.toggle-switch input')) {
+                const checkbox = e.target;
+                if (!checkbox.checked) {
+                    const row = checkbox.closest('.client-list-item');
+                    const clientName = row?.querySelector('.col-name')?.textContent || '';
+                    openModal('delete', { clientName });
+                }
+            }
+        });
     }
 
+    // Botão "Novo Agendamento"
     if (newAppointmentBtn) {
-        newAppointmentBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            openAddModal();
-        });
-    }
-
-    if (addModalCloseBtn) {
-        addModalCloseBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            closeAddModal();
-        });
-    }
-
-    if (addModalBackdrop) {
-        addModalBackdrop.addEventListener('click', closeAddModal);
-    }
-
-    /* ========================================================= */
-    /* Lógica para o Modal de Editar Cliente */
-    /* ========================================================= */
-    const editModal = document.getElementById('new-appointment-modal-edit-client');
-    const editModalBackdrop = document.querySelector('.modal-backdrop-edit');
-    const editModalCloseBtn = editModal?.querySelector('.modal-close-btn');
-
-    function openEditModal() {
-        if (editModal && editModalBackdrop) {
-            editModal.classList.remove('hidden');
-            editModalBackdrop.classList.remove('hidden');
-            console.log('Modal de Editar Cliente: FUNCIONOU ✅');
-        } else {
-            console.error('ERRO: Modal de Editar Cliente não encontrado. Verifique os seletores.');
-        }
-    }
-
-    function closeEditModal() {
-        editModal.classList.add('hidden');
-        editModalBackdrop.classList.add('hidden');
-    }
-
-    if (editModalCloseBtn) {
-        editModalCloseBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            closeEditModal();
-        });
-    }
-
-    if (editModalBackdrop) {
-        editModalBackdrop.addEventListener('click', closeEditModal);
-    }
-
-    /* ========================================================= */
-    /* Lógica para o Modal de Visualizar Cliente */
-    /* ========================================================= */
-    const viewModal = document.getElementById('new-appointment-modal-view-client');
-    const viewModalBackdrop = document.querySelector('.modal-backdrop-view');
-    const viewModalCloseBtn = viewModal?.querySelector('.modal-close-btn');
-
-    function openViewModal() {
-        if (viewModal && viewModalBackdrop) {
-            viewModal.classList.remove('hidden');
-            viewModalBackdrop.classList.remove('hidden');
-            console.log('Modal de Visualizar Cliente: FUNCIONOU ✅');
-        } else {
-            console.error('ERRO: Modal de Visualizar Cliente não encontrado. Verifique os seletores.');
-        }
-    }
-
-    function closeViewModal() {
-        viewModal.classList.add('hidden');
-        viewModalBackdrop.classList.add('hidden');
-    }
-
-    if (viewModalCloseBtn) {
-        viewModalCloseBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            closeViewModal();
-        });
-    }
-
-    if (viewModalBackdrop) {
-        viewModalBackdrop.addEventListener('click', closeViewModal);
-    }
-
-    /* ========================================================= */
-    /* Delegação de Eventos para Botões Dinâmicos */
-    /* ========================================================= */
-    listItemsContainer.addEventListener('click', function(e) {
-        // Lógica para o botão de Editar
-        if (e.target.classList.contains('icon_edit')) {
+        newAppointmentBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            openEditModal();
+            openModal('add');
+        });
+    }
+
+    // Evento de clique unificado para fechar modais (botões, backdrop, etc.)
+    document.addEventListener('click', (e) => {
+        // Clicou no backdrop
+        if (e.target.classList.contains('modal-backdrop-add') || 
+            e.target.classList.contains('modal-backdrop-edit') || 
+            e.target.classList.contains('modal-backdrop-view') || 
+            e.target.classList.contains('modal-backdrop-delete')) {
+            closeAllModals();
         }
 
-        // Lógica para o link de Visualizar
-        if (e.target.classList.contains('view-client-link')) {
+        // Clicou no botão de fechar (X)
+        if (e.target.closest('.modal-close-btn') || e.target.closest('.modal-close-delete-btn')) {
             e.preventDefault();
-            openViewModal();
+            closeAllModals();
+        }
+
+        // Clicou no botão "Não" do modal de exclusão
+        if (e.target.closest('.btn-cancel-delete')) {
+            closeAllModals();
         }
     });
 
-    // Sua lógica `router.js` pode ser mantida como está.
+    // Evento de teclado (Escape)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
+    });
 });

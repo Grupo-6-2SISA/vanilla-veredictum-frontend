@@ -309,27 +309,20 @@
             </div>
 
 
-            <!-- Modal de confirmação -->
-
-            <div id="modalConfirmar" class="modal">
-                <div style="background-color: white; color: black;" class="modal-content">
-
-                    <div id="div_para_titulo">
-                        <span class="close" onclick="closeModalConfirmar()">
-                            <img src="assets/svg/fechar.svg" alt="">
-                        </span>
-
+            <div id="modalConfirmar" class="modal-delete-rotinas hidden">
+                <div class="modal-content-rotinas">
+                    <div class="modal-header">
                         <h2>Desativar Funcionário</h2>
+                        <button class="modal-close-delete-btn">
+                            <img src="./assets/svg/close_black.svg" alt="Fechar" onclick="closeModalConfirmar()">
+                        </button>
                     </div>
-
-                    <p>Deseja desativar Lismara Ribeiro?</p>
-
-                    <div style="padding-top: 10px; width: 100%;display: flex; justify-content: right; gap: 10px;"
-                        class="actions">
-                        <button style="display:flex; background-color: white; color: #000;"
-                            class="modal-add-btn">Desativar</button>
-                        <button style="display:flex " class="modal-add-btn"
-                            onclick="closeModalConfirmar()">Cancelar</button>
+                    <div class="modal-body">
+                        <p>Deseja desativar <span class="client-name">Lismara Ribeiro</span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel-delete">Não</button>
+                        <button class="btn-confirm-delete">Sim</button>
                     </div>
                 </div>
             </div>
@@ -384,7 +377,7 @@
                         </div>
                     </div>
 
-                    <button class="save-btn">Adicionar</button>
+                    <button class="save-btn-rotina">Adicionar</button>
                 </div>
             </div>
 

@@ -29,7 +29,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;      
+  object-fit: cover; 
+  z-index: -1;     
 }
 
 .image-text {
@@ -47,8 +48,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 18px;
-  width: 90%;
-  height: 40px;
+  width: 65%;
+  height: 25px;
   background: #F4A100;
   color: #fff;
   border: none;
@@ -127,8 +128,6 @@ a {
   width: 90%;
   height: 40px;
   border-radius: 8px;
-  /* padding-left: 10px; */
-
 }
 
 .cadastro-btn {
@@ -140,7 +139,6 @@ a {
   background: #F4A100;
   color: #fff;
   border: none;
-  /* padding: 12px 32px; */
   border-radius: 8px;
   width: 90%;
   height: 40px;
@@ -162,8 +160,6 @@ a {
   color: #F4A100;
   cursor: pointer;
 }
-
-
 
 @media (max-width: 1024px) {
   .cadastro-image {
