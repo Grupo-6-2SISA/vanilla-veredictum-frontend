@@ -61,10 +61,32 @@
       "numero": "451",
       "inscricaoEstadual": null,
       "proBono": false,
-      "status": "Ativo",
+      "status": "Inativo",
       "dataInicio": "2024-02-02",
       "indicacao": "Marketing",
       "descricao": "Contrato de serviço"
+    },
+    {
+      "nome": "Pedro Barbosa Souza",
+      "dataNascimento": "2006-06-25",
+      "email": "pedrobasouza@gmail.com",
+      "rg": "50305730x",
+      "cpf": "38851238863",
+      "cnpj": "",
+      "telefone": "11968511245",
+      "cep": "09950-000",
+      "logradouro": "Piraporinha",
+      "bairro": "Vila Nogueira",
+      "complemento": "Apto 90 Bloco B",
+      "localidade": "Diadema",
+      "numero": "1205",
+      "inscricaoEstadual": "SP",
+      "proBono": false,
+      "status": "Inativo",
+      "dataInicio": "2006-06-25",
+      "indicacao": "Lista de clientes",
+      "descricao": "Caso de...\n",
+      "id": 4
     }
   ],
   "notas": [
@@ -87,6 +109,60 @@
       "valor": "1500,00",
       "etiqueta": "Teste B com o metodo Patch",
       "urlCloud": "http://link.para.cloud.com/nf1"
+    },
+    {
+      "numeroNota": "12545",
+      "dataVencimento": "2006-06-25",
+      "emitida": true,
+      "cliente": "Pedro",
+      "valor": "5000",
+      "etiqueta": "Conta de Luz",
+      "urlCloud": "",
+      "id": 3
+    },
+    {
+      "numeroNota": "12545",
+      "dataVencimento": "2006-06-25",
+      "emitida": true,
+      "cliente": "Pedro",
+      "valor": "5000",
+      "etiqueta": "Conta de Luz",
+      "urlCloud": "",
+      "id": 4
+    }
+  ],
+  "funcionarios": [
+    {
+      "id": 1,
+      "nome": "Lismara Ribeiro",
+      "email": "lismara@veredictum.com",
+      "tipoUsuario": "Administrador",
+      "senha": "123456",
+      "ativo": true
+    },
+    {
+      "id": 2,
+      "nome": "Orlando Matos",
+      "email": "orlando@veredictum.com",
+      "tipoUsuario": "Usuário",
+      "senha": "senha123",
+      "ativo": false
+    },
+    {
+      "nome": "Pedro Barbosa Souza",
+      "email": "pedrobasouza@gmail.com",
+      "tipoUsuario": "Usuário",
+      "senha": "Pedro25@",
+      "ativo": true,
+      "id": 3
+    },
+    {
+      "nome": "Elaine Barbosa Souza",
+      "email": "nanepasouza@gmail.com",
+      "tipoUsuario": "Usuário",
+      "senha": "Familia",
+      "ativo": true,
+      "id": 4
     }
   ]
 }

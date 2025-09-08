@@ -6,21 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Controle</title>
     <link rel="stylesheet" href="./css/main.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="./css/pages/painel_controle.css">
-
     <link rel="icon" href="./assets/svg/logo_vectorized.svg" type="image/svg+xml">
-
-
 </head>
 
 <body>
-
     <div class="container">
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -91,9 +85,8 @@
         <main class="main-content">
             <h1 class="page-title">Painel de Controle</h1>
 
-
             <div class="panels-container">
-                <!-- Equipes e Funcionários Panel -->
+                <!-- Equipes e Funcionários Painel -->
                 <div class="panel">
                     <div class="panel-header">
                         <div class="panel-title">
@@ -103,14 +96,9 @@
                         </div>
                         <div class="panel-actions">
 
-                            <button class="action-btn" onclick="openModalEditar()">
-                                <img src="./assets/svg/lapiz.svg" alt="Editar Funcionário">
-                            </button>
-
                             <button class="action-btn" onclick="openModalCriar()">
                                 <img src="./assets/svg/Add_Plus_Square.svg" alt="Adicionar Funcionário">
                             </button>
-
                         </div>
                     </div>
 
@@ -124,49 +112,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="pill-row">
-                                    <td>100</td>
-                                    <td>Lismara Ribeiro</td>
-                                    <td>
-                                        <div class="toggle-switch active"></div>
-                                    </td>
-                                </tr>
-                                <tr class="pill-row">
-                                    <td>101</td>
-                                    <td>Orlando Matos</td>
-                                    <td>
-                                        <div class="toggle-switch"></div>
-                                    </td>
-                                </tr>
-                                <!-- Adicione mais linhas para testar o scroll -->
-                                <tr class="pill-row">
-                                    <td>102</td>
-                                    <td>Manuela Monteiro</td>
-                                    <td>
-                                        <div class="toggle-switch"></div>
-                                    </td>
-                                </tr>
-                                <tr class="pill-row">
-                                    <td>103</td>
-                                    <td>João Silva</td>
-                                    <td>
-                                        <div class="toggle-switch"></div>
-                                    </td>
-                                </tr>
-                                <tr class="pill-row">
-                                    <td>104</td>
-                                    <td>Maria Souza</td>
-                                    <td>
-                                        <div class="toggle-switch"></div>
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
-
                 </div>
 
-                <!-- Gestão de Rotinas Panel -->
+                <!-- Gestão de Rotinas Painel -->
                 <div class="panel">
                     <div class="panel-header">
                         <div class="panel-title">
@@ -176,11 +128,9 @@
                                 de Rotinas</span>
                         </div>
                         <div class="panel-actions">
-
                             <button class="action-btn" onclick="openModalRotina()">
                                 <img src="./assets/svg/lapiz.svg" alt="Editar Rotina">
                             </button>
-
                         </div>
                     </div>
 
@@ -206,35 +156,28 @@
                             </tbody>
                         </table>
                     </div>
-
-
                 </div>
             </div>
 
             <!-- Modal Criar Funcionário -->
-
             <div id="modalCriar" class="modal">
                 <div class="modal-content">
-
                     <div id="div_para_titulo">
                         <span class="close" onclick="closeModalCriar()">
                             <img src="assets/svg/fechar.svg" alt="">
                         </span>
                         <h2>Cadastrar Funcionário</h2>
                     </div>
-
                     <div class="modal-column">
                         <div class="form-group">
                             <label>Nome</label>
                             <input type="text" placeholder="Digite o nome">
                         </div>
-
                         <div class="form-group">
                             <label>E-mail</label>
                             <input type="email" placeholder="Digite o e-mail">
                         </div>
                     </div>
-
                     <div class="modal-column">
                         <div class="form-group">
                             <label>Tipo de Usuário</label>
@@ -243,48 +186,36 @@
                                 <option>Usuário</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>Senha</label>
                             <input type="password" placeholder="Digite a senha">
                         </div>
                     </div>
-
                     <div id="div_para_botao">
-
-
                         <button class="modal-add-btn">Cadastrar</button>
-
                     </div>
-
                 </div>
             </div>
 
             <!-- Modal Editar -->
-
             <div id="modalEditar" class="modal">
-
                 <div class="modal-content">
                     <div id="div_para_titulo">
                         <span class="close" onclick="closeModalEditar()">
                             <img src="assets/svg/fechar.svg" alt="">
                         </span>
-
                         <h2>Editar Funcionário</h2>
                     </div>
-
                     <div class="modal-column">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" value="Manuela Monteiro">
+                            <input type="text" value="">
                         </div>
-
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="email" value="manuela@sptech.school">
+                            <input type="email" value="">
                         </div>
                     </div>
-
                     <div class="modal-column">
                         <div class="form-group">
                             <label>Tipo de Usuário</label>
@@ -293,21 +224,16 @@
                                 <option>Usuário</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>Senha</label>
-                            <input type="password" value="Manuela123">
+                            <input type="password" value="">
                         </div>
                     </div>
-
                     <div id="div_para_botao">
-
                         <button type="submit" class="modal-add-btn">Salvar</button>
-
                     </div>
                 </div>
             </div>
-
 
             <div id="modalConfirmar" class="modal-delete-rotinas hidden">
                 <div class="modal-content-rotinas">
@@ -318,7 +244,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Deseja desativar <span class="client-name">Lismara Ribeiro</span>?</p>
+                        <p>Deseja desativar <span class="client-name"></span>?</p>
                     </div>
                     <div class="modal-footer">
                         <button class="btn-cancel-delete">Não</button>
@@ -336,7 +262,6 @@
                         </span>
                         <h2>Editar Rotina</h2>
                     </div>
-
                     <div class="modal-column">
                         <div class="form-group">
                             <label>Nome Rotina</label>
@@ -355,7 +280,6 @@
                             <input type="date" value="2025-11-10">
                         </div>
                     </div>
-
                     <div class="modal-column">
                         <div class="form-group">
                             <label>Rotina</label>
@@ -376,17 +300,49 @@
                             </select>
                         </div>
                     </div>
-
                     <button class="save-btn-rotina">Adicionar</button>
                 </div>
             </div>
-
-
         </main>
     </div>
 
     <script src="./js/painel_controle.js"></script>
     <script src="./js/router.js"></script>
+    <script>
+    const API_URL = 'http://localhost:3000/funcionarios';
+
+    // Função para alternar status
+    async function alternarStatusFuncionario(id, statusAtual) {
+        await fetch(`${API_URL}/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ativo: !statusAtual })
+        });
+        carregarFuncionarios();
+    }
+
+    async function carregarFuncionarios() {
+        const response = await fetch(API_URL);
+        const funcionarios = await response.json();
+        const tbody = document.querySelector('.panel-content table tbody');
+        tbody.innerHTML = '';
+
+        funcionarios.forEach(func => {
+            const tr = document.createElement('tr');
+            tr.className = 'pill-row';
+            tr.innerHTML = `
+                <td>${func.id}</td>
+                <td>${func.nome}</td>
+                <td>
+                    <div class="toggle-switch${func.ativo ? ' active' : ''}" onclick="alternarStatusFuncionario(${func.id}, ${func.ativo})"></div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', carregarFuncionarios);
+    </script>
 </body>
 
 </html>
