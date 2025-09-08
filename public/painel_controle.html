@@ -127,11 +127,7 @@
                             <span style="font-weight: bold; font-size: 27px; color: black; padding-left: 7px;">Gestão
                                 de Rotinas</span>
                         </div>
-                        <div class="panel-actions">
-                            <button class="action-btn" onclick="openModalRotina()">
-                                <img src="./assets/svg/lapiz.svg" alt="Editar Rotina">
-                            </button>
-                        </div>
+
                     </div>
 
                     <div class="panel-content">
@@ -148,7 +144,12 @@
                                 <tr class="pill-row">
                                     <td>Aniversário</td>
                                     <td>Sim</td>
-                                    <td><a href="#" class="link">Ver Mais</a></td>
+                                    <td>
+                                        <a href="#" class="link">Ver Mais</a>
+                                        <button class="edit-btn" onclick="openModalRotina()">
+                                            <img src="./assets/svg/lapiz.svg" alt="Editar Rotina">
+                                        </button>
+                                    </td>
                                     <td>
                                         <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
                                     </td>

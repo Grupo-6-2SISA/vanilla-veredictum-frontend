@@ -2,7 +2,7 @@
   "clientes": [
     {
       "id": 1,
-      "nome": "Davidson Mendes",
+      "nome": "Davidson ",
       "dataNascimento": "1990-01-01",
       "email": "davidson@example.com",
       "rg": "123456789",
@@ -112,23 +112,13 @@
     },
     {
       "numeroNota": "12545",
-      "dataVencimento": "2006-06-25",
+      "dataVencimento": "2025-09-10",
       "emitida": true,
       "cliente": "Pedro",
       "valor": "5000",
       "etiqueta": "Conta de Luz",
       "urlCloud": "",
-      "id": 3
-    },
-    {
-      "numeroNota": "12545",
-      "dataVencimento": "2006-06-25",
-      "emitida": true,
-      "cliente": "Pedro",
-      "valor": "5000",
-      "etiqueta": "Conta de Luz",
-      "urlCloud": "",
-      "id": 4
+      "id": 8
     }
   ],
   "funcionarios": [
