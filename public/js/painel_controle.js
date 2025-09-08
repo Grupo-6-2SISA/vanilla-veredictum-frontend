@@ -396,7 +396,7 @@ async function openModalEditar(id) {
     const modal = document.getElementById("modalEditar");
     modal.style.display = "flex";
 
-    // Preenche os campos do modal
+    // Preenche os campos
     modal.querySelector('input[type="text"]').value = funcionario.nome;
     modal.querySelector('input[type="email"]').value = funcionario.email;
     modal.querySelector('select').value = funcionario.tipoUsuario;
@@ -431,7 +431,7 @@ function closeModalEditar() {
     document.getElementById("modalEditar").style.display = "none";
 }
 
-// Evento do botão cadastrar do modal
+// botão cadastrar do modal
 document.addEventListener('DOMContentLoaded', function() {
     const cadastrarBtn = document.querySelector('#modalCriar .modal-add-btn');
     if (cadastrarBtn) {
