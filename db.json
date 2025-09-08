@@ -160,16 +160,24 @@
       "nome": "Elaine Barbosa Souza",
       "email": "nanepasouza@gmail.com",
       "tipoUsuario": "Usuário",
-      "senha": "Familia",
+      "senha": "senha123",
       "ativo": true,
       "id": 4
     },
     {
       "nome": "Pietro Barbosa Souza",
       "email": "pietrobarbosa@hotmail.com",
-      "senha": "vaebeb",
+      "senha": "senha123",
       "ativo": false,
       "id": 5
+    },
+    {
+      "nome": "Marcio Ribeiro",
+      "email": "marcio@gmail.com",
+      "tipoUsuario": "Usuário",
+      "senha": "senha123",
+      "ativo": true,
+      "id": 6
     }
   ]
 }
