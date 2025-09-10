@@ -168,6 +168,13 @@
       "senha": "senha123",
       "ativo": true,
       "id": 6
+    },
+    {
+      "nome": "Cordeiro",
+      "email": "gcordeiro@gmail.com",
+      "senha": "senha456",
+      "ativo": false,
+      "id": 7
     }
   ]
 }
