@@ -396,7 +396,7 @@ async function openModalEditar(id) {
     const modal = document.getElementById("modalEditar");
     modal.style.display = "flex";
 
-    // Preenche os campos
+    // Preenche os campos 
     modal.querySelector('input[type="text"]').value = funcionario.nome;
     modal.querySelector('input[type="email"]').value = funcionario.email;
     modal.querySelector('select').value = funcionario.tipoUsuario;
@@ -440,6 +440,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.querySelector('#modalCriar input[placeholder="Digite o e-mail"]').value;
             const tipoUsuario = document.querySelector('#modalCriar select').value;
             const senha = document.querySelector('#modalCriar input[placeholder="Digite a senha"]').value;
+
+            // Validação de e-mail usando utils.js
+            if (!window.Utils.validators.validateEmail(email)) {
+                window.Utils.dom.showError('E-mail inválido!');
+                return;
+            }
 
             await cadastrarFuncionario({
                 nome,
