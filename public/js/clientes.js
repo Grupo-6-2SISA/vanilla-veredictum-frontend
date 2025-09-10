@@ -144,19 +144,18 @@ async function updateClient(id, clientData) {
 }
 
 // DELETE: Desativar/deletar um cliente
-async function deactivateClient(id) {
+async function updateClientStatus(id, status) {
     try {
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ status: 'Inativo' })
+            body: JSON.stringify({ status: status })
         });
         if (!response.ok) {
-            throw new Error('Erro ao desativar cliente');
+            throw new Error('Erro ao atualizar status do cliente');
         }
-        closeModal('delete');
         fetchClients();
     } catch (error) {
         console.error('Erro:', error);
@@ -255,11 +254,19 @@ listItemsContainer.addEventListener('click', async (event) => {
         await fillViewModal(clientId);
     }
 
-    // Lógica do switch de status (desativação)
+    // Lógica do switch de status (desativação/ativação)
+
     if (target.type === 'checkbox') {
         const clientName = row.querySelector('.col-name').textContent;
+        const clientId = row.dataset.clientId;
+
         if (!target.checked) {
+            // Mantém o switch 'Ativo' e abre o modal para confirmação de desativação
+            target.checked = true;
             openModal('delete', { clientName: clientName, clientId: clientId });
+        } else {
+            // Se o switch foi ativado, chame a nova função com o status 'Ativo'
+            updateClientStatus(clientId, 'Ativo');
         }
     }
 });
@@ -267,7 +274,9 @@ listItemsContainer.addEventListener('click', async (event) => {
 // Adiciona listener para o botão de confirmação do modal de exclusão
 document.querySelector('#modal-delete-schedule .btn-confirm-delete').addEventListener('click', () => {
     if (currentClientId) {
-        deactivateClient(currentClientId);
+         // Se a resposta for SIM, desativa o cliente chamando a nova função
+        updateClientStatus(currentClientId, 'Inativo');
+        closeModal('delete');
     }
 });
 

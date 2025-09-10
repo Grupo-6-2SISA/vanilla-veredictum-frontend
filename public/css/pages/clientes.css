@@ -115,7 +115,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--green-normal);
+    background-color: var(--red-normal);
     transition: 0.4s;
     border-radius: 28px;
 }
@@ -133,7 +133,7 @@
 }
 
 .toggle-switch input:checked + .slider {
-    background-color: var(--red-normal);
+    background-color:var(--green-normal) ;
 }
 
 .toggle-switch input:focus + .slider {

@@ -97,10 +97,11 @@
                     <p class="description"> Organize, atualize e controle todas as suas notas fiscais de forma
                         eficiente. </p>
                 </div>
-                <button class="btn-new-appointment" onclick="openModalAdicionar()">
+                <button class="btn-new-appointment" onclick="openModal('add')">
                     Adicionar Nota Fiscal
                     <img src="./assets/svg/btn.svg" alt="">
                 </button>
+
             </div>
 
             <section class="nf-management-section">
@@ -240,37 +241,37 @@
                                 style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
                                 <div class="form-column">
                                     <div class="form-group-notas">
-                                        <label>Número da Nota</label>
-                                        <input type="text" id="numeroNota" name="numeroNota" required>
+                                        <label for="numeroNotaView">Número da Nota</label>
+                                        <input type="text" id="numeroNotaView" name="numeroNota" required>
                                     </div>
                                     <div class="form-group-notas">
-                                        <label>Data de Vencimento</label>
-                                        <input type="date" id="dataVencimento" name="dataVencimento" required>
+                                        <label for="dataVencimentoView">Data de Vencimento</label>
+                                        <input type="date" id="dataVencimentoView" name="dataVencimento" required>
                                     </div>
                                     <div class="form-group-notas">
-                                        <label for="emitidaEdit">Emitida</label>
-                                        <select id="emitida" name="emitida" required>
+                                        <label for="emitidaView">Emitida</label>
+                                        <select id="emitidaView" name="emitida" required>
                                             <option value="true">Sim</option>
                                             <option value="false">Não</option>
                                         </select>
                                     </div>
                                     <div class="form-group-notas">
-                                        <label>Cliente</label>
-                                        <input type="text" id="cliente" name="cliente" required>
+                                        <label for="clienteView">Cliente</label>
+                                        <input type="text" id="clienteView" name="cliente" required>
                                     </div>
                                 </div>
                                 <div class="form-column">
                                     <div class="form-group-notas">
-                                        <label>Valor</label>
-                                        <input type="text" id="valor" name="valor" required>
+                                        <label for="valorView">Valor</label>
+                                        <input type="text" id="valorView" name="valor" required>
                                     </div>
                                     <div class="form-group-notas">
-                                        <label>Etiqueta</label>
-                                        <input type="text" id="valor" name="valor" required>
+                                        <label for="etiquetaView">Etiqueta</label>
+                                        <input type="text" id="etiquetaView" name="valor" required>
                                     </div>
                                     <div class="form-group-notas">
-                                        <label>URL Cloud</label>
-                                        <input type="text" id="urlCloud" name="urlCloud">
+                                        <label for="urlCloudView">URL Cloud</label>
+                                        <input type="text" id="urlCloudView" name="urlCloud">
                                     </div>
                                 </div>
                             </div>
