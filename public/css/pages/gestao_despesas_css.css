@@ -88,7 +88,6 @@
     gap: 30px;
 }
 
-/* Bills Section */
 .bills-section {
     background-color: white;
     border-radius: 12px;
@@ -96,7 +95,6 @@
     box-shadow: 0 10px 24px 0 rgba(44, 44, 44, 0.18);
 }
 
-/* Bills Section - linhas arredondadas */
 .bills-table {
     border-collapse: separate;
     border-spacing: 0 8px;
@@ -105,13 +103,15 @@
 
 .bills-table tbody tr {
     border-radius: 18px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  
 }
 
-.bills-table tbody tr td {
-    
+#table_up_2{
+    transform: translate(0%, 30%);
+}
+
+.bills-table tbody tr td {    
     border: none;
     padding: 5px;
     gap: 10px;
@@ -637,4 +637,21 @@
   .switch { width: 40px; height: 22px; }
   .slider:before { height: 18px; width: 18px; left: 2px; bottom: 2px; }
   .switch input:checked + .slider:before { transform: translateX(18px); }
+}
+
+
+.month-picker-popup {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: absolute;
+    z-index: 1000;
+    width: 300px;
+    top: 55%;
+    left: 17%;
+    transform: translate(-50%, -50%
+-50%
+);
+    transition: all 0.3s ease-in-out;
 }

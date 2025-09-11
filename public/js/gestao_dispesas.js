@@ -443,3 +443,71 @@ function modalVerMais(link) {
 function closeModalVerMais() {
     document.getElementById('infoExpenseModal').style.display = 'none';
 }
+
+
+
+/* ========================================================= */
+/* Lógica para Seletor de Mês */
+/* ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const monthSelectorBtn = document.querySelector('.month-selector-btn');
+    const monthPickerPopup = document.getElementById('month-picker');
+    const currentMonthDisplay = document.getElementById('current-month-display');
+    const prevMonthBtn = document.getElementById('prev-month');
+    const nextMonthBtn = document.getElementById('next-month');
+    const monthButtonsContainer = document.querySelector('.month-buttons');
+    const okBtn = document.getElementById('ok-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const monthDisplaySpan = monthSelectorBtn.querySelector('span');
+
+    const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+    let currentYear = new Date().getFullYear();
+    let selectedMonthIndex = new Date().getMonth();
+
+    function renderMonths() {
+        monthButtonsContainer.innerHTML = '';
+        for (let i = 0; i < 12; i++) {
+            const button = document.createElement('button');
+            button.textContent = months[i];
+            if (i === selectedMonthIndex) {
+                button.classList.add('selected');
+            }
+            button.addEventListener('click', () => {
+                selectedMonthIndex = i;
+                renderMonths(); // Atualiza a seleção
+            });
+            monthButtonsContainer.appendChild(button);
+        }
+        currentMonthDisplay.textContent = `${months[selectedMonthIndex]} ${currentYear}`;
+    }
+
+    // Abre o pop-up
+    monthSelectorBtn.addEventListener('click', () => {
+        monthPickerPopup.classList.remove('hidden');
+        renderMonths();
+    });
+
+    // Navegação de mês/ano (opcional, pode ser simplificado)
+    prevMonthBtn.addEventListener('click', () => {
+        currentYear--;
+        renderMonths();
+    });
+
+    nextMonthBtn.addEventListener('click', () => {
+        currentYear++;
+        renderMonths();
+    });
+
+    // Ações do pop-up
+    okBtn.addEventListener('click', () => {
+        monthDisplaySpan.textContent = months[selectedMonthIndex];
+        monthPickerPopup.classList.add('hidden');
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        monthPickerPopup.classList.add('hidden');
+    });
+});
+

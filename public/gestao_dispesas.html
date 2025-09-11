@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/pages/gestao_despesas_css.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,20 +101,26 @@
             </header>
 
             <div class="month-selector">
-                <select id="monthSelect" onchange="updateMonth()">
-                    <option value="janeiro">Janeiro</option>
-                    <option value="fevereiro">Fevereiro</option>
-                    <option value="março">Março</option>
-                    <option value="abril">Abril</option>
-                    <option value="maio">Maio</option>
-                    <option value="junho" selected>Junho</option>
-                    <option value="julho">Julho</option>
-                    <option value="agosto">Agosto</option>
-                    <option value="setembro">Setembro</option>
-                    <option value="outubro">Outubro</option>
-                    <option value="novembro">Novembro</option>
-                    <option value="dezembro">Dezembro</option>
-                </select>
+                <div class="month-selector-container">
+                        <button class="month-selector-btn">
+                            <img src="./assets/svg/calendar.svg" alt="">
+                            <span>Junho</span>
+                            <img src="./assets/svg/seta.svg" alt="">
+                        </button>
+                    </div>
+                    <div id="month-picker" class="month-picker-popup hidden">
+                        <div class="month-header">
+                            <button id="prev-month">&lt;</button>
+                            <div id="current-month-display">Junho 2025</div>
+                            <button id="next-month">&gt;</button>
+                        </div>
+                        <div class="month-buttons">
+                        </div>
+                        <div class="calendar-actions">
+                            <button id="cancel-btn">Cancelar</button>
+                            <button id="ok-btn">OK</button>
+                        </div>
+                    </div>
                 <div class="total-month">
                     <span>Total do mês: <strong id="monthTotal">124,33</strong></span>
                 </div>
@@ -126,11 +132,6 @@
 
                     <div class="section-header">
                         <h2>Contas a Pagar</h2>
-                        <button class="expand-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-                            </svg>
-                        </button>
                     </div>
 
                     <div class="table-container">
@@ -144,8 +145,10 @@
                                     <th>Informações</th>
                                 </tr>
                             </thead>
+
                             <tbody id="billsTableBody">
-                                <tr>
+                                <tr id="table_up">
+
                                     <td>Luz</td>
                                     <td>09/06/2025</td>
                                     <td><span class="status paid">Sim</span></td>
@@ -158,7 +161,7 @@
                                         <a href="#" class="info-link" onclick="modalVerMais(this)">Ver mais</a>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="table_up_2">
                                     <td>Água</td>
                                     <td>11/06/2025</td>
                                     <td><span class="status unpaid">Não</span></td>

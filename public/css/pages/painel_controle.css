@@ -89,7 +89,6 @@
 
 .panel-content {
     padding: 0;
-    /* background-color: red; */
     padding-left: 10px;
 }
 
@@ -150,7 +149,7 @@
 
 
 .scrollable-panel-content {
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: scroll;
 }
 
@@ -344,18 +343,6 @@ table {
   border: #4299e1 solid 2px;
 }
 
-.pill-row {
-  background: #fff;
-  border-radius: 50px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  overflow: hidden;
-  margin-left: 10%;
-}
-
-.pill-row td {
-  padding: 5px 20px;
-  border: none;
-}
 
 .toggle-switch {
   width: 40px;
@@ -365,6 +352,7 @@ table {
   position: relative;
   cursor: pointer;
   transition: background 0.3s;
+  transform: translate(-80%, 0%);
 }
 
 .toggle-switch::after {
@@ -421,6 +409,7 @@ table {
   vertical-align: middle;
   background: var(--white-darknes);
   padding-left: 100px;
+  width: 10px;
 }
 
 .pill-row td:first-child {
@@ -500,4 +489,9 @@ table {
     height: 20px;  /* ajuste conforme necessário */
     object-fit: contain;
     pointer-events: none; /* evita que img capture o clique do botão */
+}
+
+.edit-btn{
+  border: none;
+  background: none;
 }
