@@ -17,7 +17,7 @@
       "numero": "129",
       "inscricaoEstadual": "",
       "proBono": false,
-      "status": "Inativo",
+      "status": "Ativo",
       "dataInicio": "2024-01-01",
       "indicacao": "Indicação",
       "descricao": "Caso de Herança..."
@@ -39,7 +39,7 @@
       "numero": "456",
       "inscricaoEstadual": null,
       "proBono": false,
-      "status": "Inativo",
+      "status": "Ativo",
       "dataInicio": "2024-02-02",
       "indicacao": "Marketing",
       "descricao": "Contrato de serviço"
@@ -82,7 +82,7 @@
       "numero": "1205",
       "inscricaoEstadual": "SP",
       "proBono": false,
-      "status": "Inativo",
+      "status": "Ativo",
       "dataInicio": "2006-06-25",
       "indicacao": "Lista de clientes",
       "descricao": "Caso de...\n",
@@ -175,6 +175,13 @@
       "senha": "senha456",
       "ativo": false,
       "id": 7
+    },
+    {
+      "nome": "Elaine",
+      "email": "nane@gmail.com",
+      "senha": "nane",
+      "ativo": false,
+      "id": 8
     }
   ]
 }

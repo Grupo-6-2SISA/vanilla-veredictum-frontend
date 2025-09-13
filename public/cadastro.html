@@ -2,53 +2,125 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro | Veredictum</title>
-
-    <link rel="icon" href="./imgs/logo-veredictum.svg" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/pages/cadastro.css">
+  <meta charset="UTF-8">
+  <title>Cadastro | Veredictum</title>
+  <link rel="icon" href="./imgs/logo-veredictum.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/pages/cadastro.css">
 </head>
 
 <body>
-    <div class="cadastro-image">
-        <div class="image-text">
-            <img src="./assets/img/img-cadastro.png" alt="">
-            <span class="subtitle-image">Já tem uma conta?</span>
-            <span class="subtitle-image">Faça login aqui</span>
-            <a href="./login.html" class="login-btn">Login</a>
-        </div>
+  <!-- ALERT -->
+  <div id="alert-container"></div>
+
+  <div class="cadastro-image">
+    <div class="image-text">
+      <img src="./assets/img/img-cadastro.png" alt="">
+      <span class="subtitle-image">Já tem uma conta?</span>
+      <span class="subtitle-image">Faça login aqui</span>
+      <a href="./login.html" class="login-btn">Login</a>
+    </div>
+  </div>
+
+  <div class="cadastro-info">
+    <div class="voltar-icon">
+      <a href="./home.html"><img src="./assets/img/voltar-icon.png" alt="Icone de voltar" /></a>
     </div>
 
-    <div class="cadastro-info">
-        <div class="voltar-icon">
-            <a href="./home.html"><img src="./assets/img/voltar-icon.png" alt="Icone de voltar" /></a>
-        </div>
-
-        <div class="logo-row">
-            <img src="./assets/svg/logo_veredictum.svg" alt="Veredictum" />
-            <span class="logo-title">Veredictum</span>
-            <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
-        </div>
-
-        <form id="cadastro-form" class="login-form">
-            <div class="login-form-row">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Nome">
-            </div>
-            <div class="login-form-row">
-                <label for="email">E-mail</label>
-                <input type="text" id="email" placeholder="E-mail">
-            </div>
-            <div class="login-form-row">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" placeholder="Senha">
-            </div>
-            <button class="cadastro-btn" type="submit">Cadastrar</button>
-        </form>
+    <div class="logo-row">
+      <img src="./assets/svg/logo_veredictum.svg" alt="Veredictum" />
+      <span class="logo-title">Veredictum</span>
+      <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
     </div>
 
-    <script src="./js/cadastro.js"></script>
+    <form id="cadastro-form" class="login-form" novalidate>
+      <div class="login-form-row">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Nome" required>
+      </div>
+      <div class="login-form-row">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="E-mail" required>
+      </div>
+      <div class="login-form-row">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Senha" required>
+      </div>
+      <button class="cadastro-btn" type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <!-- SCRIPTS: utils primeiro -->
+  <script src="./js/utils.js"></script>
+
+  <!-- Função local para exibir alert e sobrescrever Utils.dom.showError/showSuccess -->
+  <script>
+    function showAlert(message, type = 'error') {
+      const container = document.getElementById('alert-container');
+      if (!container) return;
+      container.textContent = message;
+      container.classList.remove('alert-success', 'alert-error', 'multiline');
+      container.classList.add(type === 'success' ? 'alert-success' : 'alert-error');
+      if (message.length > 80) container.classList.add('multiline');
+      container.classList.add('show');
+      // limpa timeout anterior se houver
+      if (container._hideTimeout) clearTimeout(container._hideTimeout);
+      container._hideTimeout = setTimeout(() => {
+        container.classList.remove('show');
+      }, 3200);
+    }
+
+    // sobrescreve os helpers do Utils.dom para usar o alert-container (se Utils existir)
+    if (window.Utils && Utils.dom) {
+      Utils.dom.showError = function (msg) { showAlert(msg, 'error'); };
+      Utils.dom.showSuccess = function (msg) { showAlert(msg, 'success'); };
+    }
+  </script>
+
+  <!-- cadastro.js (atualizado) -->
+  <script>
+    document.getElementById('cadastro-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value.trim();
+
+      // validações
+      if (!nome) {
+        Utils.dom.showError('Por favor, insira seu nome.');
+        return;
+      }
+      if (!Utils.validators.validateEmail(email)) {
+        Utils.dom.showError('Por favor, insira um e-mail válido.');
+        return;
+      }
+      if (!senha) {
+        Utils.dom.showError('Por favor, insira sua senha.');
+        return;
+      }
+
+      const novoUsuario = { nome, email, senha, ativo: false };
+
+      try {
+        const response = await fetch('http://localhost:3000/funcionarios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(novoUsuario)
+        });
+
+        if (response.ok) {
+          Utils.dom.showSuccess('Cadastro realizado com sucesso! Aguarde ativação.');
+          setTimeout(() => window.location.href = './login.html', 800);
+        } else {
+          Utils.dom.showError('Erro ao cadastrar. Tente novamente.');
+        }
+      } catch (err) {
+        console.error(err);
+        Utils.dom.showError('Erro ao conectar ao servidor.');
+      }
+    });
+  </script>
 </body>
 
 </html>

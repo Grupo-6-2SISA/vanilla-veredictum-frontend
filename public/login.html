@@ -2,54 +2,75 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login | Veredictum</title>
-
-    <link rel="icon" href="./imgs/logo-veredictum.svg" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/pages/cadastro.css">
-
+  <meta charset="UTF-8">
+  <title>Login | Veredictum</title>
+  <link rel="icon" href="./imgs/logo-veredictum.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/pages/cadastro.css">
 </head>
 
 <body>
-    <div class="cadastro-image">
-        <div class="image-text"> <!-- textinho -->
-            <img src="./assets/img/img-cadastro.png" alt="">
-            <span class="subtitle-image">Não tem uma conta?</span>
-            <span class="subtitle-image">Cadastre-se aqui</span>
-            <a href="./cadastro.html" class="login-btn">
-                Cadastre-se
-            </a>
-        </div>
+  <!-- ALERT -->
+  <div id="alert-container"></div>
+
+  <div class="cadastro-image">
+    <div class="image-text">
+      <img src="./assets/img/img-cadastro.png" alt="">
+      <span class="subtitle-image">Não tem uma conta?</span>
+      <span class="subtitle-image">Cadastre-se aqui</span>
+      <a href="./cadastro.html" class="login-btn">Cadastre-se</a>
+    </div>
+  </div>
+
+  <div class="cadastro-info">
+    <div class="voltar-icon">
+      <a href="./home.html"><img src="./assets/img/voltar-icon.png" alt="Icone de voltar" /></a>
     </div>
 
-
-
-    <div class="cadastro-info">
-        <div class="voltar-icon">
-            <a href="./home.html"><img src="./assets/img/voltar-icon.png" alt="Icone de voltar" /></a>
-        </div>
-
-        <div class="logo-row">
-            <img src="./assets/svg/logo_veredictum.svg" alt="Veredictum" />
-            <span class="logo-title">Veredictum</span>
-            <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
-        </div>
-
-        <form class="login-form" id="login-form">
-            <div class="login-form-row">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="E-mail">
-            </div>
-            <div class="login-form-row">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" placeholder="Senha">
-            </div>
-            <a href="./rec_senha.html"><span class="esqueceu-senha">Esqueceu a senha? Recupere aqui</span></a>
-            <button class="cadastro-btn" type="submit">Entrar</button>
-        </form>
+    <div class="logo-row">
+      <img src="./assets/svg/logo_veredictum.svg" alt="Veredictum" />
+      <span class="logo-title">Veredictum</span>
+      <p class="subtitle-logo">Gestão do Escritório de Advocacia</p>
     </div>
+
+    <form class="login-form" id="login-form" novalidate>
+      <div class="login-form-row">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="E-mail" required>
+      </div>
+      <div class="login-form-row">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Senha" required>
+      </div>
+      <a href="./rec_senha.html"><span class="esqueceu-senha">Esqueceu a senha? Recupere aqui</span></a>
+      <button class="cadastro-btn" type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <script src="./js/utils.js"></script>
+
+  <script>
+    function showAlert(message, type = 'error') {
+      const container = document.getElementById('alert-container');
+      if (!container) return;
+      container.textContent = message;
+      container.classList.remove('alert-success', 'alert-error', 'multiline');
+      container.classList.add(type === 'success' ? 'alert-success' : 'alert-error');
+      if (message.length > 80) container.classList.add('multiline');
+      container.classList.add('show');
+      if (container._hideTimeout) clearTimeout(container._hideTimeout);
+      container._hideTimeout = setTimeout(() => {
+        container.classList.remove('show');
+      }, 3200);
+    }
+
+    if (window.Utils && Utils.dom) {
+      Utils.dom.showError = function (msg) { showAlert(msg, 'error'); };
+      Utils.dom.showSuccess = function (msg) { showAlert(msg, 'success'); };
+    }
+  </script>
+
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
-<script src="./js/login.js"></script>
