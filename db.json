@@ -139,7 +139,7 @@
       "ativo": false
     },
     {
-      "nome": "Pedro Barbosa Souza",
+      "nome": "Pedro ",
       "email": "pedrobasouza@gmail.com",
       "tipoUsuario": "Usuário",
       "senha": "Pedro25@",
@@ -177,10 +177,11 @@
       "id": 7
     },
     {
-      "nome": "Elaine",
-      "email": "nane@gmail.com",
-      "senha": "nane",
-      "ativo": false,
+      "nome": "Marcio",
+      "email": "Marcio@email.com",
+      "tipoUsuario": "Administrador",
+      "senha": "122584",
+      "ativo": true,
       "id": 8
     }
   ]
