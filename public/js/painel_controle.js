@@ -132,3 +132,117 @@ document.addEventListener('DOMContentLoaded', function() {
     carregarFuncionarios();
 });
 
+// Função para abrir o modal de ver mais de rotina
+function openModalVerMaisRotina() {
+    document.getElementById("modalVerMaisRotina").style.display = "flex";
+}
+
+// Função para fechar o modal de ver mais de rotina
+function closeModalVerMaisRotina() {
+    document.getElementById("modalVerMaisRotina").style.display = "none";
+}
+
+// Adiciona o evento ao link "Ver Mais" das rotinas
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModalVerMaisRotina();
+        });
+    });
+});
+
+// Função para abrir o modal de ver mais de rotina
+function openModalEditarRotina() {
+    document.getElementById("modalEditarRotina").style.display = "flex";
+}
+
+// Função para fechar o modal de ver mais de rotina
+function closeModalEditarRotina() {
+    document.getElementById("modalEditarRotina").style.display = "none";
+}
+
+// Adiciona o evento ao link "Ver Mais" das rotinas
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.edit-icon').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModalVerMaisRotina();
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // =========================
+    // Funcionários - Switch
+    // =========================
+    document.querySelectorAll('.panel-content.scrollable-panel-content table tbody tr').forEach(row => {
+        const switchEl = row.querySelector('.toggle-switch input[type="checkbox"]');
+        if (switchEl) {
+            switchEl.addEventListener('change', function() {
+                if (!switchEl.checked) {
+                    const nome = row.querySelector('td:nth-child(2)')?.textContent || '';
+                    openModalConfirmarFuncionario(nome, switchEl);
+                }
+            });
+        }
+    });
+
+    function openModalConfirmarFuncionario(nome, switchEl) {
+        document.getElementById('modalConfirmar').classList.remove('hidden');
+        document.querySelector('.modal-delete-rotinas .client-name').textContent = nome;
+        window._lastSwitchFuncionario = switchEl;
+    }
+
+    function closeModalConfirmar() {
+        document.getElementById('modalConfirmar').classList.add('hidden');
+        // Reverte o switch para ativo
+        if (window._lastSwitchFuncionario) window._lastSwitchFuncionario.checked = true;
+    }
+
+    document.querySelector('.modal-delete-rotinas .modal-close-delete-btn').addEventListener('click', closeModalConfirmar);
+    document.querySelector('.modal-delete-rotinas .btn-cancel-delete').addEventListener('click', closeModalConfirmar);
+
+    document.querySelector('.modal-delete-rotinas .btn-confirm-delete').addEventListener('click', function() {
+        document.getElementById('modalConfirmar').classList.add('hidden');
+        // Aqui você pode adicionar a lógica para desativar o funcionário no backend
+    });
+
+    // =========================
+    // Rotinas - Switch
+    // =========================
+    document.querySelectorAll('.panel-content .table tbody tr').forEach(row => {
+        const switchEl = row.querySelector('.toggle-switch input[type="checkbox"]');
+        if (switchEl) {
+            switchEl.addEventListener('change', function() {
+                if (!switchEl.checked) {
+                    const nome = row.querySelector('td')?.textContent || '';
+                    openModalDeleteRotina(nome, switchEl);
+                }
+            });
+        }
+    });
+
+    function openModalDeleteRotina(nome, switchEl) {
+        document.querySelector('.modal-backdrop-delete').classList.remove('hidden');
+        document.getElementById('modal-delete-rotina').classList.remove('hidden');
+        document.querySelector('#modal-delete-rotina .rotina-name').textContent = nome;
+        window._lastSwitchRotina = switchEl;
+    }
+
+    function closeModalDeleteRotina() {
+        document.querySelector('.modal-backdrop-delete').classList.add('hidden');
+        document.getElementById('modal-delete-rotina').classList.add('hidden');
+        // Reverte o switch para ativo
+        if (window._lastSwitchRotina) window._lastSwitchRotina.checked = true;
+    }
+
+    document.querySelector('#modal-delete-rotina .modal-close-delete-btn').addEventListener('click', closeModalDeleteRotina);
+    document.querySelector('#modal-delete-rotina .btn-cancel-delete').addEventListener('click', closeModalDeleteRotina);
+
+    document.querySelector('#modal-delete-rotina .btn-confirm-delete').addEventListener('click', function() {
+        document.querySelector('.modal-backdrop-delete').classList.add('hidden');
+        document.getElementById('modal-delete-rotina').classList.add('hidden');
+        // Aqui você pode adicionar a lógica para desativar a rotina no backend
+    });
+});

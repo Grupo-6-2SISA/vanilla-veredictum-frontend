@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    <div  class="panel-content scrollable-panel-content">
+                    <div class="panel-content scrollable-panel-content">
                         <table>
                             <thead>
                                 <tr>
@@ -129,9 +129,6 @@
                             <span style="font-weight: bold; font-size: 27px; color: black; padding-left: 7px;">Gestão
                                 de Rotinas</span>
                         </div>
-                        <button class="edit-btn" onclick="openModalRotina()">
-                            <img src="./assets/svg/lapiz.svg" alt="Editar Rotina">
-                        </button>
                     </div>
 
                     <div class="panel-content">
@@ -142,18 +139,24 @@
                                     <th>Executado</th>
                                     <th>Ações</th>
                                     <th>Acesso</th>
+                                    <th>Editar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="pill-row">
                                     <td>Aniversário</td>
                                     <td>Sim</td>
+                                    <td><a href="#" class="link">Ver Mais</a></td>
                                     <td>
-                                        <a href="#" class="link">Ver Mais</a>
-
+                                        <label class="toggle-switch active">
+                                            <input type="checkbox" checked>
+                                        </label>
                                     </td>
                                     <td>
-                                        <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                                        <button class="edit-btn">
+                                            <img src="./assets/svg/edit.svg" alt="Editar" class=""
+                                                onclick="openModalEditarRotina()">
+                                        </button>
                                     </td>
                                 </tr>
 
@@ -251,17 +254,17 @@
                         <p>Deseja desativar <span class="client-name"></span>?</p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-cancel-delete"  onclick="closeModalConfirmar()">Não</button>
+                        <button class="btn-cancel-delete" onclick="closeModalConfirmar()">Não</button>
                         <button class="btn-confirm-delete">Sim</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Modal de Rotina  -->
-            <div id="modalRotina" class="modal">
+            <!-- Modal de Editar Rotina  -->
+            <div id="modalEditarRotina" class="modal hidden">
                 <div class="modal-content">
                     <div id="div_para_titulo">
-                        <span class="close" onclick="closeModalRotina()">
+                        <span class="close" onclick="closeModalEditarRotina()">
                             <img src="assets/svg/fechar.svg" alt="">
                         </span>
                         <h2>Editar Rotina</h2>
@@ -305,6 +308,78 @@
                         </div>
                     </div>
                     <button class="save-btn-rotina">Adicionar</button>
+                </div>
+            </div>
+
+            <!-- Modal de Ver Mais Rotina  -->
+            <div id="modalVerMaisRotina" class="modal hidden">
+                <div class="modal-content">
+                    <div id="div_para_titulo">
+                        <span class="close" onclick="closeModalVerMaisRotina()">
+                            <img src="assets/svg/fechar.svg" alt="">
+                        </span>
+                        <h2>Informações sobre Rotina</h2>
+                    </div>
+                    <div class="modal-column">
+                        <div class="form-group">
+                            <label>Nome Rotina</label>
+                            <input type="text" value="Aniversário">
+                        </div>
+                        <div class="form-group">
+                            <label>Hora de Início</label>
+                            <input type="time" value="10:00">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Início</label>
+                            <input type="date" value="2025-11-09">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Fim</label>
+                            <input type="date" value="2025-11-10">
+                        </div>
+                    </div>
+                    <div class="modal-column">
+                        <div class="form-group">
+                            <label>Rotina</label>
+                            <input type="text" value="Aniversario.py">
+                        </div>
+                        <div class="form-group">
+                            <label>Rodou Hoje?</label>
+                            <select>
+                                <option selected>Lista de Clientes</option>
+                                <option>Não Rodou</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select>
+                                <option selected>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="modal-backdrop-delete hidden"></div>
+            <div id="modal-delete-rotina" class="modal-delete hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Desativar Rotina</h2>
+                        <button class="modal-close-delete-btn">
+                            <img src="./assets/svg/close_black.svg" alt="Fechar">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja desativar <span class="rotina-name"></span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel-delete">Não</button>
+                        <button class="btn-confirm-delete">Sim</button>
+                    </div>
                 </div>
             </div>
         </main>

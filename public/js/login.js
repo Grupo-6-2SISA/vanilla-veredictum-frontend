@@ -1,4 +1,4 @@
-    document.getElementById('login-form').addEventListener('submit', async function (event) {
+	    document.getElementById('login-form').addEventListener('submit', async function (event) {
       event.preventDefault();
 
       const email = document.getElementById('email').value.trim();
@@ -13,19 +13,36 @@
         return;
       }
 
-      try {
-        const response = await fetch(`http://localhost:3000/funcionarios?email=${encodeURIComponent(email)}&senha=${encodeURIComponent(senha)}&ativo=true`);
-        const funcionarios = await response.json();
+       try {
+      
+        const userResponse = await fetch(`http://localhost:3000/funcionarios?email=${encodeURIComponent(email)}`);
+        const users = await userResponse.json();
 
-        if (!Array.isArray(funcionarios) || funcionarios.length === 0) {
-          Utils.dom.showError('Usuário não encontrado ou inativo!');
-          return;
+        // Verifica se o usuário com o e-mail fornecido existe
+        if (!Array.isArray(users) || users.length === 0) {
+            Utils.dom.showError('E-mail não cadastrado.');
+            return;
         }
 
+        const user = users[0];
+
+        //Comparar a senha fornecida com a senha do usuário
+        if (user.senha !== senha) {
+            Utils.dom.showError('Senha incorreta.');
+            return;
+        }
+
+        // Verificar se o usuário está ativo
+        if (user.ativo === false) {
+            Utils.dom.showError('Usuário inativo. Entre em contato com o suporte.');
+            return;
+        }
+
+        
         Utils.dom.showSuccess('Login realizado com sucesso!');
         setTimeout(() => window.location.href = './visao_geral.html', 600);
-      } catch (err) {
+    } catch (err) {
         console.error(err);
-        Utils.dom.showError('Erro ao conectar ao servidor.');
-      }
+        Utils.dom.showError('Erro ao conectar ao servidor. Tente novamente mais tarde.');
+    }
     });

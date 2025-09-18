@@ -345,20 +345,21 @@ table {
 
 
 .toggle-switch {
-  width: 40px;
-  height: 20px;
+  width: 45px;
+  height: 25px;
   border-radius: 20px;
   background: #ccc;
   position: relative;
   cursor: pointer;
   transition: background 0.3s;
   transform: translate(-80%, 0%);
+  margin-left: 65px;
 }
 
 .toggle-switch::after {
   content: "";
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   background: white;
   border-radius: 50%;
   position: absolute;
@@ -404,39 +405,35 @@ table {
 }
 
 
-.pill-row td {
-  border: none;
-  vertical-align: middle;
-  background: var(--white-darknes);
-  padding-left: 100px;
-  width: 10px;
-}
-
-.pill-row td:first-child {
-  padding-left: 30px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-
-.pill-row td:not(:first-child):not(:last-child) {
-  color: #222;
-  text-align: center;
-  padding-left: 45px;
-
-}
-
-.pill-row td:last-child {
-  padding-left: 100px;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
-.panel-content table thead th {
-  border: none;
+.panel-content table th,
+.panel-content table td {
   padding: 8px 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.panel-content table th {
   font-weight: 600;
   background: transparent;
   border-bottom: 2px solid #e5e7eb;
+}
+
+.pill-row td {
+  border: none;
+  background: var(--white-darknes);
+  /* Remova padding-left: 100px; */
+}
+
+.pill-row td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  text-align: left;
+}
+
+.pill-row td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  text-align: center;
 }
 
 .pill-row:hover {
