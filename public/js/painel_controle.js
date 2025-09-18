@@ -59,6 +59,17 @@ async function carregarFuncionarios() {
     });
 }
 
+function openModalConfirmarFuncionario(id, nome, statusAtual) {
+    funcionarioSelecionado = { id, statusAtual };
+    document.querySelector('#modalConfirmar .client-name').textContent = nome;
+    document.getElementById('modalConfirmar').classList.remove('hidden');
+}
+
+function closeModalConfirmar() {
+    funcionarioSelecionado = null;
+    document.getElementById('modalConfirmar').classList.add('hidden');
+}
+
 // Abrir modal de edição e preencher dados
 async function openModalEditar(id) {
     const response = await fetch(`${API_URL}/${id}`);
@@ -172,34 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // =========================
-    // Funcionários - Switch
-    // =========================
-    document.querySelectorAll('.panel-content.scrollable-panel-content table tbody tr').forEach(row => {
-        const switchEl = row.querySelector('.toggle-switch input[type="checkbox"]');
-        if (switchEl) {
-            switchEl.addEventListener('change', function() {
-                if (!switchEl.checked) {
-                    const nome = row.querySelector('td:nth-child(2)')?.textContent || '';
-                    openModalConfirmarFuncionario(nome, switchEl);
-                }
-            });
-        }
-    });
-
-    function openModalConfirmarFuncionario(nome, switchEl) {
-        document.getElementById('modalConfirmar').classList.remove('hidden');
-        document.querySelector('.modal-delete-rotinas .client-name').textContent = nome;
-        window._lastSwitchFuncionario = switchEl;
-    }
-
-    function closeModalConfirmar() {
-        document.getElementById('modalConfirmar').classList.add('hidden');
-        // Reverte o switch para ativo
-        if (window._lastSwitchFuncionario) window._lastSwitchFuncionario.checked = true;
-    }
-
     document.querySelector('.modal-delete-rotinas .modal-close-delete-btn').addEventListener('click', closeModalConfirmar);
     document.querySelector('.modal-delete-rotinas .btn-cancel-delete').addEventListener('click', closeModalConfirmar);
 
@@ -245,4 +228,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal-delete-rotina').classList.add('hidden');
         // Aqui você pode adicionar a lógica para desativar a rotina no backend
     });
-});
